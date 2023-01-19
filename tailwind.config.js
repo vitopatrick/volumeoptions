@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: true,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./shared/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -15,6 +15,9 @@ module.exports = {
         bg: "#00142a",
         paper: "#06254b",
         green: "#2dbd96",
+      },
+      container: {
+        center: true,
       },
     },
   },

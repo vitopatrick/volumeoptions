@@ -1,26 +1,18 @@
+import Header from "./header/Header";
+import Sidebar from "./side-nav/Sidebar";
+
 const Layout = ({ children }: any) => {
   return (
-    <>
-      {/* parent div element */}
-      <div className="h-screen w-screen bg-slate-900">
-        {/* header component */}
-        <div></div>
-        {/* parent flex container for content and sidebar */}
-        <div>
-          {/* side bar */}
-          <div>
-            <h4 className="font-sec font-light text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-              velit eveniet ut harum nesciunt optio eos, libero recusandae nam
-              quod saepe totam ipsa quasi dicta maiores ab, cum dolorem
-              explicabo.
-            </h4>
-          </div>
-          {/* main component */}
-          <div>{children}</div>
-        </div>
+    // parent Div component
+    <div className="h-screen w-screen flex md:overflow-hidden ">
+      {/*  side bar*/}
+      <Sidebar />
+      {/* children */}
+      <div className="flex-1 flex-col flex p-4">
+        <Header />
+        <div className=" min-h-0 overflow-auto flex-1">{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
