@@ -12,24 +12,24 @@ interface TableProps {
 const TableItem = ({ name, price, change, img, symbol }: TableProps) => {
   const classColor = (isLower: number) =>
     clsx({
-      ["font-sec font-medium py-4"]: true,
+      ["font-sec font-medium py-4 hidden md:block"]: true,
       ["font-sec font-medium text-red-500"]: isLower < 0,
       ["font-sec font-medium py-4 text-green"]: isLower > 0,
     });
 
   return (
-    <div className="grid grid-cols-5 bg-neutral-100 px-2">
+    <div className="grid grid-cols-3 md:grid-cols-5 bg-neutral-100 px-2">
       <div className=" py-3 col-span-2 flex gap-4 items-center">
         <div className="w-[12%] md:w-[6%]">
           <img src={img} alt={name} />
         </div>
         <div className="font-sec font-bold text-paper">{name}</div>
       </div>
-      <div className="font-sec  py-3 font-bold text-paper uppercase">
+      <div className="font-sec  py-3 font-bold text-paper uppercase hidden md:block">
         {symbol}
       </div>
       <div className={classColor(change)}>{change.toFixed(2)}%</div>
-      <div className="font-medium py-3">{formatCurrency(price)}</div>
+      <div className="font-medium py-5">{formatCurrency(price)}</div>
     </div>
   );
 };

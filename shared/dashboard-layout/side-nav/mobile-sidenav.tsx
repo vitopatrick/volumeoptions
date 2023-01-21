@@ -37,33 +37,39 @@ const MobileSideNav = ({ hide, setHide }: any) => {
               Volume Exchange
             </div>
             {FIRST_LINKS.map((link) => (
-              <div key={link.key} className={boxClasses(link.path)}>
+              <Link
+                href={link.path}
+                key={link.key}
+                className={boxClasses(link.path)}
+              >
                 {/* flex item */}
                 <div className="mr-2">{link.icon}</div>
-                <Link
-                  href={link.path}
+                <div
                   className={textClasses(link.path)}
                   onClick={() => setHide(false)}
                 >
                   {link.label}
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
           {/* second links flex container */}
           <div>
             {SECOND_LINKS.map((link) => (
-              <div key={link.key} className={boxClasses(link.path)}>
+              <Link
+                href={link.path}
+                key={link.key}
+                className={boxClasses(link.path)}
+              >
                 {/* flex item */}
                 <div className="mr-2">{link.icon}</div>
-                <Link
-                  href={link.path}
+                <div
                   className={textClasses(link.path)}
                   onClick={() => setHide(false)}
                 >
                   {link.label}
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

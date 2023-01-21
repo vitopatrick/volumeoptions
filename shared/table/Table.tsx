@@ -12,11 +12,11 @@ const Table = ({ coins, error, loading }: TableProps) => {
   return (
     <div>
       {/* table Header */}
-      <div className="font-sec grid grid-cols-5 bg-neutral-200 px-2 py-3 rounded-t-lg text-paper">
-        <div className="font-bold col-span-2">Coin</div>
-        <div className="font-bold text-left">Sym</div>
-        <div className="font-bold text-left">24h</div>
-        <div className="font-bold text-left">Price</div>
+      <div className="grid grid-cols-3 md:grid-cols-5 font-bold font-sec bg-neutral-200 py-3 px-2 rounded-t-lg">
+        <div className="col-span-2">Coin</div>
+        <div className="text-left hidden md:block">Sym</div>
+        <div className="text-left hidden md:block">24h</div>
+        <div className="text-left">Price</div>
       </div>
       {/* table Body */}
       {loading && <Loading />}

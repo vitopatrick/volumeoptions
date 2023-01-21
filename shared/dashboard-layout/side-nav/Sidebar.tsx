@@ -29,25 +29,29 @@ const Sidebar = () => {
             Volume Exchange
           </div>
           {FIRST_LINKS.map((link) => (
-            <div key={link.key} className={boxClasses(link.path)}>
+            <Link
+              href={link.path}
+              key={link.key}
+              className={boxClasses(link.path)}
+            >
               {/* flex item */}
               <div className="mr-2">{link.icon}</div>
-              <Link href={link.path} className={textClasses(link.path)}>
-                {link.label}
-              </Link>
-            </div>
+              <div className={textClasses(link.path)}>{link.label}</div>
+            </Link>
           ))}
         </div>
         {/* second links flex container */}
         <div>
           {SECOND_LINKS.map((link) => (
-            <div key={link.key} className={boxClasses(link.path)}>
+            <Link
+              href={link.path}
+              key={link.key}
+              className={boxClasses(link.path)}
+            >
               {/* flex item */}
               <div className="mr-2">{link.icon}</div>
-              <Link href={link.path} className={textClasses(link.path)}>
-                {link.label}
-              </Link>
-            </div>
+              <div className={textClasses(link.path)}>{link.label}</div>
+            </Link>
           ))}
         </div>
       </div>

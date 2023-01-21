@@ -2,6 +2,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import { ImSwitch } from "react-icons/im";
 import MobileSideNav from "../side-nav/mobile-sidenav";
 
 const Header = () => {
@@ -29,6 +30,9 @@ const Header = () => {
             >
               {"John".slice(0, 2)}
             </Link>
+            <div>
+              <ImSwitch className="fill-paper text-2xl cursor-pointer" />
+            </div>
             <div className="block md:hidden">
               <FiMenu
                 className="text-paper text-2xl cursor-pointer"
