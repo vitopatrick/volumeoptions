@@ -31,26 +31,11 @@ export const SECOND_LINKS = [
     icon: <FaWallet />,
   },
   {
-    key: "deposit",
-    label: "Deposit",
-    path: "/deposit",
-    icon: <AiOutlineBank />,
-  },
-  {
-    key: "withdraw",
-    label: "Withdraw",
-    path: "/withdraw",
-    icon: <GrAtm />,
-  },
-  {
     key: "transactions",
     label: "Transactions",
     path: "/transactions",
     icon: <GrTransaction />,
   },
-];
-
-export const THIRD_LINKS = [
   {
     key: "market",
     label: "Market",
@@ -70,3 +55,4 @@ export const THIRD_LINKS = [
     icon: <RiExchangeDollarFill />,
   },
 ];
+

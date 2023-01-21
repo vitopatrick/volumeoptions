@@ -1,4 +1,4 @@
-import AuthNav from "../../../components/AuthNav/AuthNav";
+import AuthNav from "../../../components/auth-nav/AuthNav";
 import ForgottenPasswordForm from "../../../components/forgot-password/forgotten-password";
 
 const ForgottenPassword = () => {

@@ -5,7 +5,6 @@ import Layout from "../../shared/dashboard-layout/Layout";
 const DashboardPage = () => {
   return (
     <Layout>
-      <WelcomeUser />
       <DashboardLayout />
     </Layout>
   );

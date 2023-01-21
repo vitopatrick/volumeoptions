@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         main: ["Jost", "sans-serif"],
-        sec: ["Inter", "sans-serif"],
+        sec: ["Nunito Sans", "sans-serif"],
       },
       colors: {
         bg: "#00142a",

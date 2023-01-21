@@ -1,4 +1,4 @@
-import AuthNav from "../../../components/AuthNav/AuthNav";
+import AuthNav from "../../../components/auth-nav/AuthNav";
 import LoginForm from "../../../components/login-form/login-form";
 
 const SignIn = () => {
