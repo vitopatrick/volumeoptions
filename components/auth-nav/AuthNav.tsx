@@ -11,7 +11,7 @@ const AuthNav = ({ cta, urlName, path }: AuthNavProps) => {
     <div>
       <div className="flex items-center justify-start md:justify-end text-sm font-main px-5 py-4">
         <p>{cta}</p>
-        <Link href={`/auth/${path}`} className="mx-1 text-green ">
+        <Link href={`/auth/${path}`} className="mx-1 text-paper ">
           {urlName}
         </Link>
       </div>

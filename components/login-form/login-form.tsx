@@ -61,7 +61,7 @@ const LoginForm = () => {
             </div>
           </div>
           {/* login button */}
-          <button className="font-main bg-green text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2">
+          <button className="font-main bg-paper text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2">
             Log in
           </button>
           <div className="flex justify-end my-4">

@@ -35,7 +35,7 @@ const ForgottenPasswordForm = () => {
                   id="email"
                   className="rounded my-3 font-main flex-1 text-base px-2 py-3 bg-gray-200/95 focus-within:outline-none"
                 />
-                <button className="bg-green font-main rounded text-white mx-1 py-3 px-2">
+                <button className="bg-paper font-main rounded text-white mx-1 py-3 px-2">
                   Send Code
                 </button>
               </div>
@@ -61,7 +61,7 @@ const ForgottenPasswordForm = () => {
             {/* submit button */}
             <button
               onClick={() => setShowReset(true)}
-              className="font-main bg-green text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2"
+              className="font-main bg-paper text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2"
             >
               Next
             </button>
@@ -106,13 +106,13 @@ const ForgottenPasswordForm = () => {
             <div className="my-3">
               <button
                 onClick={() => setShowReset(false)}
-                className="text-sm text-green cursor-pointer"
+                className="text-sm text-paper cursor-pointer"
               >
                 Back to forgotten password
               </button>
             </div>
             {/* submit button */}
-            <button className="font-main bg-green text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2">
+            <button className="font-main bg-paper text-white text-[1rem] mt-8 rounded shadow inline-block w-full py-2">
               Change Password
             </button>
           </form>

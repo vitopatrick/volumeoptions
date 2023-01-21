@@ -9,7 +9,7 @@ const ForgottenPassword = () => {
         {/* parent div container */}
         <div className="flex justify-between h-screen relative">
           {/* CTA Markups */}
-          <div className="flex-1 p-6 text-white bg-green hidden md:flex flex-col justify-center items-start font-semibold font-main">
+          <div className="flex-1 p-6 text-white bg-paper hidden md:flex flex-col justify-center items-start font-semibold font-main">
             <h1 className="text-2xl text-gray-200/90">
               Your Account isn't lost
             </h1>
