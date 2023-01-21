@@ -12,9 +12,6 @@ const TransactionsPage = () => {
 
   return (
     <Layout>
-      <div>
-        <h1 className="my-1 font-sec font-bold text-3xl">Transactions</h1>
-      </div>
       <div className="flex items-center font-sec gap-2 mt-4 text-paper">
         <button
           className={

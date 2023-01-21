@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { formatTime } from "../utils/formatTime";
 
-export const useFetchAllCoin = (coinName: String, time: String) => {
+export const useFetchAllCoin = (coinName: String | any, time = 1) => {
   const [coin, setCoin] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);

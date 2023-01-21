@@ -13,9 +13,6 @@ export interface DataType {
 const MarketsPage = () => {
   return (
     <Layout>
-      <div className="mt-3 mb-8">
-        <h1 className="font-sec font-bold text-4xl text-paper">Market</h1>
-      </div>
       {/* table component */}
       <MarketTable />
     </Layout>

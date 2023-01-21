@@ -14,7 +14,7 @@ import Loading from "../loading/Loading";
 const Chart = () => {
   const [selected, setSelected] = useState("bitcoin");
 
-  const { coin, error, loading } = useFetchAllCoin(selected, "7");
+  const { coin, error, loading } = useFetchAllCoin(selected, 7);
 
   return (
     <div className="p-2 bg-white rounded flex-1">
