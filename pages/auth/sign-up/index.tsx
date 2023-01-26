@@ -1,17 +1,24 @@
 import AuthNav from "../../../components/auth-nav/AuthNav";
 import SignUpForm from "../../../components/sign-up-form/sign-up-form";
+import StepTwo from "../../../components/sign-up-form/origin-form";
+import { useState } from "react";
+import FormProvider from "../../../components/sign-up-form/context/FormContext";
 
 const SignUp = () => {
+  const [stepTwo, setStepTwo] = useState(false);
+
   return (
-    <>
+    <FormProvider>
       {/* page Wrapper class */}
       <div className="w-screen h-screen">
         {/* parent div container */}
         <div className="flex justify-between h-screen relative">
           {/* CTA Markups */}
-          <div className="flex-1 p-6 text-white bg-paper hidden md:flex flex-col justify-center items-start font-semibold font-main">
-            <h1 className="text-2xl text-gray-200/90">Still having doubts?</h1>
-            <h4 className="text-6xl my-3 underline">Get Started for Free</h4>
+          <div className="flex-1 p-6 text-white bg-bg hidden md:flex flex-col justify-center items-start font-semibold font-main">
+            <h1 className="text-2xl text-text_min">Still having doubts?</h1>
+            <h4 className="text-6xl my-3 underline text-text_main">
+              Get Started for Free
+            </h4>
           </div>
           {/* Sign Up forms */}
           <div className="flex-1">
@@ -20,11 +27,12 @@ const SignUp = () => {
               path="sign-in"
               urlName={"Sign in today"}
             />
-            <SignUpForm />
+            {stepTwo && <StepTwo move={setStepTwo} />}
+            {!stepTwo && <SignUpForm move={setStepTwo} />}
           </div>
         </div>
       </div>
-    </>
+    </FormProvider>
   );
 };
 

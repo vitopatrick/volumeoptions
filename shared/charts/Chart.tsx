@@ -17,7 +17,7 @@ const Chart = () => {
   const { coin, error, loading } = useFetchAllCoin(selected, 7);
 
   return (
-    <div className="p-2 bg-white rounded flex-1">
+    <div className="p-2 bg-green rounded flex-1">
       {/* selector */}
       <div className="mb-8 flex items-center justify-between">
         <div className="bg-neutral-50 py-1 px-2 rounded focus:border-paper focus:border-[1px]">

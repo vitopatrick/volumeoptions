@@ -8,9 +8,9 @@ const Layout = ({ children }: any) => {
       {/*  side bar*/}
       <Sidebar />
       {/* children */}
-      <div className="flex-1 p-4 bg-neutral-50">
+      <div className="flex-1 p-4 bg-red-500">
         <Header />
-        <div className=" min-h-0 overflow-auto flex-1">{children}</div>
+        <div className="overflow-auto">{children}</div>
       </div>
     </div>
   );
