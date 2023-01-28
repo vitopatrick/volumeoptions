@@ -1,23 +1,33 @@
-import { useMemo, useState } from "react";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { useRouter } from "next/navigation";
+import { useContext, useMemo, useState } from "react";
+import { UserContext } from "../../context/UserContext";
+import { store } from "../../firebase";
+import { useFetchUser } from "../../hooks/useFetchUser";
+import { calculateProfit } from "../../lib/calculate-profit";
 import { tradingOptions } from "../../lib/trading-options";
+import DismissibleAlert from "../../shared/alerts/dismissible";
 import { formatCurrency } from "../../utils/formatCurrency";
-
-interface OptionsType {
-  id: number | undefined;
-  level: String;
-  minAmount: any;
-  roi: String;
-}
 
 const VolumeTradingPlan = () => {
   // State of the select tag
   const [level, setLevel] = useState("level 1");
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (event: any) => {
     setLevel(event.target.value);
   };
+
   // state for Trading options
-  const [options, setOptions] = useState<OptionsType | undefined>();
+  const [options, setOptions] = useState<any | undefined>();
+
   useMemo(() => {
     const options = tradingOptions.find((tradingOption) =>
       tradingOption.level.match(level)
@@ -25,8 +35,48 @@ const VolumeTradingPlan = () => {
     setOptions(options);
   }, [level]);
 
+  const router = useRouter();
+  const { user: state, coin }: any = useContext(UserContext);
+  const { userState }: any = useFetchUser();
+
+  // function to add Orders
+  const addOrders = async (e: any) => {
+    if (userState.MainAccount < options.minAmount) {
+      setError("Insufficient Account");
+      setShow(true);
+      return;
+    }
+
+    e.preventDefault();
+    try {
+      const orderRef = collection(store, "users", `${state.email}`, "orders");
+      const userRef = doc(store, "users", `${state.email}`);
+      const interest = (options.minAmount * options.roi) / 100;
+
+      const profit = interest + options.minAmount;
+
+      await addDoc(orderRef, {
+        coin,
+        amount: options.minAmount,
+        duration: "4 days",
+        profit,
+        level: options.level,
+        date: serverTimestamp(),
+      });
+
+      await updateDoc(userRef, {
+        TradingAccount: userState.TradingAccount + options.minAmount,
+      });
+
+      router.push("/dashboard");
+    } catch (error: any) {
+      setError(error.code);
+      setShow(true);
+    }
+  };
+
   return (
-    <div className="bg-white p-4 rounded">
+    <div className="bg-card flex-2 p-4 rounded">
       {/* parent container */}
       <div>
         {/* child content */}
@@ -49,10 +99,10 @@ const VolumeTradingPlan = () => {
               >
                 Options
               </label>
-              <div className="bg-neutral-300 py-2 px-2 rounded">
+              <div className="bg-bg py-2 px-2 rounded mt-2 w-full">
                 <select
                   value={level}
-                  className="bg-transparent font-sec text-sm"
+                  className="bg-bg  outline-none font-sec text-sm w-full"
                   onChange={handleChange}
                 >
                   {tradingOptions.map((option) => (
@@ -93,12 +143,16 @@ const VolumeTradingPlan = () => {
           {/* end of form component */}
           {/* button */}
           <div>
-            <button className=" text-paper font-sec py-1 my-4 text-sm w-full px-3 capitalize rounded border-paper border-[1px]">
+            <button
+              onClick={addOrders}
+              className=" text-paper font-sec py-1 my-4 text-sm w-full px-3 capitalize rounded border-paper border-[1px]"
+            >
               Call
             </button>
           </div>
         </div>
       </div>
+      <DismissibleAlert show={show} close={setShow} message={error} />
     </div>
   );
 };

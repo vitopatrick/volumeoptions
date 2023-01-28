@@ -1,7 +1,7 @@
-import { useState, ChangeEvent } from "react";
+// @ts-ignore
+import { useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import Link from "next/link";
-import Modal from "../modals/Modal";
 import DismissibleAlert from "../../shared/alerts/dismissible";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -20,15 +20,13 @@ const LoginForm = () => {
 
   const router = useRouter();
 
-  const loginUser = async (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const loginUser = async (event: any) => {
+    event.preventDefault();
 
     try {
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
-
+      await signInWithEmailAndPassword(auth, email, password);
       router.push("/dashboard");
     } catch (error: any) {
-      console.error(error.code);
       // check if the email is a valid email address
       if (error.code === "auth/invalid-email") {
         setError("Invalid Mail Please use a valid email address ");
@@ -44,6 +42,16 @@ const LoginForm = () => {
       // check for wrong password
       if (error.code === "auth/wrong-password") {
         setError("Password is incorrect");
+        setShow(true);
+      }
+      // check if user exist
+      if (error.code === "auth/user-not-found") {
+        setError("User does not exist");
+        setShow(true);
+      }
+      // check if user exist
+      if (error.code === "auth/network-request-failed") {
+        setError("Poor Internet connection");
         setShow(true);
       }
     }
@@ -85,7 +93,7 @@ const LoginForm = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="flex-1 bg-gray_bg outline-none py-2 pl-2"
+                className="flex-1 bg-gray_bg outline-none py-1 pl-2"
               />
               <div className="pr-4">
                 {/* change type based on state changes */}
@@ -109,13 +117,11 @@ const LoginForm = () => {
               href="/auth/forgot-password"
               className="justify-end text-sm font-main text-gray-500"
             >
-              {" "}
               forgot password
             </Link>
           </div>
         </form>
       </div>
-      <Modal />
       <DismissibleAlert message={error} show={show} close={setShow} />
     </>
   );

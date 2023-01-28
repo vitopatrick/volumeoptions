@@ -4,6 +4,7 @@ export const FormContext = createContext<undefined | null | any>(null);
 
 const FormProvider = ({ children }: ReactNode | any) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [country_of_origin, setCountryOfOrigin] = useState("");
@@ -12,6 +13,7 @@ const FormProvider = ({ children }: ReactNode | any) => {
     <FormContext.Provider
       value={{
         email,
+        name,
         password,
         phone_number,
         country_of_origin,
@@ -19,6 +21,7 @@ const FormProvider = ({ children }: ReactNode | any) => {
         setPassword,
         setPhoneNumber,
         setCountryOfOrigin,
+        setName,
       }}
     >
       {children}

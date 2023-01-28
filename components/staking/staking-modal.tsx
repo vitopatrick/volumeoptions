@@ -1,6 +1,13 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext, useMemo, useState } from "react";
 import { FcBriefcase } from "react-icons/fc";
 import { FiDollarSign } from "react-icons/fi";
+import { FaTimes } from "react-icons/fa";
+import { stakingOptions } from "../../lib/staking-options";
+import DismissibleAlert from "../../shared/alerts/dismissible";
+import { doc, updateDoc } from "firebase/firestore";
+import { store } from "../../firebase";
+import { UserContext } from "../../context/UserContext";
+import { useRouter } from "next/router";
 
 interface ModalProps {
   visible: Boolean;
@@ -8,6 +15,53 @@ interface ModalProps {
 }
 
 const StakingModal = ({ visible, setVisible }: ModalProps) => {
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+  const [amount, setAmount] = useState<string | number | any>();
+  const [plan, setPlan] = useState("Silver");
+  const [selectedPlan, setSelectedPlan] = useState<any>();
+
+  const { user }: any = useContext(UserContext);
+
+  const router = useRouter();
+
+  const selectPlan = () => {
+    const findPlan = stakingOptions.find((stakingOption) =>
+      stakingOption.name.match(plan)
+    );
+
+    setSelectedPlan(findPlan);
+  };
+
+  useMemo(() => {
+    selectPlan();
+  }, [plan]);
+
+  const updateStakingPlan = async (e: any) => {
+    e.preventDefault();
+    try {
+      if (parseInt(amount) < selectedPlan.min) {
+        setError(
+          `Amount Should not be less than $${selectedPlan.min.toFixed(2)}`
+        );
+        setShow(true);
+        return;
+      }
+
+      const docRef = doc(store, "users", `${user.email}`);
+
+      await updateDoc(docRef, {
+        StakingAccount: amount,
+        plan,
+      });
+
+      router.push("/dashboard");
+    } catch (error: unknown | any) {
+      setError(error.message);
+      setShow(true);
+    }
+  };
+
   return (
     <>
       {/* parent div positioned absolute */}
@@ -17,10 +71,12 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
             ? "absolute top-0 left-0 backdrop-blur-sm bg-black/25 w-full h-full"
             : "hidden"
         }
-        onClick={() => setVisible(false)}
       >
         {/* main div that will be center */}
-        <div className="w-[80%] md:w-[40%] mx-auto my-12 bg-white rounded-md shadow-md p-4">
+        <div className="w-[80%] md:w-[40%] mx-auto relative my-12 bg-card rounded-md shadow-md p-4">
+          <div className="absolute top-0 right-0 p-2">
+            <FaTimes onClick={() => setVisible(false)} />
+          </div>
           {/* parent flex div */}
           <div className="flex flex-col justify-center items-start">
             <div className="mb-6 self-center">
@@ -33,21 +89,50 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
               >
                 Enter Amount
               </label>
-              <div className="flex items-center bg-neutral-200 py-3 px-1 rounded mt-2 gap-2">
+              <div className="flex items-center bg-gray_bg py-3 px-1 rounded mt-2 gap-2">
+                <FiDollarSign className="stroke-bg" />
                 <input
-                  type="number"
+                  type="text"
                   name="amount"
                   id="amount"
-                  className="w-full bg-transparent focus:outline-none px-2"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  className="w-full bg-gray_bg text-bg focus:outline-none px-2"
                 />
-                <FiDollarSign />
               </div>
             </div>
-            <button className="mt-4 inline-block w-full font-sec bg-paper text-white py-2 rounded">
+            <div className="w-full">
+              <label
+                htmlFor="staking option"
+                className="font-sec my-2 text-neutral-400"
+              >
+                Staking Option
+              </label>
+              <div className="flex items-center bg-gray_bg py-3 px-1 rounded mt-2 gap-2">
+                <select
+                  name="option"
+                  id="option"
+                  value={plan}
+                  onChange={(e) => setPlan(e.target.value)}
+                  className="w-full bg-gray_bg text-bg focus:outline-none px-2"
+                >
+                  {stakingOptions.map((stakingOption) => (
+                    <option key={stakingOption.id} value={stakingOption.name}>
+                      {stakingOption.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <button
+              onClick={updateStakingPlan}
+              className="mt-4 inline-block w-full font-sec bg-bg text-white py-2 rounded"
+            >
               Stake Now
             </button>
           </div>
         </div>
+        <DismissibleAlert show={show} close={setShow} message={error} />
       </div>
     </>
   );

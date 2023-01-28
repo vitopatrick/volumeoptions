@@ -1,5 +1,4 @@
 import { useFetchAllCoins } from "../../hooks/useFetchAllCoins";
-import Loading from "../../shared/loading/Loading";
 import Table from "../../shared/table/Table";
 
 const MarketTable = () => {

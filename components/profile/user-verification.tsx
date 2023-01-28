@@ -8,7 +8,7 @@ const UserVerification = () => {
 
   return (
     <>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 px-3">
         <div className="my-4">
           <button
             onClick={() => setHide(true)}
@@ -17,14 +17,14 @@ const UserVerification = () => {
             Start verification
           </button>
         </div>
-        <div className="my-4">
+        {/* <div className="my-4">
           <button
             onClick={() => setModalTwo(true)}
             className="font-sec rounded-full block px-3 py-1 text-xs border-red-500 border-[1px] text-red-500"
           >
             Change Details
           </button>
-        </div>
+        </div> */}
       </div>
 
       <UserModal hide={hide} setHide={setHide} />

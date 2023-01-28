@@ -9,17 +9,17 @@ const Sidebar = () => {
   const boxClasses = (url: any) =>
     clsx({
       ["font-sec text-paper flex gap-1 items-center my-6 pl-4"]: true,
-      ["bg-paper/20 w-full py-2 pl-2,shadow rounded-lg "]: pathname === url,
+      ["bg-bg w-full py-2 pl-2,shadow rounded-lg "]: pathname === url,
     });
 
   const textClasses = (url: any) =>
     clsx({
-      ["font-sec text-paper"]: true,
-      ["font-sec font-bold"]: pathname === url,
+      ["font-sec"]: true,
+      ["font-sec font-semibold"]: pathname === url,
     });
 
   return (
-    <div className="w-[260px] hidden md:block bg-white h-full">
+    <div className="w-[260px] hidden md:block bg-card h-full">
       {/* parent flex container */}
       <div className="flex flex-col justify-between gap-4 p-3">
         {/* first links flex container */}

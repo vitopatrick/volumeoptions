@@ -1,0 +1,65 @@
+import { UserContext } from "./../context/UserContext";
+import { useState, useMemo, useContext } from "react";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
+import { store } from "../firebase";
+
+export const useTransactions = (path: String | any) => {
+  const [transactions, setTransactions] = useState<
+    [{}] | null | undefined | any
+  >([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+
+  // user context
+  const { user }: any = useContext(UserContext);
+
+  useMemo(() => {
+    const controller = new AbortController();
+    setLoading(true);
+    const fetchTransactions = async () => {
+      // create collectionRef
+      const collectionRef = collection(store, "/users", `/${user.email}`, path);
+      const q = query(collectionRef, orderBy("date", "asc"));
+
+      const transactionsArray: any = [];
+
+      onSnapshot(
+        q,
+        (docs) => {
+          docs.forEach((doc) => {
+            const data = doc.data();
+            transactionsArray.push({
+              coin: data.coin,
+              approved: data.approved,
+              amount: data.amount,
+              date: new Date(data.date.toDate()).toDateString(),
+            });
+            setTransactions(transactionsArray);
+          });
+        },
+        (error: any) => setError(error.code)
+      );
+    };
+
+    console.log(transactions);
+
+    fetchTransactions();
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => controller.abort();
+  }, [user.email]);
+
+  return {
+    error,
+    loading,
+    transactions,
+  };
+};

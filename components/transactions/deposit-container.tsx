@@ -6,7 +6,6 @@ const DepositContainer = () => {
   return (
     <>
       <DepositForm />
-      <DepositHistory />
     </>
   );
 };

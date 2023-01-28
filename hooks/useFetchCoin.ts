@@ -33,5 +33,5 @@ export const useFetchAllCoin = (coinName: String | any, time = 1) => {
     return () => controller.abort();
   }, [coinName]);
 
-  return { coin, loading, error };
+  return { coin, loading, error, coinName };
 };

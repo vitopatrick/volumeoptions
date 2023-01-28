@@ -20,9 +20,10 @@ const StepTwo = ({ move }: any) => {
     setCountryOfOrigin,
     email,
     password,
+    name,
   } = useContext(FormContext);
 
-  const registerUser = async (e: ChangeEvent<HTMLInputElement>) => {
+  const registerUser = async (e: any) => {
     e.preventDefault();
     if (!phone_number || !country_of_origin) {
       setError("Please fill the form correctly");
@@ -40,15 +41,16 @@ const StepTwo = ({ move }: any) => {
       // then create the users collection for firebase
       const docRef = doc(store, "/users", `/${user.email}`);
       await setDoc(docRef, {
-        email,
-        password,
+        Email: email,
+        Password: password,
         country_of_origin,
-        phone_number,
-        trading_account: 0,
-        main_account: 0,
-        staking_account: 0,
+        Telephone: phone_number,
+        TradingAccount: 0,
+        MainAccount: 0,
+        StakingAccount: 0,
         verified: false,
         createAt: user.metadata.creationTime,
+        Name: name,
       });
       // redirect users to the there dashboard
       router.push("/dashboard");

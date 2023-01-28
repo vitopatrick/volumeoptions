@@ -1,9 +1,8 @@
 import React from "react";
 import { RxDashboard } from "react-icons/rx";
-import { GrTransaction, GrAtm } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 import { FaWallet } from "react-icons/fa";
-import { AiOutlineBank } from "react-icons/ai";
+import { AiFillMoneyCollect, AiOutlineBank } from "react-icons/ai";
 import { SiMarketo } from "react-icons/si";
 import { BsStack } from "react-icons/bs";
 import { RiExchangeDollarFill } from "react-icons/ri";
@@ -31,10 +30,16 @@ export const SECOND_LINKS = [
     icon: <FaWallet />,
   },
   {
-    key: "transactions",
-    label: "Transactions",
-    path: "/transactions",
-    icon: <GrTransaction />,
+    key: "deposit",
+    label: "Deposit",
+    path: "/deposit",
+    icon: <AiOutlineBank />,
+  },
+  {
+    key: "withdraw",
+    label: "Withdraw",
+    path: "/withdraw",
+    icon: <AiFillMoneyCollect />,
   },
   {
     key: "market",

@@ -1,13 +1,11 @@
 import {
-  BarChart,
-  Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
+  AreaChart,
+  Area,
 } from "recharts";
 
 const data = [
@@ -57,19 +55,31 @@ const data = [
 
 const DashboardChart = () => {
   return (
-    <div className="bg-white rounded hidden md:block h-full flex-1 self-start mt-4 px-3 py-2 ">
+    <div className="bg-card rounded hidden md:block h-full flex-1 self-start md:mx-1 p-2 ">
       <div className="mb-4">
         <h3 className="font-sec font-bold text-paper text-lg">Trade Summary</h3>
       </div>
       <div className="h-[300px] w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data}>
-            <Bar dataKey="uv" fill="#06254b" />
+          <AreaChart data={data}>
+            <defs>
+              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#0f172a" stopOpacity={1} />
+                <stop offset="95%" stopColor="#0f172a" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <Area
+              type="monotone"
+              dataKey="uv"
+              stroke="#99f6e4"
+              strokeWidth={3}
+              fill="url(#colorPv)"
+            />
             <XAxis />
             <YAxis axisLine={false} />
             <CartesianGrid vertical={false} horizontal={false} opacity={0.4} />
             <Tooltip />
-          </BarChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>

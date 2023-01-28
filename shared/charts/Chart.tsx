@@ -8,23 +8,24 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useFetchAllCoin } from "../../hooks/useFetchCoin";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Loading from "../loading/Loading";
+import { UserContext } from "../../context/UserContext";
 
 const Chart = () => {
-  const [selected, setSelected] = useState("bitcoin");
+  const { coin: selected, setCoin }: any = useContext(UserContext);
 
-  const { coin, error, loading } = useFetchAllCoin(selected, 7);
+  const { coin, loading } = useFetchAllCoin(selected, 30);
 
   return (
-    <div className="p-2 bg-green rounded flex-1">
+    <div className="p-4 bg-card rounded flex-1 items-stretch">
       {/* selector */}
       <div className="mb-8 flex items-center justify-between">
-        <div className="bg-neutral-50 py-1 px-2 rounded focus:border-paper focus:border-[1px]">
+        <div className="bg-bg py-1 px-2 rounded focus:border-paper focus:border-[1px]">
           <select
-            className="bg-transparent focus:outline-none font-sec text-sm font-bold"
+            className="bg-bg focus:outline-none font-sec text-sm font-bold"
             value={selected}
-            onChange={(e) => setSelected(e.target.value)}
+            onChange={(e) => setCoin(e.target.value)}
           >
             <option value="bitcoin">Bitcoin</option>
             <option value="tether">USDT</option>
@@ -34,7 +35,7 @@ const Chart = () => {
           </select>
         </div>
         <div className="text-paper font-sec border-paper border-[1px] px-2 rounded cursor-pointer">
-          1 week
+          1 Month
         </div>
       </div>
       {/* chart */}
@@ -42,14 +43,11 @@ const Chart = () => {
         {loading && <Loading />}
         {!loading && (
           <ResponsiveContainer height={"100%"} width="100%">
-            <AreaChart
-              data={coin}
-              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-            >
+            <AreaChart data={coin}>
               <defs>
                 <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#06254b" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#06254b" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#0f172a" stopOpacity={1} />
+                  <stop offset="95%" stopColor="#0f172a" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <XAxis dataKey="date" tickCount={4} />
@@ -57,7 +55,8 @@ const Chart = () => {
               <Area
                 type="monotone"
                 dataKey="price"
-                stroke="#06254b"
+                stroke="#99f6e4"
+                strokeWidth={3}
                 fill="url(#colorPv)"
               />
               <CartesianGrid vertical={false} opacity={0.4} />

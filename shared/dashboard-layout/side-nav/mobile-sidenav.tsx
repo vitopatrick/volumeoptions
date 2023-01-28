@@ -22,12 +22,12 @@ const MobileSideNav = ({ hide, setHide }: any) => {
     <div
       onClick={() => setHide(false)}
       className={
-        !hide
+        hide
           ? "hidden"
           : "absolute top-0 left-0 backdrop-blur-md bg-neutral-300/40 w-screen h-screen z-50"
       }
     >
-      <div className="w-[260px] md:block bg-white h-full">
+      <div className="w-[260px] md:block bg-card h-full">
         {/* parent flex container */}
         <div className="flex flex-col justify-between gap-4 p-3">
           {/* first links flex container */}

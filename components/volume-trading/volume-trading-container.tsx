@@ -5,7 +5,7 @@ import VolumeTradingPlan from "./volume-trading-plan";
 
 const VolumeTradingContainer = () => {
   return (
-    <div>
+    <div className="mx-2 my-2">
       <div className="flex flex-col gap-3 md:flex-row md:items-center mb-4">
         <Chart />
         <VolumeTradingPlan />

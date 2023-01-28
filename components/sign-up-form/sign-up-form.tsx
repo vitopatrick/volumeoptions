@@ -8,15 +8,16 @@ const SignUpForm = ({ move }: any) => {
   const [error, setError] = useState<{} | string | null | unknown>();
   const [show, setShow] = useState(false);
 
-  const { email, password, setEmail, setPassword } = useContext(FormContext);
+  const { email, password, name, setName, setEmail, setPassword } =
+    useContext(FormContext);
 
   const toggleIsText = () => {
     setIsText(!isText);
   };
 
-  const registerUsers = (e: ChangeEvent<HTMLInputElement>) => {
+  const registerUsers = (e: any) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!email || !password || !name) {
       setError("Please Enter Email and password");
       setShow(true);
       return;
@@ -33,7 +34,25 @@ const SignUpForm = ({ move }: any) => {
             <h3 className="text-bg text-4xl font-main font-medium">Sign Up</h3>
           </div>
           {/* Email or sub account */}
-          <div className="flex flex-col mt-8">
+          <div className="flex flex-col mt-4">
+            <label
+              htmlFor="name"
+              className="md:text-sm text-gray-500 font-main"
+            >
+              Full Name
+            </label>
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="rounded mb-3 mt-1 font-main text-base px-2 py-3 w-full bg-gray_bg focus-within:outline-none"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col mt-4">
             <label
               htmlFor="email"
               className="md:text-sm text-gray-500 font-main"
