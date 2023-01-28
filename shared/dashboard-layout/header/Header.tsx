@@ -33,15 +33,17 @@ const Header = () => {
           </div>
           {/* icons div */}
           <div className="flex items-center flex-1 gap-4">
-            {loading && <SkeletonCircle height={40} width={40} />}
-            {!loading && (
-              <Link
-                href="/account-profile"
-                className=" hidden md:flex uppercase text-bg font-semibold cursor-pointer text-xl font-sec bg-[#e9e9e9] p-2  items-center justify-center rounded-full"
-              >
-                {user?.Name?.slice(0, 2)}
-              </Link>
-            )}
+            <div className="hidden md:block">
+              {loading && <SkeletonCircle height={40} width={40} />}
+              {!loading && (
+                <Link
+                  href="/account-profile"
+                  className="uppercase text-bg font-semibold cursor-pointer text-xl font-sec bg-[#e9e9e9] p-2  items-center justify-center rounded-full w-[50px] h-[50px]"
+                >
+                  {user?.Name?.slice(0, 2)}
+                </Link>
+              )}
+            </div>
 
             <div>
               <ImSwitch

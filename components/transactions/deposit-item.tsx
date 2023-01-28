@@ -6,7 +6,9 @@ const DepositItem = ({ coin, amount, approved, date }: any) => {
     <div className="grid grid-cols-4 bg-card/20 px-2">
       <div className="py-2 uppercase">{coin}</div>
       <div className="py-2">{formatCurrency(amount)}</div>
-      <div className="py-2">{approved}</div>
+      <div className={approved ? "py-2 text-success" : "py-2 text-danger"}>
+        {approved ? "Approved" : "Pending"}
+      </div>
       <div className="py-2">{date} </div>
     </div>
   );

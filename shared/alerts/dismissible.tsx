@@ -12,7 +12,7 @@ const DismissibleAlert = ({ message, show, close }: DismissibleAlertProps) => {
       id="alert-1"
       className={
         show
-          ? "flex p-4 mb-4 text-bg rounded-lg bg-gray_bg transition-all ease-in-out w-[80%] mx-auto absolute bottom-0 "
+          ? "flex p-4 mb-4 text-bg rounded-lg bg-gray_bg transition-all ease-in-out  mx-1 relative "
           : "hidden"
       }
       role="alert"

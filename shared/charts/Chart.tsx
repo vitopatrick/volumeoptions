@@ -8,9 +8,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useFetchAllCoin } from "../../hooks/useFetchCoin";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Loading from "../loading/Loading";
 import { UserContext } from "../../context/UserContext";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const Chart = () => {
   const { coin: selected, setCoin }: any = useContext(UserContext);
@@ -60,7 +61,7 @@ const Chart = () => {
                 fill="url(#colorPv)"
               />
               <CartesianGrid vertical={false} opacity={0.4} />
-              <Tooltip />
+              <Tooltip content={<CustomTooltip />} />
             </AreaChart>
           </ResponsiveContainer>
         )}
@@ -68,5 +69,21 @@ const Chart = () => {
     </div>
   );
 };
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip text-bg bg-success_light p-2 rounded">
+        <p className="label font-sec">on {label}</p>
+        <p className="desc font-sec font-bold">{`Price was ${formatCurrency(
+          payload[0].value
+        )}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 
 export default Chart;

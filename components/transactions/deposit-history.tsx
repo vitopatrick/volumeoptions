@@ -1,4 +1,5 @@
 import { useTransactions } from "../../hooks/useTransactions";
+import Loading from "../../shared/loading/Loading";
 import DepositItem from "./deposit-item";
 
 const DepositHistory = () => {
@@ -24,27 +25,32 @@ const DepositHistory = () => {
   );
 };
 
-const HistoryTable = ({ transactions }: any) => {
+const HistoryTable = ({ transactions, loading }: any) => {
   return (
-    <div>
-      {/* parent div container */}
-      <div className="grid grid-cols-4 justify-items-center bg-card p-2 font-sec font-bold rounded-t">
-        <div className="justify-self-start">Coin</div>
-        <div className="justify-self-start">Amount</div>
-        <div className="justify-self-start">Status</div>
-        <div className="justify-self-start">Date</div>
-      </div>
-      {/* children component */}
-      {transactions.map((transaction: any) => (
-        <DepositItem
-          key={transaction.length + 1}
-          coin={transaction.coin}
-          amount={transaction.amount}
-          approved={transaction.approved ? "Approved" : "Pending"}
-          date={transaction.date}
-        />
-      ))}
-    </div>
+    <>
+      {loading && <Loading />}
+      {!loading && (
+        <div>
+          {/* parent div container */}
+          <div className="grid grid-cols-4 justify-items-center bg-card p-2 font-sec font-bold rounded-t">
+            <div className="justify-self-start">Coin</div>
+            <div className="justify-self-start">Amount</div>
+            <div className="justify-self-start">Status</div>
+            <div className="justify-self-start">Date</div>
+          </div>
+          {/* children component */}
+          {transactions.map((transaction: any) => (
+            <DepositItem
+              key={transaction.length + 1}
+              coin={transaction.coin}
+              amount={transaction.amount}
+              approved={transaction.approved}
+              date={transaction.date}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

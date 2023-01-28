@@ -4,6 +4,7 @@ import { UserContext } from "../../context/UserContext";
 import { doc, updateDoc } from "firebase/firestore";
 import { store } from "../../firebase";
 import { useRouter } from "next/router";
+import DismissibleAlert from "../../shared/alerts/dismissible";
 
 interface WalletModalTypes {
   hide: Boolean;
@@ -16,12 +17,21 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
   const [tron, setTron] = useState<string>("");
   const [usdt, setUsdt] = useState<string>("");
   const [sol, setSol] = useState<string>("");
+  const [hideAlert, setHideAlert] = useState<boolean>(false);
+  const [error, setError] = useState("");
 
   const { user }: any = useContext(UserContext);
 
   const router = useRouter();
 
   const updateWallet = async (e: any) => {
+    e.preventDefault();
+
+    if (!btc || !eth || !tron || !usdt || !sol) {
+      setError("Please Enter All wallet Address");
+      setHideAlert(true);
+      return;
+    }
     e.preventDefault();
     try {
       const docRef = doc(store, "users", `${user.email}`);
@@ -80,7 +90,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
                   id="bitcoin"
                   value={btc}
                   onChange={(e) => setBtc(e.target.value)}
-                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none"
+                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none text-bg"
                 />
               </div>
             </div>
@@ -98,7 +108,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
                   id="eth_address"
                   value={eth}
                   onChange={(e) => setEth(e.target.value)}
-                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none"
+                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none text-bg"
                 />
               </div>
             </div>
@@ -116,7 +126,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
                   id="usdt_trc_20"
                   value={usdt}
                   onChange={(e) => setUsdt(e.target.value)}
-                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none"
+                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none text-bg"
                 />
               </div>
             </div>
@@ -134,7 +144,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
                   id="tron_trx"
                   value={tron}
                   onChange={(e) => setTron(e.target.value)}
-                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none"
+                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none text-bg"
                 />
               </div>
             </div>
@@ -152,7 +162,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
                   id="tron_trx"
                   value={sol}
                   onChange={(e) => setSol(e.target.value)}
-                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none"
+                  className="w-full bg-gray_bg font-sec px-2 focus:outline-none text-bg"
                 />
               </div>
             </div>
@@ -166,6 +176,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
           </form>
         </div>
       </div>
+      <DismissibleAlert show={hideAlert} close={setHideAlert} message={error} />
     </>
   );
 };

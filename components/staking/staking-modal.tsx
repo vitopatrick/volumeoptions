@@ -8,6 +8,8 @@ import { doc, updateDoc } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
+import { useFetchUser } from "../../hooks/useFetchUser";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 interface ModalProps {
   visible: Boolean;
@@ -22,6 +24,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
   const [selectedPlan, setSelectedPlan] = useState<any>();
 
   const { user }: any = useContext(UserContext);
+  const { userState: state }: any = useFetchUser();
 
   const router = useRouter();
 
@@ -39,10 +42,23 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
 
   const updateStakingPlan = async (e: any) => {
     e.preventDefault();
+
+    if (!amount) {
+      setError("Amount Field Empty");
+      setShow(true);
+      return;
+    }
+
+    if (state.MainAccount < amount) {
+      setError("Insufficient Balance");
+      setShow(true);
+      router.push("/deposit");
+    }
+
     try {
       if (parseInt(amount) < selectedPlan.min) {
         setError(
-          `Amount Should not be less than $${selectedPlan.min.toFixed(2)}`
+          `Amount Should not be less than ${formatCurrency(selectedPlan.min)}`
         );
         setShow(true);
         return;
@@ -57,7 +73,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
 
       router.push("/dashboard");
     } catch (error: unknown | any) {
-      setError(error.message);
+      setError(error.code);
       setShow(true);
     }
   };

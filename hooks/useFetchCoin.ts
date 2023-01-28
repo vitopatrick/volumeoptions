@@ -17,7 +17,7 @@ export const useFetchAllCoin = (coinName: String | any, time = 1) => {
           `https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=${time}`
         );
         const dataChart = data.prices.map((value: any) => ({
-          date: formatTime(value[0]),
+          date: new Date(value[0]).toDateString(),
           price: value[1],
         }));
 

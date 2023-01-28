@@ -9,13 +9,13 @@ const Sidebar = () => {
   const boxClasses = (url: any) =>
     clsx({
       ["font-sec text-paper flex gap-1 items-center my-6 pl-4"]: true,
-      ["bg-bg w-full py-2 pl-2,shadow rounded-lg "]: pathname === url,
+      ["bg-bg w-full py-2 pl-2 rounded-lg "]: pathname === url,
     });
 
   const textClasses = (url: any) =>
     clsx({
       ["font-sec"]: true,
-      ["font-sec font-semibold"]: pathname === url,
+      ["font-sec font-semibold text-success_light"]: pathname === url,
     });
 
   return (
@@ -35,7 +35,7 @@ const Sidebar = () => {
               className={boxClasses(link.path)}
             >
               {/* flex item */}
-              <div className="mr-2">{link.icon}</div>
+              <div className={textClasses(link.path)}>{link.icon}</div>
               <div className={textClasses(link.path)}>{link.label}</div>
             </Link>
           ))}
@@ -49,7 +49,7 @@ const Sidebar = () => {
               className={boxClasses(link.path)}
             >
               {/* flex item */}
-              <div className="mr-2">{link.icon}</div>
+              <div className={textClasses(link.path)}>{link.icon}</div>
               <div className={textClasses(link.path)}>{link.label}</div>
             </Link>
           ))}
