@@ -8,7 +8,7 @@ interface TableProps {
   loading: Boolean;
 }
 
-const Table = ({ coins, error, loading }: TableProps) => {
+const Table = ({ coins, loading }: TableProps) => {
   return (
     <div>
       {/* table Header */}

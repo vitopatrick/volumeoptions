@@ -1,21 +1,31 @@
-import Link from "next/link";
+import Endless from "../components/landing-page/endless-possibities/Endless";
+import Faq from "../components/landing-page/faq/frequently-asked-questions";
+import Hero from "../components/landing-page/hero";
+import TrendingCoinsTable from "../components/landing-page/hot-coins/hot-coins";
+import Navbar from "../components/landing-page/nav-bar";
+import StakeToday from "../components/landing-page/stack-today/stake-today";
+import StartRow from "../components/landing-page/start-now/start-now";
+import StartToday from "../components/landing-page/start-today/start-today";
 
 export default function Home() {
   return (
-    <>
-      <div>
-        <Link href="/auth/sign-in" className="text-3xl underline font-main">
-          Login
-        </Link>
+    <div className="bg-bg text-text_main min-h-0">
+      <Navbar />
+      <Hero />
+      <TrendingCoinsTable />
+      <StartToday />
+      <StakeToday />
+      <Faq />
+      <Endless />
+      <StartRow />
+      <div className="p-3">
+        <div className="text-center font-main text-success_light/60">
+          volume exchange © 2023
+        </div>
+        <div className="text-center font-main text-success_light/40">
+          for further support contact volumeexchange@support.co
+        </div>
       </div>
-      <div className="my-3">
-        <Link
-          href="/auth/sign-up"
-          className="text-3xl underline font-main mt-3"
-        >
-          Sign Up
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }
