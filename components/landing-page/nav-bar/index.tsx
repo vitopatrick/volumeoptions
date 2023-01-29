@@ -12,12 +12,12 @@ const Navbar = () => {
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
         <Link
           href="/"
-          className="font-main text-2xl text-success_light font-bold"
+          className="font-main text-lg md:text-2xl text-success_light font-bold"
         >
           Volume Exchange
         </Link>
         {/* links */}
-        <div className="flex items-center gap-12 justify-between">
+        <div className="flex items-center md:gap-12 justify-between">
           {/* links */}
           <div className="hidden md:flex gap-6 items-center">
             {links.map((link: any) => (
@@ -45,7 +45,7 @@ const Navbar = () => {
               Login
             </Link>
           </div>
-          <div className="inline-block md:hidden">
+          <div className="inline-block md:hidden mx-1">
             <FaBars
               onClick={() => setShow(true)}
               className="fill-success_light cursor-pointer"
