@@ -3,9 +3,9 @@ import { ctas } from "./endless-writes";
 
 const Endless = () => {
   return (
-    <section className="h-screen">
+    <section className="my-12">
       <div className="w-[90%] mx-auto">
-        <div className="font-main font-medium text-xl md:text-4xl mb-6">
+        <div className="font-main font-bold text-xl text-white md:text-4xl mb-6">
           Explore Endless Opportunities with Volume exchange
         </div>
         <div className="flex flex-col md:flex-row gap-4">
@@ -13,12 +13,12 @@ const Endless = () => {
             <Link
               href="/auth/sign-up"
               key={cta.pri}
-              className="w-full p-6 bg-card rounded-lg shadow border border-success_light"
+              className="w-full p-6 bg-card rounded-lg shadow border border-teal-500"
             >
-              <h5 className="mb-2 text-xl font-medium text-success_light font-main">
+              <h5 className="mb-2 text-xl font-bold text-teal-500 font-main">
                 {cta.pri}
               </h5>
-              <p className="font-normal text-gray_bg font-main">{cta.sec}</p>
+              <p className="font-normal text-white font-main">{cta.sec}</p>
             </Link>
           ))}
         </div>

@@ -1,57 +1,50 @@
-import { UserContext } from "./../context/UserContext";
+import { UserContext } from "../../../context/UserContext";
 import { useState, useMemo, useContext } from "react";
-import {
-  collection,
-  onSnapshot,
-  query,
-  orderBy,
-  getDocs,
-} from "firebase/firestore";
-import { store } from "../firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { store } from "../../../firebase/index";
 
-export const useTransactions = (path: String | any) => {
-  const [transactions, setTransactions] = useState<
-    [{}] | null | undefined | any
-  >([]);
+export const useFetchStakes = () => {
+  const [stakes, setStakes] = useState<[{}] | null | undefined | any>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
   // user context
   const { user }: any = useContext(UserContext);
 
-
   useMemo(() => {
     const controller = new AbortController();
     setLoading(true);
-    const fetchTransactions = async () => {
+    const fetchStakes = async () => {
       // create collectionRef
-      const collectionRef = collection(store, "/users", `${user.email}`, path);
+      const collectionRef = collection(
+        store,
+        "/users",
+        `/${user.email}`,
+        "/staking"
+      );
       const q = query(collectionRef, orderBy("date", "asc"));
 
-      const transactionsArray: any = [];
+      const stakesArray: any = [];
 
       onSnapshot(
         q,
         (docs) => {
           docs.forEach((doc) => {
             const data = doc.data();
-
-            transactionsArray.push({
-              coin: data.coin,
-              approved: data.approved,
+            stakesArray.push({
+              duration: data.duration,
+              plan: data.plan,
               amount: data.amount,
               date: new Date(data.date.toDate()).toDateString(),
+              apr: data.apr,
             });
-            setTransactions(transactionsArray);
+            setStakes(stakesArray);
           });
         },
         (error: any) => setError(error.code)
       );
     };
-
-    console.log(transactions);
-
-    fetchTransactions();
+    fetchStakes();
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -62,6 +55,6 @@ export const useTransactions = (path: String | any) => {
   return {
     error,
     loading,
-    transactions,
+    stakes,
   };
 };

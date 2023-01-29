@@ -5,8 +5,10 @@ import DepositItem from "./deposit-item";
 const DepositHistory = () => {
   const { transactions, loading } = useTransactions("/deposits");
 
+  console.log(transactions);
+
   return (
-    <div className="mx-3">
+    <div className="mx-3 text-white font-main">
       <div>
         <h4 className="font-sec py-4 font-bold text-xl font-paper hover:underline cursor-pointer">
           Deposit History
@@ -32,7 +34,7 @@ const HistoryTable = ({ transactions, loading }: any) => {
       {!loading && (
         <div>
           {/* parent div container */}
-          <div className="grid grid-cols-4 justify-items-center bg-card p-2 font-sec font-bold rounded-t">
+          <div className="grid grid-cols-4 justify-items-center bg-bg p-2 font-sec font-bold rounded-t">
             <div className="justify-self-start">Coin</div>
             <div className="justify-self-start">Amount</div>
             <div className="justify-self-start">Status</div>

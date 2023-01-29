@@ -5,9 +5,9 @@ import { formatCurrency } from "../../utils/formatCurrency";
 const VolumeOrderBook = () => {
   const { orders } = useOrders();
   return (
-    <div>
+    <div className="text-white">
       <h1 className="text-xl font-sec py-4 font-bold text-paper">Order book</h1>
-      <div className="font-sec grid grid-cols-5 justify-items-center py-2 px-2 bg-card rounded-t font-semibold">
+      <div className="font-sec grid grid-cols-5 justify-items-center py-2 px-2 bg-bg rounded-t font-semibold">
         <div className="justify-self-start">Coin</div>
         <div className="justify-self-start">Amount</div>
         <div className="justify-self-start">Duration</div>
@@ -56,7 +56,7 @@ const VolumeOrderTableItem = ({
     <>
       {loading && <Loading />}
       {!loading && (
-        <div className="grid grid-cols-5 font-sec font-medium py-2 px-2 bg-card/25">
+        <div className="grid grid-cols-5 font-sec font-medium py-2 px-2 bg-bg/50">
           <div>{coin}</div>
           <div>{formatCurrency(amount)}</div>
           <div>{duration}</div>

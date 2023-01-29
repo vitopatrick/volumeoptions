@@ -14,16 +14,17 @@ const MobileNavbar = ({ show, close }: any) => {
       <div className="absolute top-0 right-0 p-4">
         <FaTimes
           onClick={() => close(false)}
-          className="text-3xl fill-bg cursor-pointer"
+          className="text-3xl fill-white cursor-pointer"
         />
       </div>
       <div className="flex flex-col gap-4 p-4 mt-10">
-        {links.map((link) => (
+        {links.map((link: any) => (
           <Link
-            href={`/${link}`}
-            className="font-main text-3xl font-normal my-4 text-bg"
+            href={`/${link.path}`}
+            key={link.id}
+            className="capitalize text-4xl my-6 font-light hover:text-teal-400 hover:underline"
           >
-            {link}
+            {link.name}
           </Link>
         ))}
       </div>

@@ -16,7 +16,7 @@ const WithdrawalHistory = () => {
   } = useTransactions("/withdraw");
 
   return (
-    <div className="mb-6">
+    <div className="mb-6 text-white font-main">
       <div>
         <h3 className="font-sec font-bold text-paper py-2 mx-2 text-xl hover:underline cursor-pointer">
           Withdrawal History
@@ -46,7 +46,7 @@ const WithdrawalTable = ({ withdrawals, loading }: withdrawal) => {
       {!loading && (
         <div className="mx-2">
           {/* grid wrapper container */}
-          <div className="grid grid-cols-4 md:grid-cols-5 gap-2 mt-4 bg-card py-3 rounded px-2 justify-items-center">
+          <div className="grid grid-cols-4 md:grid-cols-5 gap-2 mt-4 bg-bg py-3 rounded px-2 justify-items-center">
             {/* grid child */}
             <div className="font-sec font-bold justify-self-start">Coin</div>
             {/* grid child */}
@@ -62,7 +62,7 @@ const WithdrawalTable = ({ withdrawals, loading }: withdrawal) => {
           </div>
           {/* withdrawal details */}
 
-          <div className="grid  grid-cols-4 md:grid-cols-5 justify-items-center px-2 py-2 bg-card/20 ">
+          <div className="grid  grid-cols-4 md:grid-cols-5 justify-items-center px-2 py-2 bg-bg/50 ">
             {withdrawals.map((withdrawal: any) => (
               <>
                 {
@@ -78,11 +78,11 @@ const WithdrawalTable = ({ withdrawals, loading }: withdrawal) => {
                     </div>
                     <>
                       {withdrawal.approved ? (
-                        <div className="font-sec justify-self-start py-1 text-success">
+                        <div className="font-sec justify-self-start py-1 text-teal-400">
                           Approved
                         </div>
                       ) : (
-                        <div className="font-sec text-danger py-1 justify-self-start">
+                        <div className="font-sec text-red-400 py-1 justify-self-start">
                           Pending
                         </div>
                       )}

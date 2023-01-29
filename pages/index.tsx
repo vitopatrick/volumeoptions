@@ -1,5 +1,6 @@
 import Endless from "../components/landing-page/endless-possibities/Endless";
 import Faq from "../components/landing-page/faq/frequently-asked-questions";
+import Footer from "../components/landing-page/footer/Footer";
 import Hero from "../components/landing-page/hero";
 import TrendingCoinsTable from "../components/landing-page/hot-coins/hot-coins";
 import Navbar from "../components/landing-page/nav-bar";
@@ -9,7 +10,7 @@ import StartToday from "../components/landing-page/start-today/start-today";
 
 export default function Home() {
   return (
-    <div className="bg-bg text-text_main min-h-0">
+    <div className="bg-bg text-text_main">
       <Navbar />
       <Hero />
       <TrendingCoinsTable />
@@ -18,14 +19,7 @@ export default function Home() {
       <Faq />
       <Endless />
       <StartRow />
-      <div className="p-3">
-        <div className="text-center font-main text-success_light/60">
-          volume exchange © 2023
-        </div>
-        <div className="text-center font-main text-success_light/40">
-          for further support contact volumeexchange@support.co
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

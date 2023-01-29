@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useContext, ChangeEvent } from "react";
+import { useContext } from "react";
 import { auth, store } from "../../firebase";
 import { FormContext } from "./context/FormContext";
 import { setDoc, doc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import DismissibleAlert from "../../shared/alerts/dismissible";
+import { toast } from "react-toastify";
 
 const StepTwo = ({ move }: any) => {
-  const [error, setError] = useState<{} | String | null | unknown>();
-  const [show, setShow] = useState(false);
   // nextjs router
   const router = useRouter();
 
@@ -26,8 +23,11 @@ const StepTwo = ({ move }: any) => {
   const registerUser = async (e: any) => {
     e.preventDefault();
     if (!phone_number || !country_of_origin) {
-      setError("Please fill the form correctly");
-      setShow(true);
+      toast("Fill the form properly", {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
       return;
     }
 
@@ -55,32 +55,36 @@ const StepTwo = ({ move }: any) => {
       // redirect users to the there dashboard
       router.push("/dashboard");
     } catch (error: any | unknown) {
-      console.error(error.code);
-      // check if the email already is use
-      if (error.code === "auth/email-already-in-use") {
-        setError("Email Already in use");
-        setShow(true);
-      }
-      // check for weak password
-      if (error.code === "auth/weak-password") {
-        setError("Please Enter A stronger Password");
-        setShow(true);
-      }
-      // check for email validity
-      if (error.code === "auth/invalid-email") {
-        setError("invalid email address");
-        setShow(true);
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          return toast("Email already is in use", {
+            type: "error",
+            position: "bottom-center",
+            bodyClassName: "toast",
+          });
+        case "auth/weak-password":
+          return toast("Password is weak", {
+            type: "error",
+            position: "bottom-center",
+            bodyClassName: "toast",
+          });
+        case "auth/invalid-email":
+          return toast("Invalid Email Address", {
+            type: "error",
+            position: "bottom-center",
+            bodyClassName: "toast",
+          });
       }
     }
   };
 
   return (
     <>
-      <div className="mt-8 w-full md:w-[80%] p-4 mx-auto">
+      <div className="mt-8 w-full md:w-[80%] font-main p-6 md:p-4 mx-auto">
         <form>
           {/* form header */}
           <div>
-            <h3 className="text-bg text-4xl font-main font-medium">
+            <h3 className="md:text-bg text-4xl font-bold text-white">
               Complete Sign Up
             </h3>
           </div>
@@ -88,7 +92,7 @@ const StepTwo = ({ move }: any) => {
           <div className="flex flex-col mt-8">
             <label
               htmlFor="number"
-              className="md:text-sm text-gray-500 font-main"
+              className="md:text-sm text-white md:text-bg"
             >
               Phone Number
             </label>
@@ -99,48 +103,27 @@ const StepTwo = ({ move }: any) => {
                 id="phone_number"
                 value={phone_number}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                className="rounded my-3 font-main text-base px-2 py-3 w-full bg-gray_bg focus-within:outline-none"
+                className="rounded text-base mt-2 px-2 py-3 w-full bg-neutral-300 outline-none"
               />
-            </div>
-          </div>
-          {/* password fieldset */}
-          <div className="mt-4 flex flex-col">
-            <label
-              htmlFor="password"
-              className="md:text-sm text-gray-500 font-main"
-            >
-              Country of Origin
-            </label>
-            <div>
-              <select
-                value={country_of_origin}
-                onChange={(e) => setCountryOfOrigin(e.target.value)}
-                className="rounded my-3 font-sec text-base px-2 py-3  bg-gray_bg  5 w-full   focus-within:outline-none"
-              >
-                <option value="Nigeria">Nigeria</option>
-                <option value="Ghana">Ghana</option>
-                <option value="togo">Togo</option>
-              </select>
             </div>
           </div>
           {/* sign up button */}
           <div className="flex justify-between items-center my-3">
             <button
-              className="font-main capitalize text-bg bg-gray_bg rounded py-2 px-3 shadow shadow-gray_bg border border-bg-[1px] items-center"
+              className="font-main capitalize text-bg bg-neutral-300 rounded py-2 px-3  border border-card md:border-bg items-center"
               onClick={() => move(false)}
             >
               go back
             </button>
             <button
               onClick={registerUser}
-              className="font-main bg-bg text-text_main text-white text-[1rem] rounded shadow shadow-bg py-2 px-3"
+              className="font-main bg-card md:bg-bg text-text_main text-white text-[1rem] rounded shadow py-2 px-3"
             >
               Create Account
             </button>
           </div>
         </form>
       </div>
-      <DismissibleAlert message={error} show={show} close={setShow} />
     </>
   );
 };

@@ -50,7 +50,7 @@ export const tradingOptions = [
   {
     id: 9,
     level: "level 9",
-    minAmount: 39000,
+    minAmount: 30000,
     roi: 32,
   },
   {

@@ -1,4 +1,4 @@
-import AuthNav from "../../../components/auth-nav/AuthNav";
+import AuthNav from "../../../components/auth-nav/auth-navbar";
 import SignUpForm from "../../../components/sign-up-form/sign-up-form";
 import StepTwo from "../../../components/sign-up-form/origin-form";
 import { useState } from "react";
@@ -21,7 +21,7 @@ const SignUp = () => {
             </h4>
           </div>
           {/* Sign Up forms */}
-          <div className="flex-1">
+          <div className="flex-1 bg-bg md:bg-white">
             <AuthNav
               cta="Already Have An Account ?"
               path="sign-in"

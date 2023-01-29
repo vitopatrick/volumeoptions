@@ -19,12 +19,12 @@ const Chart = () => {
   const { coin, loading } = useFetchAllCoin(selected, 30);
 
   return (
-    <div className="p-4 bg-card rounded flex-1 items-stretch">
+    <div className="p-4 bg-bg text-white font-main rounded flex-1 items-stretch">
       {/* selector */}
       <div className="mb-8 flex items-center justify-between">
-        <div className="bg-bg py-1 px-2 rounded focus:border-paper focus:border-[1px]">
+        <div className="bg-card py-1 px-2 rounded focus:border-paper focus:border-[1px]">
           <select
-            className="bg-bg focus:outline-none font-sec text-sm font-bold"
+            className="bg-card outline-none text-sm font-bold"
             value={selected}
             onChange={(e) => setCoin(e.target.value)}
           >
@@ -35,7 +35,7 @@ const Chart = () => {
             <option value="tron">Tron</option>
           </select>
         </div>
-        <div className="text-paper font-sec border-paper border-[1px] px-2 rounded cursor-pointer">
+        <div className="text-paper border-paper border-[1px] px-2 rounded cursor-pointer">
           1 Month
         </div>
       </div>
@@ -52,7 +52,11 @@ const Chart = () => {
                 </linearGradient>
               </defs>
               <XAxis dataKey="date" tickCount={4} />
-              <YAxis dataKey="price" axisLine={false} />
+              <YAxis
+                dataKey="price"
+                axisLine={false}
+                interval="preserveStartEnd"
+              />
               <Area
                 type="monotone"
                 dataKey="price"
@@ -73,9 +77,9 @@ const Chart = () => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip text-bg bg-success_light p-2 rounded">
-        <p className="label font-sec">on {label}</p>
-        <p className="desc font-sec font-bold">{`Price was ${formatCurrency(
+      <div className="custom-tooltip text-white bg-bg font-main p-2 rounded">
+        <p className="label ">on {label}</p>
+        <p className="desc  font-bold">{`Price was ${formatCurrency(
           payload[0].value
         )}`}</p>
       </div>

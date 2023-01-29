@@ -10,16 +10,13 @@ import { useContext, useMemo, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { store } from "../../firebase";
 import { useFetchUser } from "../../hooks/useFetchUser";
-import { calculateProfit } from "../../lib/calculate-profit";
 import { tradingOptions } from "../../lib/trading-options";
-import DismissibleAlert from "../../shared/alerts/dismissible";
+import { toast } from "react-toastify";
 import { formatCurrency } from "../../utils/formatCurrency";
 
 const VolumeTradingPlan = () => {
   // State of the select tag
   const [level, setLevel] = useState("level 1");
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState("");
 
   const handleChange = (event: any) => {
     setLevel(event.target.value);
@@ -42,8 +39,11 @@ const VolumeTradingPlan = () => {
   // function to add Orders
   const addOrders = async (e: any) => {
     if (userState.MainAccount < options.minAmount) {
-      setError("Insufficient Account");
-      setShow(true);
+      toast("Insufficient balance,please deposit", {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
       return;
     }
 
@@ -66,43 +66,43 @@ const VolumeTradingPlan = () => {
 
       await updateDoc(userRef, {
         TradingAccount: userState.TradingAccount + options.minAmount,
+        MainAccount: userState.MainAccount - options.minAmount,
       });
 
-      router.push("/dashboard");
+      router.push("/volume-trading");
     } catch (error: any) {
-      setError(error.code);
-      setShow(true);
+      toast(e.code, {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
     }
   };
 
   return (
-    <div className="bg-card flex-2 p-4 rounded">
+    <div className="bg-bg text-white font-main flex-2 p-4 rounded">
       {/* parent container */}
       <div>
         {/* child content */}
         <div className="flex flex-col gap-4">
           {/* header component */}
           <div className="mb-4">
-            <h3 className="pt-2 pb-1 font-sec text-paper text-xl font-bold">
-              Trading Options
-            </h3>
-            <p className="font-sec text-sm text-neutral-400">
-              select your appropriate trading plan ...
-            </p>
+            <h3 className="pt-2 pb-1 text-xl font-bold">Trading Options</h3>
+            <p className="text-sm">select your appropriate trading plan ...</p>
           </div>
           {/* form component */}
           <div>
             <div>
               <label
                 htmlFor="trading options"
-                className="font-sec text-sm font-bold text-neutral-500 mb-6"
+                className="text-sm font-bold mb-6"
               >
                 Options
               </label>
-              <div className="bg-bg py-2 px-2 rounded mt-2 w-full">
+              <div className="bg-card py-2 px-2 rounded mt-2 w-full">
                 <select
                   value={level}
-                  className="bg-bg  outline-none font-sec text-sm w-full"
+                  className="bg-transparent text-bg outline-none text-sm w-full"
                   onChange={handleChange}
                 >
                   {tradingOptions.map((option) => (
@@ -152,7 +152,6 @@ const VolumeTradingPlan = () => {
           </div>
         </div>
       </div>
-      <DismissibleAlert show={show} close={setShow} message={error} />
     </div>
   );
 };

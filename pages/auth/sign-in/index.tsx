@@ -1,4 +1,4 @@
-import AuthNav from "../../../components/auth-nav/AuthNav";
+import AuthNav from "../../../components/auth-nav/auth-navbar";
 import LoginForm from "../../../components/login-form/login-form";
 
 const SignIn = () => {
@@ -17,7 +17,7 @@ const SignIn = () => {
             </h1>
           </div>
           {/* Form Elements */}
-          <div className="flex-1">
+          <div className="flex-1 bg-bg md:bg-white">
             <AuthNav
               cta="Don't have an account"
               path="sign-up"

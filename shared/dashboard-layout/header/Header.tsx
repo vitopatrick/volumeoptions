@@ -24,17 +24,17 @@ const Header = () => {
 
   return (
     <>
-      <div className="p-3 bg-card">
+      <div className="p-3 bg-bg text-white font-main">
         {/* parent div */}
         <div className="flex justify-between items-center ">
           {/* flex item child */}
-          <div className="flex items-center w-[90%] text-2xl font-bold font-sec text-paper py-2 capitalize">
+          <div className="flex items-center w-[90%] text-2xl font-semibold font-sec text-paper py-2 capitalize">
             {header}
           </div>
           {/* icons div */}
           <div className="flex items-center flex-1 gap-4">
             <div className="hidden md:block">
-              {loading && <SkeletonCircle height={40} width={40} />}
+              {loading && <SkeletonCircle height={50} width={50} />}
               {!loading && (
                 <Link
                   href="/account-profile"

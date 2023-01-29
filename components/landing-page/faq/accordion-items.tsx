@@ -17,7 +17,7 @@ const AccordionItems = ({ question, answer, index }: any) => {
       <h2>
         <button
           type="button"
-          className="flex items-center justify-between w-full p-5 font-medium text-left text-success_light bg-card rounded-t"
+          className="flex items-center justify-between w-full p-5 font-bold text-left text-teal-500 bg-card rounded-t"
           onClick={() => changeIndex(index)}
         >
           <span className="flex items-center font-main">
@@ -28,7 +28,9 @@ const AccordionItems = ({ question, answer, index }: any) => {
         </button>
       </h2>
       <div className={index === selectedIndex ? "block" : "hidden"}>
-        <div className="p-5 font-light bg-card/70 font-main">{answer}</div>
+        <div className="p-5 font-light bg-card/70 font-main text-white">
+          {answer}
+        </div>
       </div>
     </div>
   );

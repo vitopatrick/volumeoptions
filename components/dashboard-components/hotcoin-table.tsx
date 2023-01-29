@@ -7,7 +7,7 @@ const HotCoinTable = ({ coins, loading }: any) => {
       {loading && <Loading />}
       {!loading && (
         <div>
-          <div className="flex items-center justify-between mt-3 bg-bg/50 py-3 px-2 rounded">
+          <div className="flex items-center justify-between mt-3 bg-card py-3 px-2 rounded">
             <div className="font-sec font-bold text-paper">Coin</div>
             <div className="font-sec font-bold text-paper">Price</div>
           </div>

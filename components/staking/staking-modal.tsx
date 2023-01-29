@@ -3,13 +3,19 @@ import { FcBriefcase } from "react-icons/fc";
 import { FiDollarSign } from "react-icons/fi";
 import { FaTimes } from "react-icons/fa";
 import { stakingOptions } from "../../lib/staking-options";
-import DismissibleAlert from "../../shared/alerts/dismissible";
-import { doc, updateDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  collection,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { toast } from "react-toastify";
 
 interface ModalProps {
   visible: Boolean;
@@ -17,8 +23,6 @@ interface ModalProps {
 }
 
 const StakingModal = ({ visible, setVisible }: ModalProps) => {
-  const [show, setShow] = useState(false);
-  const [error, setError] = useState("");
   const [amount, setAmount] = useState<string | number | any>();
   const [plan, setPlan] = useState("Silver");
   const [selectedPlan, setSelectedPlan] = useState<any>();
@@ -44,37 +48,65 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
     e.preventDefault();
 
     if (!amount) {
-      setError("Amount Field Empty");
-      setShow(true);
+      toast("Amount is empty", {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
       return;
     }
 
     if (state.MainAccount < amount) {
-      setError("Insufficient Balance");
-      setShow(true);
-      router.push("/deposit");
+      toast("Insufficient Balance,Please Deposit", {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
     }
 
     try {
       if (parseInt(amount) < selectedPlan.min) {
-        setError(
-          `Amount Should not be less than ${formatCurrency(selectedPlan.min)}`
+        toast(
+          `Amount Should not be less than ${formatCurrency(selectedPlan.min)}`,
+          {
+            type: "error",
+            position: "bottom-center",
+            bodyClassName: "toast",
+          }
         );
-        setShow(true);
+
         return;
       }
 
       const docRef = doc(store, "users", `${user.email}`);
+      const collectionRef = collection(
+        store,
+        "users",
+        `${user.email}`,
+        "/staking"
+      );
+
+      await addDoc(collectionRef, {
+        amount,
+        plan,
+        apr: selectedPlan.apr,
+        duration: selectedPlan.duration,
+        date: serverTimestamp(),
+      });
 
       await updateDoc(docRef, {
         StakingAccount: amount,
         plan,
+        MainAccount: state.MainAccount - amount,
       });
-
-      router.push("/dashboard");
+      setVisible(false);
+      router.push("/staking");
     } catch (error: unknown | any) {
-      setError(error.code);
-      setShow(true);
+      toast(e.code, {
+        type: "error",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
     }
   };
 
@@ -89,7 +121,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
         }
       >
         {/* main div that will be center */}
-        <div className="w-[80%] md:w-[40%] mx-auto relative my-12 bg-card rounded-md shadow-md p-4">
+        <div className="w-[80%] md:w-[40%] mx-auto relative my-12 bg-bg font-main text-white rounded-md shadow-md p-4">
           <div className="absolute top-0 right-0 p-2">
             <FaTimes onClick={() => setVisible(false)} />
           </div>
@@ -105,7 +137,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
               >
                 Enter Amount
               </label>
-              <div className="flex items-center bg-gray_bg py-3 px-1 rounded mt-2 gap-2">
+              <div className="flex items-center bg-neutral-300 py-3 px-1 rounded mt-2 gap-2">
                 <FiDollarSign className="stroke-bg" />
                 <input
                   type="text"
@@ -113,24 +145,24 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
                   id="amount"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  className="w-full bg-gray_bg text-bg focus:outline-none px-2"
+                  className="w-full bg-transparent text-bg outline-none px-2"
                 />
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-full my-4">
               <label
                 htmlFor="staking option"
                 className="font-sec my-2 text-neutral-400"
               >
                 Staking Option
               </label>
-              <div className="flex items-center bg-gray_bg py-3 px-1 rounded mt-2 gap-2">
+              <div className="flex items-center bg-neutral-300 py-3 px-1 rounded mt-2 gap-2">
                 <select
                   name="option"
                   id="option"
                   value={plan}
                   onChange={(e) => setPlan(e.target.value)}
-                  className="w-full bg-gray_bg text-bg focus:outline-none px-2"
+                  className="w-full bg-transparent text-bg focus:outline-none px-2"
                 >
                   {stakingOptions.map((stakingOption) => (
                     <option key={stakingOption.id} value={stakingOption.name}>
@@ -142,13 +174,12 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
             </div>
             <button
               onClick={updateStakingPlan}
-              className="mt-4 inline-block w-full font-sec bg-bg text-white py-2 rounded"
+              className="mt-4 inline-block w-full font-sec bg-card text-white py-2 rounded"
             >
               Stake Now
             </button>
           </div>
         </div>
-        <DismissibleAlert show={show} close={setShow} message={error} />
       </div>
     </>
   );

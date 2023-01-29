@@ -8,12 +8,9 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="bg-card">
+    <nav className="bg-bg text-white font-main shadow-md">
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
-        <Link
-          href="/"
-          className="font-main text-lg md:text-2xl text-success_light font-bold"
-        >
+        <Link href="/" className="text-lg md:text-2xl text-teal-500 font-bold">
           Volume Exchange
         </Link>
         {/* links */}
@@ -22,11 +19,10 @@ const Navbar = () => {
           <div className="hidden md:flex gap-6 items-center">
             {links.map((link: any) => (
               <Link
-                key={link}
-                href={`/${link}`}
-                className="font-main font-medium hover:text-success_light transition-transform"
+                href={`/${link.path}`}
+                className="capitalize hover:text-teal-500 hover:font-bold"
               >
-                {link}
+                {link.name}
               </Link>
             ))}
           </div>
@@ -34,13 +30,13 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <Link
               href="/auth/sign-up"
-              className="font-main bg-success_light py-2 px-4 rounded text-bg font-medium"
+              className="font-main bg-teal-500 py-2 px-4 rounded text-bg font-medium"
             >
               Register Now
             </Link>
             <Link
               href="/auth/sign-in"
-              className="font-main hidden md:inline-block border-success_light border-[1px] px-6 py-2 rounded font-medium text-success_light"
+              className="font-main hidden md:inline-block border-teal-500 border-[1px] px-6 py-2 rounded font-medium text-teal-500"
             >
               Login
             </Link>

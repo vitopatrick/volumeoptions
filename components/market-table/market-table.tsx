@@ -2,7 +2,7 @@ import { useFetchAllCoins } from "../../hooks/useFetchAllCoins";
 import Table from "../../shared/table/Table";
 
 const MarketTable = () => {
-  const { coins, error, loading } = useFetchAllCoins(6);
+  const { coins, error, loading } = useFetchAllCoins(30);
 
   return (
     <>

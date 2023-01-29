@@ -1,5 +1,4 @@
 import { useState } from "react";
-import UserChangeDetails from "./user-change-details-modal";
 import UserModal from "./user-verification-modal";
 
 const UserVerification = () => {
@@ -17,18 +16,8 @@ const UserVerification = () => {
             Start verification
           </button>
         </div>
-        {/* <div className="my-4">
-          <button
-            onClick={() => setModalTwo(true)}
-            className="font-sec rounded-full block px-3 py-1 text-xs border-red-500 border-[1px] text-red-500"
-          >
-            Change Details
-          </button>
-        </div> */}
       </div>
-
       <UserModal hide={hide} setHide={setHide} />
-      <UserChangeDetails open={modalTwo} setOpen={setModalTwo} />
     </>
   );
 };
