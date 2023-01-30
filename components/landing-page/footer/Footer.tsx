@@ -20,7 +20,7 @@ const Footer = () => {
               Terms & Condition
             </h4>
             <Link href="/risk" className="text-white">
-              Risk
+              Tax
             </Link>
           </div>
         </div>
