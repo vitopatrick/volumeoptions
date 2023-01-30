@@ -5,12 +5,12 @@ import { useFetchUser } from "../../hooks/useFetchUser";
 import Layout from "../../shared/dashboard-layout/Layout";
 
 const AccountProfilePage = () => {
-  const { error, loading, userState: user } = useFetchUser();
+  const { loading, userState: user } = useFetchUser();
 
   return (
     <Layout>
       <UsersName user={user} loading={loading} />
-      <UserVerification />
+      <UserVerification user={user} loading={loading} />
       <UsersDetails user={user} loading={loading} />
     </Layout>
   );

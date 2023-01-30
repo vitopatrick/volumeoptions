@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { toast } from "react-toastify";
+import TradingModal from "../../shared/modal/trading-modal";
 
 interface ModalProps {
   visible: Boolean;
@@ -26,6 +27,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
   const [amount, setAmount] = useState<string | number | any>();
   const [plan, setPlan] = useState("Silver");
   const [selectedPlan, setSelectedPlan] = useState<any>();
+  const [show, setShow] = useState(false);
 
   const { user }: any = useContext(UserContext);
   const { userState: state }: any = useFetchUser();
@@ -44,9 +46,8 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
     selectPlan();
   }, [plan]);
 
-  const updateStakingPlan = async (e: any) => {
+  const openModal = (e: any) => {
     e.preventDefault();
-
     if (!amount) {
       toast("Amount is empty", {
         type: "error",
@@ -55,9 +56,12 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
       });
       return;
     }
+    setShow(true);
+  };
 
+  const updateStakingPlan = async (e: any) => {
     if (state.MainAccount < amount) {
-      toast("Insufficient Balance,Please Deposit", {
+      return toast("Insufficient Balance,Please Deposit", {
         type: "error",
         position: "bottom-center",
         bodyClassName: "toast",
@@ -100,6 +104,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
         MainAccount: state.MainAccount - amount,
       });
       setVisible(false);
+      setShow(false);
       router.push("/staking");
     } catch (error: unknown | any) {
       toast(e.code, {
@@ -173,7 +178,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
               </div>
             </div>
             <button
-              onClick={updateStakingPlan}
+              onClick={openModal}
               className="mt-4 inline-block w-full font-sec bg-card text-white py-2 rounded"
             >
               Stake Now
@@ -181,6 +186,11 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
           </div>
         </div>
       </div>
+      <TradingModal
+        hide={show}
+        setHide={setShow}
+        tradingFunction={updateStakingPlan}
+      />
     </>
   );
 };

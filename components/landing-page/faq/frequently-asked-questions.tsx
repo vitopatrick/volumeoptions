@@ -1,5 +1,5 @@
 import AccordionItems from "./accordion-items";
-import { faqs } from "./faqs";
+import { faqs } from "./constants/faqs";
 
 const Faq = () => {
   return (

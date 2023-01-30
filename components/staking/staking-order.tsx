@@ -3,50 +3,51 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import { useFetchStakes } from "./hook/useFetchStaking";
 
 const StakingOrder = () => {
-  const { loading } = useFetchStakes();
+  const { stakes } = useFetchStakes();
   return (
     <section className="text-white font-main my-3">
       <div className="mx-2">
         <header>
           <h4 className="font-semibold text-2xl py-3">Staking Orders</h4>
         </header>
-        {loading && <Loading />}
-        {!loading && <StakingTable />}
+        <StakingTable />
       </div>
     </section>
   );
 };
 
 const StakingTable = () => {
-  const { stakes } = useFetchStakes();
+  const { stakes, loading } = useFetchStakes();
 
   return (
     <>
-      {stakes.length < 0 ? (
-        <div className="font-semibold flex items-center justify-center my-8 text-base text-gray_bg">
-          Opps Nothing here
-        </div>
-      ) : (
-        <>
-          <section className="grid grid-cols-5 gap-4 bg-bg py-3 px-2 rounded-t font-semibold">
-            <div>Plan</div>
-            <div>Duration</div>
-            <div>Amount</div>
-            <div>APR</div>
-            <div>Date</div>
-          </section>
-          {stakes.map((stake: any) => (
-            <StakingItem
-              key={stake.amount + Math.random()}
-              plan={stake.plan}
-              amount={stake.amount}
-              duration={stake.duration}
-              apr={stake.apr}
-              date={stake.date}
-            />
-          ))}
-        </>
-      )}
+      {loading && <Loading />}
+      {!loading &&
+        (stakes.length > 0 ? (
+          <div>
+            <section className="grid grid-cols-5 gap-4 bg-bg py-3 px-2 rounded-t font-semibold">
+              <div>Plan</div>
+              <div>Duration</div>
+              <div>Amount</div>
+              <div>APR</div>
+              <div>Date</div>
+            </section>
+            {stakes.map((stake: any) => (
+              <StakingItem
+                key={stake.amount + Math.random()}
+                plan={stake.plan}
+                amount={stake.amount}
+                duration={stake.duration}
+                apr={stake.apr}
+                date={stake.date}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="font-semibold flex items-center justify-center my-8 text-base text-gray_bg">
+            Opps Nothing here
+          </div>
+        ))}
     </>
   );
 };

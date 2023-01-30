@@ -21,20 +21,26 @@ const WalletAddress = () => {
           <div className="bg-bg rounded p-2 my-2 md:my-0">
             <h1 className="font-bold text-paper my-1">Bitcoin</h1>
             {loading && <SkeletonText width={200} height={10} />}
-            {!loading && <h2>{state?.bitcoin ? state?.bitcoin : "N/A"}</h2>}
+            {!loading && (
+              <h2>{state?.bitcoin_address ? state?.bitcoin_address : "N/A"}</h2>
+            )}
           </div>
           <div className="bg-bg rounded p-2 my-2 md:my-0">
-            <h1 className="font-sec font-bold text-paper my-1">USDT TRC 20</h1>
+            <h1 className="font-sec font-bold text-paper my-1">USDT</h1>
             {loading && <SkeletonText width={200} height={10} />}
             {!loading && (
-              <h2 className="font-sec">{state?.usdt ? state?.usdt : "N/A"}</h2>
+              <h2 className="font-sec">
+                {state?.USDT_address ? state?.USDT_address : "N/A"}
+              </h2>
             )}
           </div>
           <div className="bg-bg rounded p-2 my-2 md:my-0">
             <h1 className="font-sec font-bold text-paper my-1">Tron</h1>
             {loading && <SkeletonText width={200} height={10} />}
             {!loading && (
-              <h2 className="font-sec">{state?.tron ? state?.tron : "N/A"}</h2>
+              <h2 className="font-sec">
+                {state?.Tron_address ? state?.Tron_address : "N/A"}
+              </h2>
             )}
           </div>
           <div className="bg-bg rounded p-2 my-2 md:my-0">
@@ -42,7 +48,7 @@ const WalletAddress = () => {
             {loading && <SkeletonText width={200} height={10} />}
             {!loading && (
               <h2 className="font-sec">
-                {state?.ethereum ? state?.ethereum : "N/A"}
+                {state?.ethereum_address ? state?.ethereum_address : "N/A"}
               </h2>
             )}
           </div>
@@ -51,7 +57,7 @@ const WalletAddress = () => {
             {loading && <SkeletonText width={200} height={10} />}
             {!loading && (
               <h2 className="font-sec">
-                {state?.solana ? state?.solana : "N/A"}
+                {state?.solana_address ? state?.solana_address : "N/A"}
               </h2>
             )}
           </div>

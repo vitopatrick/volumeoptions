@@ -1,21 +1,18 @@
-# TODO 
-<!-- - properly customize tailwindCss -->
-<!-- - change font family and colors and add do it carefully -->
-<!-- - break codes into chunks and dynamically load some components -->
-<!-- - change limit to 100btc -->
-<!-- - add option to set Trading password -->
-<!-- - make market coins up to 30 -->
-<!-- - Install React Toast and then customize it : DONE -->
-<!-- - arrange and name folders properly -->
-<!-- - create collection for staking  -->
-<!-- - create confirmation page for staking  -->
-<!-- - arrange files properly -->
-<!-- - confirm roi amount  -->
-<!-- - add automatic toggle button -->
-<!-- - change colors  -->
-<!-- - add more content to the landing page and the about us page  -->
-<!-- - check if all account are working with the update  -->
-<!-- - add about us page  -->
-<!-- - improve security on the site -->
-<!-- - make change password work -->
-<!-- - country hook -->
+## Finishing this today 
+- break codes into smaller bits of code
+- Add Trading Password feature [x]
+    - Add password to account settings page [x]
+    - Add change Trading password [x]
+- Add conversion section in wallets page[x]
+    - Add a table showing the quantity of coins available, then add a conversion modal[x]
+- Make Trading password a must before carrying out every transaction (staking,volume trading,withdrawal)[x]
+- Use clients already existing account to test the new website features[x]
+- add risk and warning pages 
+- make text smaller on mobile view and then add icons.
+- setup emails api
+    - Register 
+    - Deposit
+    - Stake 
+    - volume trading
+    - withdrawals
+- Make forgotten password email work

@@ -3,11 +3,19 @@ import { MdOutlineVerified, MdPublishedWithChanges } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { UserType } from "../../hooks/useFetchUser";
 import { SkeletonCircle, SkeletonText } from "../../shared/skeleton/Skeleton";
+import { useState } from "react";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 const UsersDetails = ({
   user,
   loading,
 }: UserType | null | {} | undefined | any) => {
+  const [isShow, setIsShow] = useState(false);
+
+  const toggleShow = () => {
+    setIsShow(!isShow);
+  };
+
   return (
     <>
       {/* parent grid container */}
@@ -78,11 +86,20 @@ const UsersDetails = ({
           )}
           <div>
             <h2 className="font-medium text-base mb-1">Trading Password</h2>
-            {loading && <SkeletonText width={5} height={200} />}
+            {loading && <SkeletonText width={200} height={5} />}
             {!loading && (
-              <h1 className="font-bold text-base md:text-lg text-paper">
-                {user.tradingPassword ? user.TradingPassword : "N/A"}
-              </h1>
+              <div className="flex items-center gap-3">
+                <h1 className="font-bold text-base md:text-lg text-paper">
+                  {user.tradingPassword
+                    ? isShow
+                      ? user.tradingPassword
+                      : "xxxxx"
+                    : "N/A"}
+                </h1>
+                <button onClick={toggleShow}>
+                  {isShow ? <BsEye /> : <BsEyeSlash />}
+                </button>
+              </div>
             )}
           </div>
         </div>

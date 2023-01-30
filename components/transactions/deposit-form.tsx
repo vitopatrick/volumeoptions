@@ -5,11 +5,13 @@ import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import TradingModal from "../../shared/modal/trading-modal";
 
 const DepositForm = () => {
   const [selectedCoin, setSelectedCoin] = useState<any | null | undefined>({});
   const [coin, setCoin] = useState<string>("Bitcoin");
   const [amount, setAmount] = useState<string | number | any>("");
+  const [show, setShow] = useState(false);
 
   const findCoin = () => {
     const selected = addresses.find((address) => address.network == coin);
@@ -25,16 +27,19 @@ const DepositForm = () => {
   // user context
   const { user: state }: any = useContext(UserContext);
 
-  const depositCoin = async () => {
+  const openModal = (e: any) => {
+    e.preventDefault();
     if (!amount || !coin) {
-      toast("Please fill out the form", {
-        type: "error",
+      return toast("Please fill the form properly", {
         position: "bottom-center",
+        type: "error",
         bodyClassName: "toast",
       });
-      return;
     }
+    setShow(true);
+  };
 
+  const depositCoin = async () => {
     try {
       // get the collection Ref
       const depositRef = collection(
@@ -51,6 +56,7 @@ const DepositForm = () => {
       });
       // navigate to the dashboard
       router.push("/deposit");
+      setShow(false);
     } catch (e: any) {
       toast(e.code, {
         type: "error",
@@ -134,7 +140,7 @@ const DepositForm = () => {
             {/* button to send request */}
           </form>
           <button
-            onClick={depositCoin}
+            onClick={openModal}
             className="bg-bg py-2 rounded px-3 shadow w-full md:w-fit my-2"
           >
             Deposit
@@ -142,6 +148,11 @@ const DepositForm = () => {
         </section>
         {/* end of form to fill */}
       </div>
+      <TradingModal
+        hide={show}
+        setHide={setShow}
+        tradingFunction={depositCoin}
+      />
     </div>
   );
 };

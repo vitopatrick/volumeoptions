@@ -39,7 +39,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
     try {
       const docRef = doc(store, "users", `${user.email}`);
       await updateDoc(docRef, {
-        selected: address,
+        [`${selected}_address`]: address,
       });
 
       setHide(false);

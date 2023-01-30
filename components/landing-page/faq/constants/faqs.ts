@@ -17,4 +17,10 @@ export const faqs = [
     answer:
       "Yes volume exchange accepts fiat currencies in exchange for the equivalent value.",
   },
+  {
+    id: 4,
+    question: "Is Volume Exchange safe?",
+    answer:
+      "Volume Exchange boasts one of the world's most sophisticated security technology and maintenance team, and is constantly upgrading our security systems to ensure the safety of user assets and accounts",
+  },
 ];

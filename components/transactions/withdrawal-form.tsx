@@ -5,6 +5,7 @@ import { UserContext } from "../../context/UserContext";
 import { store } from "../../firebase";
 import { toast } from "react-toastify";
 import ToggleButton from "./toggle";
+import TradingModal from "../../shared/modal/trading-modal";
 
 const coins = [
   "Ethereum",
@@ -22,11 +23,13 @@ const WithdrawalForm = () => {
     string | number | boolean
   >(false);
   const [remarks, setRemarks] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [show, setShow] = useState(false);
 
   const { user: state }: any = useContext(UserContext);
   const router = useRouter();
 
-  const sendWithdrawal = async (e: any) => {
+  const openModal = (e: any) => {
     e.preventDefault();
     if (!amount || !selectedCoin || !withdrawalType || !remarks) {
       toast("Please fill the form properly", {
@@ -36,7 +39,10 @@ const WithdrawalForm = () => {
       });
       return;
     }
+    setShow(true);
+  };
 
+  const sendWithdrawal = async () => {
     try {
       // get the collection Ref
       const depositRef = collection(
@@ -51,11 +57,12 @@ const WithdrawalForm = () => {
         coin: selectedCoin,
         approved: false,
         remarks,
-        withdrawal_type: withdrawalType ? "Automatic" : "Manual",
+        address,
+        automatic_withdrawal: withdrawalType ? "on" : "off",
       });
 
-      // navigate to the dashboard
       router.push("/withdraw");
+      setShow(false);
     } catch (e: any) {
       toast(e.code, {
         type: "error",
@@ -137,18 +144,39 @@ const WithdrawalForm = () => {
             </div>
           </div>
           {/* end of select coin */}
+          {/* enter amount  */}
+          <div className="flex-1">
+            <label htmlFor="amount" className="font-sec py-2 text-sm">
+              Enter address
+            </label>
+            <div className="w-full bg-neutral-300 py-2 rounded">
+              <input
+                type="text"
+                name="address"
+                id="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="bg-transparent text-bg outline-none px-2"
+              />
+            </div>
+          </div>
         </form>
         <div className="flex items-center gap-2 my-6">
           <ToggleButton checked={withdrawalType} change={setWithdrawalType} />
-          <span>Withdrawal Type</span>
+          <span>Automatic Withdrawal off/on</span>
         </div>
         <button
-          onClick={sendWithdrawal}
+          onClick={openModal}
           className="bg-bg rounded px-3 py-2 font-sec mt-2 w-full md:w-fit"
         >
           Send Request
         </button>
       </section>
+      <TradingModal
+        hide={show}
+        setHide={setShow}
+        tradingFunction={sendWithdrawal}
+      />
       {/* end of form section */}
     </div>
   );

@@ -20,6 +20,7 @@ const Navbar = () => {
             {links.map((link: any) => (
               <Link
                 href={`/${link.path}`}
+                key={link.id}
                 className="capitalize hover:text-teal-500 hover:font-bold"
               >
                 {link.name}

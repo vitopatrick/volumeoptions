@@ -7,15 +7,21 @@ import { doc, updateDoc } from "firebase/firestore";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-interface UserModalTypes {
+interface UserTradingModalTypes {
   hide: Boolean;
   setHide: any;
+  heading: Boolean;
 }
 
-const UserModal = ({ hide, setHide }: UserModalTypes) => {
-  const [homeAddress, setHomeAddress] = useState("");
-  const photoRef = useRef<null | undefined | any>();
+const UserTradingModal = ({
+  hide,
+  setHide,
+  heading,
+}: UserTradingModalTypes) => {
+  const [tradingPassword, setTradingPassword] = useState("");
+  const [isText, setIsText] = useState(false);
 
   const { user: state }: any = useContext(UserContext);
   const router = useRouter();
@@ -26,7 +32,7 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
     e.preventDefault();
 
     // check if the forms are Empty
-    if (!homeAddress || !photoRef.current.files[0]) {
+    if (!tradingPassword) {
       toast("Please form correctly", {
         type: "error",
         position: "bottom-center",
@@ -34,18 +40,13 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
       });
       return;
     }
-    debugger;
     try {
-      // upload Image
-      const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
-      await uploadBytes(imgRef, photoRef.current.files[0]);
-
       // update the document
       const userRef = doc(store, "users", `${state.email}`);
       await updateDoc(userRef, {
-        verfied: true,
-        address: homeAddress,
+        tradingPassword,
       });
+      setHide(false);
       router.push("/account-profile");
     } catch (e: any) {
       toast(e.code, {
@@ -76,41 +77,34 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
           </div>
           <div>
             <h2 className="py-3 font-semibold text-white text-xl capitalize underline">
-              Please Provide the following for verification
+              {heading ? "Change Password" : "Add Trading Password"}
             </h2>
           </div>
           {/* form  */}
           <form>
             {/* enter address */}
-            <div>
-              <label htmlFor="address" className="text-white text-sm">
-                Home Address
+            {/* password fieldset */}
+            <div className="mt-4 flex flex-col">
+              <label htmlFor="password" className="text-sm text-white">
+                Password
               </label>
-              <div className="bg-neutral-300 flex py-2 items-center px-2 flex-row-reverse rounded-md">
+              <div className="flex items-center mt-3 bg-neutral-300 py-2 rounded">
                 <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  value={homeAddress}
-                  onChange={(e) => setHomeAddress(e.target.value)}
-                  className="w-full bg-transparent font-sec px-2 focus:outline-none text-bg"
+                  type={isText ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  value={tradingPassword}
+                  onChange={(e) => setTradingPassword(e.target.value)}
+                  className="flex-1 bg-transparent outline-none py-1 pl-2"
                 />
-                <AiFillHome className="fill-card" />
-              </div>
-            </div>
-            {/* implement Drag and drop */}
-            <div className="mt-8">
-              <label htmlFor="picture" className="text-sm text-white py-2">
-                Picture of Workers ID,Driver license or National ID
-              </label>
-              <div className="rounded">
-                <input
-                  type="file"
-                  name="id"
-                  id="id"
-                  ref={photoRef}
-                  className="text-white"
-                />
+                <div className="pr-4">
+                  {/* change type based on state changes */}
+                  {isText ? (
+                    <BsEye onClick={() => setIsText(!isText)} />
+                  ) : (
+                    <BsEyeSlash onClick={() => setIsText(!isText)} />
+                  )}
+                </div>
               </div>
             </div>
             {/* submit button */}
@@ -127,4 +121,4 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
   );
 };
 
-export default UserModal;
+export default UserTradingModal;

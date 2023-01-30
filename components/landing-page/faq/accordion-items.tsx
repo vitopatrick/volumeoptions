@@ -1,5 +1,5 @@
-import DownArrow from "./down-arrow";
-import InfoSvg from "./info-svg";
+import DownArrow from "./icons/down-arrow";
+import InfoSvg from "./icons/info-svg";
 import { useState } from "react";
 
 const AccordionItems = ({ question, answer, index }: any) => {
