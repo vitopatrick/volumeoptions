@@ -50,7 +50,7 @@ const WalletCoins = () => {
         <div>Amount($)</div>
       </div>
       {coins.map((coin) => (
-        <div className="grid grid-cols-3 px-2 py-3 bg-bg/40">
+        <div className="grid grid-cols-3 gap-3 px-2 py-3 bg-bg/40">
           <div className="flex items-center md:gap-3">
             <div className="w-[18%] md:w-[10%] mr-2">
               <img src={coin.img} alt={coin.coin} />
