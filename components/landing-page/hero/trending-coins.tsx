@@ -19,7 +19,7 @@ const TrendingCoins = () => {
               <div>
                 <h4
                   className={
-                    coin.percentageChange < 0 ? "text-danger" : "text-success"
+                    coin.percentageChange < 0 ? "text-red-500" : "text-teal-500"
                   }
                 >
                   {coin.percentageChange.toFixed(2)}%

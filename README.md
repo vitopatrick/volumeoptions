@@ -7,12 +7,12 @@
     - Add a table showing the quantity of coins available, then add a conversion modal[x]
 - Make Trading password a must before carrying out every transaction (staking,volume trading,withdrawal)[x]
 - Use clients already existing account to test the new website features[x]
-- add risk and warning pages 
-- make text smaller on mobile view and then add icons.
+- add risk and warning pages
+- make text smaller on mobile view and then add icons.[x]
 - setup emails api
     - Register 
     - Deposit
     - Stake 
     - volume trading
     - withdrawals
-- Make forgotten password email work
+- Make forgotten password email work [x]

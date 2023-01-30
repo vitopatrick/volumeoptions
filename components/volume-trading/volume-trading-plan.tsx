@@ -67,6 +67,7 @@ const VolumeTradingPlan = () => {
 
       await updateDoc(userRef, {
         MainAccount: userState.MainAccount - options.minAmount,
+        TradingAccount: userState.TradingAccount + options.minAmount,
       });
 
       router.push("/volume-trading");

@@ -25,11 +25,11 @@ const StakingTable = () => {
       {!loading &&
         (stakes.length > 0 ? (
           <div>
-            <section className="grid grid-cols-5 gap-4 bg-bg py-3 px-2 rounded-t font-semibold">
+            <section className="grid grid-cols-4 md:grid-cols-5 gap-4 bg-bg py-3 px-2 rounded-t font-semibold">
               <div>Plan</div>
               <div>Duration</div>
               <div>Amount</div>
-              <div>APR</div>
+              <div className="hidden md:block">APR</div>
               <div>Date</div>
             </section>
             {stakes.map((stake: any) => (
@@ -54,11 +54,11 @@ const StakingTable = () => {
 
 const StakingItem = ({ plan, duration, amount, apr, date }: any) => {
   return (
-    <div className="grid grid-cols-5 py-3 px-2 bg-bg/50">
+    <div className="grid grid-cols-4 md:grid-cols-5 py-3 px-2 bg-bg/50">
       <div>{plan}</div>
       <div>{duration}</div>
       <div>{formatCurrency(amount)}</div>
-      <div>{apr}</div>
+      <div className="hidden md:block">{apr}</div>
       <div>{date}</div>
     </div>
   );

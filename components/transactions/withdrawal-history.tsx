@@ -74,7 +74,7 @@ const WithdrawalTable = ({ withdrawals, loading }: withdrawal) => {
                       {withdrawal.remarks ? withdrawal.remarks : "N/A"}
                     </div>
                     <div className="p-1 font-semibold font-sec justify-self-start">
-                      {formatCurrency(withdrawal.amount)}
+                      {formatCurrency(parseInt(withdrawal.amount))}
                     </div>
                     <>
                       {withdrawal.approved ? (
