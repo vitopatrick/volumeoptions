@@ -11,7 +11,7 @@ const WalletCoins = () => {
       id: 1,
       coin: "Tron",
       img: "/tron.png",
-      quantity: user?.tron,
+      quantity: user?.tron ? user?.tron : 0,
       sym: "trx",
       amount: convertCurrency(main, user?.tron, "trx"),
     },
@@ -19,7 +19,7 @@ const WalletCoins = () => {
       id: 2,
       coin: "USDT",
       img: "/usdt.png",
-      quantity: user?.usdt,
+      quantity: user?.usdt ? user?.usdt : 0,
       sym: "usdt",
       amount: convertCurrency(main, user?.usdt, "usdt"),
     },
@@ -28,14 +28,14 @@ const WalletCoins = () => {
       coin: "Bitcoin",
       img: "/btc.png",
       sym: "btc",
-      quantity: user?.btc,
+      quantity: user?.btc ? user?.btc : 0,
       amount: convertCurrency(main, user?.btc, "btc"),
     },
     {
       id: 4,
       coin: "Ethereum",
       img: "/eth.png",
-      quantity: user?.eth,
+      quantity: user?.eth ? user?.eth : 0,
       sym: "eth",
       amount: convertCurrency(main, user?.eth, "eth"),
     },
@@ -52,13 +52,13 @@ const WalletCoins = () => {
       {coins.map((coin) => (
         <div className="grid grid-cols-3 px-2 py-3 bg-bg/40">
           <div className="flex items-center md:gap-3">
-            <div className="w-[6%] md:w-[4%]">
+            <div className="w-[18%] md:w-[10%] mr-2">
               <img src={coin.img} alt={coin.coin} />
             </div>
             <div>{coin.coin}</div>
           </div>
           <div className="flex items-center gap-2">
-            <div>{coin.quantity}</div>
+            <div>{coin.quantity ? coin.quantity : 0}</div>
             <div className="uppercase font-bold">{coin.sym}</div>
           </div>
           <div>{coin.amount}</div>

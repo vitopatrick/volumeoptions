@@ -13,10 +13,12 @@ import { useFetchUser } from "../../hooks/useFetchUser";
 import { tradingOptions } from "../../lib/trading-options";
 import { toast } from "react-toastify";
 import { formatCurrency } from "../../utils/formatCurrency";
+import TradingModal from "../../shared/modal/trading-modal";
 
 const VolumeTradingPlan = () => {
   // State of the select tag
   const [level, setLevel] = useState("level 1");
+  const [show, setShow] = useState(false);
 
   const handleChange = (event: any) => {
     setLevel(event.target.value);
@@ -47,7 +49,6 @@ const VolumeTradingPlan = () => {
       return;
     }
 
-    e.preventDefault();
     try {
       const orderRef = collection(store, "users", `${state.email}`, "orders");
       const userRef = doc(store, "users", `${state.email}`);
@@ -65,11 +66,11 @@ const VolumeTradingPlan = () => {
       });
 
       await updateDoc(userRef, {
-        TradingAccount: userState.TradingAccount + options.minAmount,
         MainAccount: userState.MainAccount - options.minAmount,
       });
 
       router.push("/volume-trading");
+      setShow(false);
     } catch (error: any) {
       toast(e.code, {
         type: "error",
@@ -102,7 +103,7 @@ const VolumeTradingPlan = () => {
               <div className="bg-card py-2 px-2 rounded mt-2 w-full">
                 <select
                   value={level}
-                  className="bg-transparent text-bg outline-none text-sm w-full"
+                  className="bg-card text-white outline-none text-sm w-full"
                   onChange={handleChange}
                 >
                   {tradingOptions.map((option) => (
@@ -144,7 +145,7 @@ const VolumeTradingPlan = () => {
           {/* button */}
           <div>
             <button
-              onClick={addOrders}
+              onClick={() => setShow(true)}
               className=" text-paper font-sec py-1 my-4 text-sm w-full px-3 capitalize rounded border-paper border-[1px]"
             >
               Call
@@ -152,6 +153,7 @@ const VolumeTradingPlan = () => {
           </div>
         </div>
       </div>
+      <TradingModal hide={show} setHide={setShow} tradingFunction={addOrders} />
     </div>
   );
 };
