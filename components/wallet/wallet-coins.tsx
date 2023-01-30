@@ -13,7 +13,7 @@ const WalletCoins = () => {
       img: "/tron.png",
       quantity: user?.tron ? user?.tron : 0,
       sym: "trx",
-      amount: convertCurrency(main, user?.tron, "trx"),
+      amount: convertCurrency(main, user?.tron ? user?.usdt : 0, "trx"),
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const WalletCoins = () => {
       img: "/usdt.png",
       quantity: user?.usdt ? user?.usdt : 0,
       sym: "usdt",
-      amount: convertCurrency(main, user?.usdt, "usdt"),
+      amount: convertCurrency(main, user?.usdt ? user?.usdt : 0, "usdt"),
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ const WalletCoins = () => {
       img: "/btc.png",
       sym: "btc",
       quantity: user?.btc ? user?.btc : 0,
-      amount: convertCurrency(main, user?.btc, "btc"),
+      amount: convertCurrency(main, user?.btc ? user?.btc : 0, "btc"),
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const WalletCoins = () => {
       img: "/eth.png",
       quantity: user?.eth ? user?.eth : 0,
       sym: "eth",
-      amount: convertCurrency(main, user?.eth, "eth"),
+      amount: convertCurrency(main, user?.eth ? user?.eth : 0, "eth"),
     },
   ];
 
