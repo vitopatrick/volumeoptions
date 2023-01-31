@@ -31,7 +31,7 @@ const WithdrawalForm = () => {
 
   const openModal = (e: any) => {
     e.preventDefault();
-    if (!amount || !selectedCoin || !withdrawalType || !remarks) {
+    if (!amount || !selectedCoin || !remarks) {
       toast("Please fill the form properly", {
         type: "error",
         position: "bottom-center",
