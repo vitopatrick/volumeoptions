@@ -13,7 +13,7 @@ const WalletCoins = () => {
       img: "/tron.png",
       quantity: user?.tron ? user?.tron : 0,
       sym: "trx",
-      amount: convertCurrency(main, user?.tron ? user?.usdt : 0, "trx"),
+      amount: convertCurrency(main, user?.tron ? user?.tron : 0, "trx"),
     },
     {
       id: 2,
@@ -61,7 +61,7 @@ const WalletCoins = () => {
             <div>{coin.quantity ? coin.quantity : 0}</div>
             <div className="uppercase font-bold">{coin.sym}</div>
           </div>
-          <div>${coin.amount}</div>
+          <div>{coin.amount}</div>
         </div>
       ))}
     </section>

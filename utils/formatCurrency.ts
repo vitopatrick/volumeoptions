@@ -2,7 +2,11 @@ export const formatCurrency = (price: number) => {
   if (typeof price === "string") {
     parseInt(price);
   }
-  return new Intl.NumberFormat().format(price);
+  return new Intl.NumberFormat("en-Us", {
+    currency: "USD",
+    style: "currency",
+    maximumSignificantDigits: 3,
+  }).format(price);
 };
 
 export const convertCurrency = (
@@ -11,5 +15,6 @@ export const convertCurrency = (
   coinName: string
 ) => {
   const name = coins.find((coin) => coin.symbol === coinName);
-  return (amount * name?.currentPrice).toFixed(0);
+  const coinPrice = name?.currentPrice;
+  return formatCurrency(amount * coinPrice);
 };
