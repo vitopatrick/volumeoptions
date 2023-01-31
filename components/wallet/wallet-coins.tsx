@@ -61,7 +61,7 @@ const WalletCoins = () => {
             <div>{coin.quantity ? coin.quantity : 0}</div>
             <div className="uppercase font-bold">{coin.sym}</div>
           </div>
-          <div>{coin.amount}</div>
+          <div>${coin.amount}</div>
         </div>
       ))}
     </section>
