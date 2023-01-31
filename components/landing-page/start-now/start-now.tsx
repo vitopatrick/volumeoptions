@@ -3,7 +3,7 @@ import Link from "next/link";
 const StartRow = () => {
   return (
     <section className="bg-card py-8 flex items-center justify-center flex-col">
-      <div className="font-main font-semibold text-3xl text-teal-500 md:text-4xl my-4 capitalize">
+      <div className="font-main font-semibold text-3xl text-white md:text-4xl my-4 capitalize text-center">
         Start Your Crypto Journey Now!
       </div>
       <div className="font-main font-semibold text-md text-neutral-400 my-4 capitalize text-center px-3">
