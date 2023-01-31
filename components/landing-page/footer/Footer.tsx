@@ -9,19 +9,29 @@ const Footer = () => {
           Volume Exchange
         </div>
         <div className="flex md:items-center gap-8 flex-col md:flex-row my-5">
-          <div>
-            <h3 className="capitalize text-teal-500 font-bold mb-4">company</h3>
-            <Link href="/about" className="text-white">
-              About Us
-            </Link>
+          <div className="flex flex-col justify-between gap-3">
+            <h3 className="capitalize text-teal-500 font-bold">company</h3>
+            <div className="flex flex-col gap-3">
+              <Link href="/about" className="text-white">
+                About Us
+              </Link>
+              <Link href="/" className="text-white">
+                Home
+              </Link>
+            </div>
           </div>
-          <div>
-            <h4 className="capitalize text-teal-500 font-bold mb-4">
+          <div className="flex flex-col justify-between gap-3">
+            <h4 className="capitalize text-teal-500 font-bold">
               Terms & Condition
             </h4>
-            <Link href="/risk" className="text-white">
-              Tax
-            </Link>
+            <div className="flex flex-col gap-3">
+              <Link href="/tax" className="text-white">
+                Tax
+              </Link>
+              <Link href="/risk" className="text-white">
+                Risk & Warning
+              </Link>
+            </div>
           </div>
         </div>
         <div className="my-3 text-neutral-400">
