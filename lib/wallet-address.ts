@@ -1,12 +1,13 @@
 export const addresses = [
   {
-    id: 1,
-    sym: "btc",
-    name: "Bitcoin",
-    address: "bc1qk8maek6xf0serjphl5pxfeslwu3ffh9k4zwhkm",
-    network: "BTC",
-    img: "/btc.jpg",
+    id: 5,
+    sym: "bnb",
+    name: "BNB",
+    address: "0x9778B6E998e8adb20ADFCE6E638451ff15A50bB0",
+    network: "bnb",
+    img: "/bnb.jpg",
   },
+
   {
     id: 2,
     sym: "erc20",
@@ -33,11 +34,11 @@ export const addresses = [
     img: "/usdt.jpg",
   },
   {
-    id: 5,
-    sym: "bnb",
-    name: "BNB",
-    address: "0x9778B6E998e8adb20ADFCE6E638451ff15A50bB0",
-    network: "bnb",
-    img: "/bnb.jpg",
+    id: 1,
+    sym: "btc",
+    name: "Bitcoin",
+    address: "bc1qk8maek6xf0serjphl5pxfeslwu3ffh9k4zwhkm",
+    network: "BTC",
+    img: "/btc.jpg",
   },
 ];

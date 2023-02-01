@@ -9,7 +9,7 @@ import TradingModal from "../../shared/modal/trading-modal";
 
 const DepositForm = () => {
   const [selectedCoin, setSelectedCoin] = useState<any | null | undefined>({});
-  const [coin, setCoin] = useState<string>("Bitcoin");
+  const [coin, setCoin] = useState<string>("bnb");
   const [amount, setAmount] = useState<string | number | any>("");
   const [show, setShow] = useState(false);
 
@@ -54,9 +54,10 @@ const DepositForm = () => {
         coin: selectedCoin.sym,
         approved: false,
       });
-      // navigate to the dashboard
-      router.push("/deposit");
+      // hide trading modal first
       setShow(false);
+      // navigate to the deposit
+      router.reload();
     } catch (e: any) {
       toast(e.code, {
         type: "error",

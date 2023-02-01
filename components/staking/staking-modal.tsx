@@ -105,7 +105,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
       });
       setVisible(false);
       setShow(false);
-      router.push("/staking");
+    router.reload();
     } catch (error: unknown | any) {
       toast(e.code, {
         type: "error",

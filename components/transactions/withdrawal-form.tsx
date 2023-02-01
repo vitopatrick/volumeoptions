@@ -61,8 +61,8 @@ const WithdrawalForm = () => {
         automatic_withdrawal: withdrawalType ? "on" : "off",
       });
 
-      router.push("/withdraw");
       setShow(false);
+      router.reload();
     } catch (e: any) {
       toast(e.code, {
         type: "error",

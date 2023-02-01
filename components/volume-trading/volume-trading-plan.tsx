@@ -5,7 +5,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { useContext, useMemo, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { store } from "../../firebase";
@@ -70,8 +70,8 @@ const VolumeTradingPlan = () => {
         TradingAccount: userState.TradingAccount + options.minAmount,
       });
 
-      router.push("/volume-trading");
       setShow(false);
+      router.reload()
     } catch (error: any) {
       toast(e.code, {
         type: "error",
