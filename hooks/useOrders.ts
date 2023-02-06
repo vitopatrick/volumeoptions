@@ -30,6 +30,7 @@ export const useOrders = () => {
         q,
         (docs) => {
           docs.forEach((doc) => {
+            doc.data();
             const data = doc.data();
             ordersArray.push(data);
             setOrders(ordersArray);

@@ -78,8 +78,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip text-white bg-bg font-main p-2 rounded">
-        <p className="label ">on {label}</p>
-        <p className="desc  font-bold">{`Price was ${formatCurrency(
+        <p className="label">on {label}</p>
+        <p className="desc font-bold">{`Price was ${formatCurrency(
           payload[0].value
         )}`}</p>
       </div>

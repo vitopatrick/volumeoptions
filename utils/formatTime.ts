@@ -3,6 +3,7 @@ export const formatTime = (date: number) => {
 };
 
 export const relativeTime = (date: Date | any) => {
+
   return new Intl.RelativeTimeFormat("en", { style: "narrow" }).format(
     date,
     "days"

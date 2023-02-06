@@ -29,17 +29,19 @@ const VolumeTable = () => {
   const { orders, loading } = useOrders();
   return (
     <>
-      {orders.map((order: any) => (
-        <VolumeOrderTableItem
-          coin={order.coin}
-          amount={order.amount}
-          duration={order.duration}
-          level={order.level ? order.level : "N/A"}
-          profit={order.profit}
-          loading={loading}
-          key={order.amount + Math.random()}
-        />
-      ))}
+      {loading && <Loading />}
+      {!loading &&
+        orders.map((order: any) => (
+          <VolumeOrderTableItem
+            coin={order.coin}
+            amount={order.amount}
+            duration={order.duration}
+            level={order.level ? order.level : "N/A"}
+            profit={order.profit}
+            loading={loading}
+            key={order.amount + Math.random()}
+          />
+        ))}
     </>
   );
 };
@@ -50,20 +52,16 @@ const VolumeOrderTableItem = ({
   duration,
   level,
   profit,
-  loading,
 }: any) => {
   return (
     <>
-      {loading && <Loading />}
-      {!loading && (
-        <div className="grid grid-cols-5 font-sec font-medium py-2 px-2 bg-bg/50">
-          <div>{coin}</div>
-          <div>{formatCurrency(amount)}</div>
-          <div>{duration}</div>
-          <div>{level}</div>
-          <div>{formatCurrency(profit)}</div>
-        </div>
-      )}
+      <div className="grid grid-cols-5 font-sec font-medium py-2 px-2 bg-bg/50">
+        <div>{coin}</div>
+        <div>{formatCurrency(amount)}</div>
+        <div>{duration}</div>
+        <div>{level}</div>
+        <div>{formatCurrency(profit)}</div>
+      </div>
     </>
   );
 };

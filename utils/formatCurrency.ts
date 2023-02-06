@@ -16,5 +16,25 @@ export const convertCurrency = (
 ) => {
   const name = coins.find((coin) => coin.symbol === coinName);
   const coinPrice = name?.currentPrice;
-  return formatCurrency(amount * coinPrice);
+  const result = amount * coinPrice;
+  return formatCurrency(result);
+};
+
+export const convertCoin = (
+  coins: any[],
+  amount: number | any,
+  conTo: string | undefined | null,
+  conFrom: string | undefined | null
+) => {
+  // convert coin to dollars first
+  const prevCoin = coins.find((coin) => coin.symbol === conFrom);
+  const prevCoinPrice = prevCoin?.currentPrice;
+  const amtDollar = parseInt(amount) * prevCoinPrice;
+
+  // convert to new Coin
+  const newCoin = coins.find((coin) => coin.symbol === conTo);
+  const newCoinPrice = newCoin?.currentPrice;
+  const result = amtDollar / newCoinPrice;
+
+  return result;
 };

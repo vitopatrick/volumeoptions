@@ -4,13 +4,11 @@ import DashboardHotcoins from "./dashboard-hotcoins";
 
 const DashboardLayout = () => {
   return (
-    <>
+    <section className="mx-2 my-3">
+      <Chart />
       <DashboardAccountCards />
-      <div className="flex md:items-center gap-4 md:flex-row flex-col mx-2">
-        <Chart />
-        <DashboardHotcoins />
-      </div>
-    </>
+      <DashboardHotcoins />
+    </section>
   );
 };
 

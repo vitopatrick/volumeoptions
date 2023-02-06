@@ -43,7 +43,7 @@ const WalletModal = ({ hide, setHide }: WalletModalTypes) => {
       });
 
       setHide(false);
-      router.push("/wallet");
+      router.reload();
     } catch (error: any) {
       toast(error.code, {
         type: "error",

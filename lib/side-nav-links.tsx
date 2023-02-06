@@ -6,6 +6,7 @@ import { AiFillMoneyCollect, AiOutlineBank } from "react-icons/ai";
 import { SiMarketo } from "react-icons/si";
 import { BsStack } from "react-icons/bs";
 import { RiExchangeDollarFill } from "react-icons/ri";
+import { FaHandshakeAltSlash } from "react-icons/fa";
 
 export const FIRST_LINKS = [
   {
@@ -59,5 +60,11 @@ export const SECOND_LINKS = [
     path: "/volume-trading",
     icon: <RiExchangeDollarFill />,
   },
+  // {
+  //   key: "referral",
+  //   label: "Referral",
+  //   path: "/referral",
+  //   icon: <FaHandshakeAltSlash />,
+  // },
 ];
 

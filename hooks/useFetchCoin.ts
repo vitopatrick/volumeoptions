@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { formatTime } from "../utils/formatTime";
 
 export const useFetchAllCoin = (coinName: String | any, time = 1) => {
   const [coin, setCoin] = useState([]);
@@ -9,13 +8,13 @@ export const useFetchAllCoin = (coinName: String | any, time = 1) => {
 
   useEffect(() => {
     const controller = new AbortController();
-
     const fetchAllCoins = async () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
           `https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=${time}`
         );
+
         const dataChart = data.prices.map((value: any) => ({
           date: new Date(value[0]).toDateString(),
           price: value[1],

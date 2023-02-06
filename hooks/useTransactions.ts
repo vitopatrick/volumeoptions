@@ -1,12 +1,6 @@
 import { UserContext } from "./../context/UserContext";
 import { useState, useMemo, useContext } from "react";
-import {
-  collection,
-  onSnapshot,
-  query,
-  orderBy,
-  getDocs,
-} from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { store } from "../firebase";
 
 export const useTransactions = (path: String | any) => {
@@ -18,7 +12,6 @@ export const useTransactions = (path: String | any) => {
 
   // user context
   const { user }: any = useContext(UserContext);
-
 
   useMemo(() => {
     const controller = new AbortController();
@@ -39,7 +32,7 @@ export const useTransactions = (path: String | any) => {
             transactionsArray.push({
               coin: data.coin,
               approved: data.approved,
-              amount: data.amount,
+              amount: parseInt(data.amount),
               date: new Date(data.date.toDate()).toDateString(),
             });
             setTransactions(transactionsArray);
@@ -48,8 +41,6 @@ export const useTransactions = (path: String | any) => {
         (error: any) => setError(error.code)
       );
     };
-
-    console.log(transactions);
 
     fetchTransactions();
     setTimeout(() => {
