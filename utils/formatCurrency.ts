@@ -20,6 +20,7 @@ export const convertCurrency = (
   return formatCurrency(result);
 };
 
+// function to convert coins
 export const convertCoin = (
   coins: any[],
   amount: number | any,
@@ -28,13 +29,15 @@ export const convertCoin = (
 ) => {
   // convert coin to dollars first
   const prevCoin = coins.find((coin) => coin.symbol === conFrom);
-  const prevCoinPrice = prevCoin?.currentPrice;
-  const amtDollar = parseInt(amount) * prevCoinPrice;
+  const prevCoinPrice = +prevCoin?.currentPrice;
+
+  const amtDollar = amount * prevCoinPrice;
+
 
   // convert to new Coin
   const newCoin = coins.find((coin) => coin.symbol === conTo);
   const newCoinPrice = newCoin?.currentPrice;
   const result = amtDollar / newCoinPrice;
 
-  return result;
+  return Math.fround(result)
 };

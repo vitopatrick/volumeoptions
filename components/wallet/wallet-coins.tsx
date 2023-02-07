@@ -4,11 +4,10 @@ import Loading from "../../shared/loading/Loading";
 import { convertCoin, convertCurrency } from "../../utils/formatCurrency";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, FieldValue, updateDoc } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
-import { useRouter } from "next/router";
-import { FaDollarSign } from "react-icons/fa";
+import { CiBitcoin } from "react-icons/ci";
 
 const WalletCoins = () => {
   const { userState: user, loading }: any = useFetchUser();
@@ -17,7 +16,7 @@ const WalletCoins = () => {
   const coins = [
     {
       id: 1,
-      coin: "Tron",
+      coin: "tron",
       img: "/tron.png",
       quantity: user?.tron ? user?.tron : 0,
       sym: "trx",
@@ -68,7 +67,7 @@ const WalletCoins = () => {
               <div>{coin.coin}</div>
             </div>
             <div className="flex items-center gap-2">
-              <div>{coin.quantity ? coin.quantity.toFixed(3) : 0}</div>
+              <div>{coin.quantity ? coin.quantity : 0}</div>
               <div className="uppercase font-bold">{coin.sym}</div>
             </div>
             <div>{coin.amount}</div>
@@ -85,7 +84,6 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
   const [amount, setAmount] = useState<number | string | any>(0);
 
   const { user }: any = useContext(UserContext);
-  const router = useRouter();
 
   const convertCurrency = async (e: any) => {
     e.preventDefault();
@@ -108,19 +106,18 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
 
     const converted = convertCoin(main, amount, to, from);
     const key = to === "trx" ? "tron" : to;
-    const obj = {
-      [`${key}`]: converted,
-    };
+    const secondKey = from === "trx" ? "tron" : from;
+
+    const secondKeyValue = Object.keys(state).find((key) => key === secondKey);
+
+    console.log(secondKeyValue, secondKey);
 
     try {
       const userRef = doc(store, "users", `${user.email}`);
-      await updateDoc(userRef, obj);
-      toast("wallet updated", {
-        position: "top-center",
-        type: "info",
-        bodyClassName: "toast",
+      await updateDoc(userRef, {
+        [`${key}`]: +converted,
+        [`${secondKeyValue}`]: 0,
       });
-      router.reload();
     } catch (error: any) {
       toast(error.code, {
         position: "bottom-center",
@@ -135,7 +132,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
       <div className="font-semibold text-xl mb-6">Convert</div>
       <div className="flex flex-col md:flex-row gap-2 md:items-center justify-between my-2">
         <div className="flex-1">
-          <label htmlFor="quantity">Amount</label>
+          <label htmlFor="quantity">Quantity</label>
           <div className="bg-bg rounded py-2 px-1 mt-2 flex flex-row-reverse items-center gap-2">
             <input
               type="text"
@@ -143,7 +140,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
-            <FaDollarSign />
+            <CiBitcoin />
           </div>
         </div>
         <div className="flex-1">
