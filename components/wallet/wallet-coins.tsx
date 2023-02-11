@@ -80,8 +80,8 @@ const WalletCoins = () => {
 };
 
 const ConvertCoin = ({ convert, main, user: state }: any) => {
-  const [to, setTo] = useState<string>("");
-  const [from, setFrom] = useState<string>("");
+  const [to, setTo] = useState<string>("btc");
+  const [from, setFrom] = useState<string>("trx");
   const [amount, setAmount] = useState<number | string | any>();
 
   const { user }: any = useContext(UserContext);
@@ -99,7 +99,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
     }
 
     if (!to || !from) {
-      return toast("Selected coin", {
+      return toast("Please Select coin", {
         position: "bottom-center",
         bodyClassName: "toast",
         type: "error",
