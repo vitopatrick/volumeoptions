@@ -8,7 +8,7 @@ const Layout = ({ children }: any) => {
       {/*  side bar*/}
       <Sidebar />
       {/* children */}
-      <div className="flex-1  overflow-auto">
+      <div className="flex-1  overflow-auto min-h-0">
         <Header />
         <div className="overflow-auto">{children}</div>
       </div>

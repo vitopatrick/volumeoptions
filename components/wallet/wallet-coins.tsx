@@ -4,7 +4,7 @@ import Loading from "../../shared/loading/Loading";
 import { convertCoin, convertCurrency } from "../../utils/formatCurrency";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { doc, FieldValue, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { CiBitcoin } from "react-icons/ci";
@@ -67,7 +67,7 @@ const WalletCoins = () => {
               <div>{coin.coin}</div>
             </div>
             <div className="flex items-center gap-2">
-              <div>{coin.quantity ? coin.quantity : 0}</div>
+              <div>{coin?.quantity ? coin?.quantity : 0}</div>
               <div className="uppercase font-bold">{coin.sym}</div>
             </div>
             <div>{coin.amount}</div>
@@ -79,9 +79,9 @@ const WalletCoins = () => {
 };
 
 const ConvertCoin = ({ convert, main, user: state }: any) => {
-  const [to, setTo] = useState<string>("Tron");
-  const [from, setFrom] = useState<string>("Bitcoin");
-  const [amount, setAmount] = useState<number | string | any>(0);
+  const [to, setTo] = useState<string>("");
+  const [from, setFrom] = useState<string>("");
+  const [amount, setAmount] = useState<number | string | any>();
 
   const { user }: any = useContext(UserContext);
 
@@ -105,18 +105,30 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
     }
 
     const converted = convertCoin(main, amount, to, from);
-    const key = to === "trx" ? "tron" : to;
-    const secondKey = from === "trx" ? "tron" : from;
+    const convertTo = to === "trx" ? "tron" : to;
+    const convertFrom = from === "trx" ? "tron" : from;
 
-    const secondKeyValue = Object.keys(state).find((key) => key === secondKey);
+    const convertFromValue: any = Object.entries(state).find(
+      (value) => value[0] === convertFrom
+    );
 
-    console.log(secondKeyValue, secondKey);
+    const convertToValue: any = Object.entries(state).find(
+      (value) => value[0] === convertTo
+    );
+
 
     try {
+      if (convertFromValue[1] < amount) {
+        return toast("You do not have enough coin in your wallet", {
+          type: "error",
+          position: "bottom-center",
+          bodyClassName: "toast",
+        });
+      }
       const userRef = doc(store, "users", `${user.email}`);
       await updateDoc(userRef, {
-        [`${key}`]: +converted,
-        [`${secondKeyValue}`]: 0,
+        [convertToValue[0]]: convertToValue[1] + parseInt(converted),
+        [convertFromValue[0]]: convertFromValue[1] - parseInt(amount),
       });
     } catch (error: any) {
       toast(error.code, {
@@ -129,7 +141,10 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
 
   return (
     <section className="my-6">
-      <div className="font-semibold text-xl mb-6">Convert</div>
+      <div className="font-semibold text-xl">Convert</div>
+      <label htmlFor="warning" className="text-red-300 my-2 text-sm capitalize">
+        Please enter the quantity of coins
+      </label>
       <div className="flex flex-col md:flex-row gap-2 md:items-center justify-between my-2">
         <div className="flex-1">
           <label htmlFor="quantity">Quantity</label>

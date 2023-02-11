@@ -33,11 +33,10 @@ export const convertCoin = (
 
   const amtDollar = amount * prevCoinPrice;
 
-
   // convert to new Coin
   const newCoin = coins.find((coin) => coin.symbol === conTo);
   const newCoinPrice = newCoin?.currentPrice;
   const result = amtDollar / newCoinPrice;
 
-  return Math.fround(result)
+ return result.toFixed(5);
 };
