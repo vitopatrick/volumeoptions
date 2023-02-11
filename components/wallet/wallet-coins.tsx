@@ -8,6 +8,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { CiBitcoin } from "react-icons/ci";
+import { useRouter } from "next/router";
 
 const WalletCoins = () => {
   const { userState: user, loading }: any = useFetchUser();
@@ -84,6 +85,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
   const [amount, setAmount] = useState<number | string | any>();
 
   const { user }: any = useContext(UserContext);
+  const router = useRouter();
 
   const convertCurrency = async (e: any) => {
     e.preventDefault();
@@ -116,7 +118,6 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
       (value) => value[0] === convertTo
     );
 
-
     try {
       if (convertFromValue[1] < amount) {
         return toast("You do not have enough coin in your wallet", {
@@ -125,7 +126,17 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
           bodyClassName: "toast",
         });
       }
+
       const userRef = doc(store, "users", `${user.email}`);
+
+      toast(
+        `Conversion of ${amount}${convertFromValue[0]} to ${convertToValue[0]} was successful`,
+        {
+          bodyClassName: "toast",
+          position: "bottom-center",
+          type: "success",
+        }
+      );
       await updateDoc(userRef, {
         [convertToValue[0]]: convertToValue[1] + parseInt(converted),
         [convertFromValue[0]]: convertFromValue[1] - parseInt(amount),
