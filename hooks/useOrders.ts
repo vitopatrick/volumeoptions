@@ -2,6 +2,7 @@ import { UserContext } from "./../context/UserContext";
 import { useState, useMemo, useContext } from "react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { store } from "../firebase";
+import { addDay, relativeTime } from "../utils/formatTime";
 
 export const useOrders = () => {
   const [orders, setOrders] = useState<[{}] | null | undefined | any>([]);
@@ -32,7 +33,17 @@ export const useOrders = () => {
           docs.forEach((doc) => {
             doc.data();
             const data = doc.data();
-            ordersArray.push(data);
+            const date = new Date(data.date.toDate());
+            const newDate = date.setUTCDate(date.getUTCDate() + 4);
+
+            ordersArray.push({
+              coin: data.coin,
+              amount: data.amount,
+              end: new Date(newDate).toDateString(),
+              profit: data.profit,
+              level: data.level,
+              start: new Date(data.date.toDate()).toDateString(),
+            });
             setOrders(ordersArray);
           });
         },
