@@ -11,8 +11,8 @@ module.exports = {
         main: ["Quicksand", "sans-serif"],
       },
       colors: {
-        bg: "#0f172a",
-        card: "#1f2937",
+        bg: "#18181b",
+        card: "#27272a",
         bgBoard: "#0b0e11",
       },
     },

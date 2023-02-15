@@ -47,8 +47,8 @@ const Chart = () => {
             <AreaChart data={coin}>
               <defs>
                 <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#99f6e4" stopOpacity={1} />
-                  <stop offset="95%" stopColor="#99f6e4" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#d97706" stopOpacity={0.7} />
+                  <stop offset="95%" stopColor="#d97706" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <XAxis dataKey="date" tickCount={4} />
@@ -60,7 +60,7 @@ const Chart = () => {
               <Area
                 type="monotone"
                 dataKey="price"
-                stroke="#99f6e4"
+                stroke="#fff"
                 strokeWidth={3}
                 fill="url(#colorPv)"
               />

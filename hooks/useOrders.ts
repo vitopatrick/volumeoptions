@@ -42,7 +42,7 @@ export const useOrders = () => {
               end: new Date(newDate).toDateString(),
               profit: data.profit,
               level: data.level,
-              start: new Date(data.date.toDate()).toDateString(),
+              date: new Date(data.date.toDate()).toDateString(),
             });
             setOrders(ordersArray);
           });

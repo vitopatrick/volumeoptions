@@ -29,6 +29,7 @@ const VolumeOrderBook = () => {
 
 const VolumeTable = () => {
   const { orders, loading } = useOrders();
+  console.log(orders);
   return (
     <>
       {loading && <Loading />}
@@ -40,7 +41,7 @@ const VolumeTable = () => {
             end={order.end}
             level={order.level ? order.level : "N/A"}
             profit={order.profit}
-            start={order.start}
+            start={order.date}
             loading={loading}
             key={order.amount + Math.random()}
           />
