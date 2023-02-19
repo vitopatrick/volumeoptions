@@ -23,7 +23,7 @@ export const useOrders = () => {
         `/${user.email}`,
         "/orders"
       );
-      const q = query(collectionRef, orderBy("date", "asc"));
+      const q = query(collectionRef, orderBy("date", "desc"));
 
       const ordersArray: any = [];
 
