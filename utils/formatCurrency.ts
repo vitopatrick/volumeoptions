@@ -2,11 +2,13 @@ export const formatCurrency = (price: number) => {
   if (typeof price === "string") {
     parseInt(price);
   }
-  return new Intl.NumberFormat("en-Us", {
-    currency: "USD",
-    style: "currency",
-    maximumSignificantDigits: 3,
-  }).format(price);
+  return new Intl.NumberFormat("en-US",{
+    currency:'USD',
+    style:'currency',
+    notation:"standard",
+    maximumSignificantDigits:3,
+    useGrouping:false
+  }).format(price).replace(/\D00(?=\D*$)/, '');
 };
 
 export const convertCurrency = (
@@ -38,5 +40,5 @@ export const convertCoin = (
   const newCoinPrice = newCoin?.currentPrice;
   const result = amtDollar / newCoinPrice;
 
- return result.toFixed(5);
+  return result.toFixed(5);
 };
