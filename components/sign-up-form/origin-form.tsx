@@ -14,7 +14,6 @@ const StepTwo = ({ move }: any) => {
     phone_number,
     country_of_origin,
     setPhoneNumber,
-    setCountryOfOrigin,
     email,
     password,
     name,
@@ -22,7 +21,7 @@ const StepTwo = ({ move }: any) => {
 
   const registerUser = async (e: any) => {
     e.preventDefault();
-    if (!phone_number || !country_of_origin) {
+    if (!phone_number) {
       toast("Fill the form properly", {
         type: "error",
         position: "bottom-center",

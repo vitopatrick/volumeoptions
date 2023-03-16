@@ -1,18 +1,6 @@
-## Finishing this today 
-- break codes into smaller bits of code
-- Add Trading Password feature [x]
-    - Add password to account settings page [x]
-    - Add change Trading password [x]
-- Add conversion section in wallets page[x]
-    - Add a table showing the quantity of coins available, then add a conversion modal[x]
-- Make Trading password a must before carrying out every transaction (staking,volume trading,withdrawal)[x]
-- Use clients already existing account to test the new website features[x]
-- add risk and warning pages [x]
-- make text smaller on mobile view and then add icons.[x]
-- setup emails api
-    - Register 
-    - Deposit
-    - Stake 
-    - volume trading
-    - withdrawals
-- Make forgotten password email work [x]
+## Todo 
+- create Error Modal
+- create page for Verfication DONE  
+- create UI for verfication 
+- create logic behind verification 
+- create verification process

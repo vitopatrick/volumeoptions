@@ -70,7 +70,7 @@ const UsersDetails = ({
             {!loading && (
               <h1 className="font-semibold text-base md:text-lg">
                 {user.verfied
-                  ? "100btc"
+                  ? "0.043btc"
                   : "No withdrawal please verify account"}
               </h1>
             )}

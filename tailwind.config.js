@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        main: ["Quicksand", "sans-serif"],
+        main: ["Nunito Sans", "sans-serif"],
       },
       colors: {
         bg: "#18181b",

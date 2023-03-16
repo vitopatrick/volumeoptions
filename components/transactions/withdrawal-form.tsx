@@ -1,4 +1,10 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
@@ -6,6 +12,8 @@ import { store } from "../../firebase";
 import { toast } from "react-toastify";
 import ToggleButton from "./toggle";
 import TradingModal from "../../shared/modal/trading-modal";
+import MerchantModal from "../../shared/modal/merchant-modal";
+import { useFetchUser } from "../../hooks/useFetchUser";
 
 const coins = [
   "Ethereum",
@@ -25,12 +33,16 @@ const WithdrawalForm = () => {
   const [remarks, setRemarks] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const { user: state }: any = useContext(UserContext);
+
   const router = useRouter();
 
-  const openModal = (e: any) => {
+  const openModal = async (e: any) => {
     e.preventDefault();
+    const person: any = await getDoc(doc(store, "/users", `${state.email}`));
+    if (!person.data().merchant) return setOpen(true);
     if (!amount || !selectedCoin || !remarks) {
       toast("Please fill the form properly", {
         type: "error",
@@ -177,6 +189,7 @@ const WithdrawalForm = () => {
         setHide={setShow}
         tradingFunction={sendWithdrawal}
       />
+      <MerchantModal open={open} close={setOpen} />
       {/* end of form section */}
     </div>
   );
