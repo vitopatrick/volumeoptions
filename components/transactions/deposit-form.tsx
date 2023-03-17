@@ -1,6 +1,12 @@
 import { addresses } from "../../lib/wallet-address";
 import { useContext, useMemo, useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
@@ -48,11 +54,17 @@ const DepositForm = () => {
         `/${state.email}`,
         "/deposits"
       );
+
+      const userRef = doc(store, "/users", `/${state.email}`);
       await addDoc(depositRef, {
         amount,
         date: serverTimestamp(),
         coin: selectedCoin.sym,
         approved: false,
+      });
+
+      await updateDoc(userRef, {
+        MainAccount: amount,
       });
       // hide trading modal first
       setShow(false);

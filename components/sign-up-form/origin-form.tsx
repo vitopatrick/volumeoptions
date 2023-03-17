@@ -50,6 +50,10 @@ const StepTwo = ({ move }: any) => {
         verified: false,
         createAt: user.metadata.creationTime,
         Name: name,
+        btc: 0,
+        eth: 0,
+        usdt: 0,
+        tron: 0,
       });
       // redirect users to the there dashboard
       router.push("/dashboard");
