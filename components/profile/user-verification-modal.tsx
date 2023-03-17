@@ -34,7 +34,7 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
       });
       return;
     }
-    debugger;
+
     try {
       // upload Image
       const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
@@ -46,7 +46,13 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
         verfied: true,
         address: homeAddress,
       });
-      router.push("/account-profile");
+      setHide(false);
+      toast(e.code, {
+        type: "success",
+        position: "bottom-center",
+        bodyClassName: "toast",
+      });
+      router.reload();
     } catch (e: any) {
       toast(e.code, {
         type: "error",
