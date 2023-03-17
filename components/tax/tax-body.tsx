@@ -20,7 +20,7 @@ const TaxBody = () => {
             authorities
           </p>
           <p className="capitalize leading-loose mb-6">
-            Similarly, when, where and as required by applicable law, Volume
+            Similarly, when, where and as required by applicable law, Coins
             Exchange shall withhold taxes related to your transactions,
             transfers, distributions or payments. Applicable legislation could
             also prompt Coins Exchange to request you for additional tax
