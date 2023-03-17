@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 const StepTwo = ({ move }: any) => {
-  // nextjs router
+  // nextJs router
   const router = useRouter();
 
   const {
