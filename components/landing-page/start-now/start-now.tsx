@@ -7,7 +7,7 @@ const StartRow = () => {
         Start Your Crypto Journey Now!
       </div>
       <div className="font-main font-semibold text-md text-neutral-400 my-4 capitalize text-center px-3">
-        With the volume exchange website, trading has never been easier.
+        With the Coins Exchange website, trading has never been easier.
       </div>
       <Link
         href="/auth/sign-up"

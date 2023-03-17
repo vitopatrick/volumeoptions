@@ -35,7 +35,7 @@ const MobileSideNav = ({ hide, setHide }: any) => {
           <div>
             {/* logo flex container */}
             <div className="mb-8 font-sec font-bold text-teal-100 font-main text-xl">
-              Volume Exchange
+              Coins Exchange
             </div>
             {FIRST_LINKS.map((link) => (
               <Link

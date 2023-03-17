@@ -6,7 +6,7 @@ const Endless = () => {
     <section className="my-12">
       <div className="w-[90%] mx-auto">
         <div className="font-main font-bold text-xl text-white md:text-4xl mb-6">
-          Explore Endless Opportunities with Volume exchange
+          Explore Endless Opportunities with Coins Exchange
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           {ctas.map((cta: any) => (

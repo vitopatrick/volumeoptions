@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="bg-bg text-white font-main shadow-md">
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
         <Link href="/" className="text-lg md:text-2xl text-teal-500 font-bold">
-          Volume Exchange
+          Coins Exchange
         </Link>
         {/* links */}
         <div className="flex items-center md:gap-12 justify-between">

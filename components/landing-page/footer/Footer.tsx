@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="font-main">
       <div className="w-[90%] mx-auto py-4">
         <div className="font-bold text-teal-500/50 text-2xl font-main">
-          Volume Exchange
+          Coins Exchange
         </div>
         <div className="flex md:items-center gap-8 flex-col md:flex-row my-5">
           <div className="flex flex-col justify-between gap-3">
@@ -35,10 +35,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="my-3 text-neutral-400">
-          contact us: support@volumeexchange.co
+          contact us: support@coinsexchange.live
         </div>
         <div className="text-neutral-400">
-          Volume exchange©{new Date().getFullYear()}
+          Coins Exchange©{new Date().getFullYear()}
         </div>
       </div>
     </footer>

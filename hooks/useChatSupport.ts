@@ -4,8 +4,9 @@ export const useChatSupport = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
-    script.src = "//code.tidio.co/1tdcup5a2akjn7j8x8tixht1lhzm9ltn.js";
+    script.src = "//code.tidio.co/zqtov32oqk4wf3xuecrsr9yh2kmzz1pc.js";
 
     document.body.appendChild(script);
   }, []);
 };
+

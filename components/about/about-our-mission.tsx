@@ -6,7 +6,7 @@ const AboutOurMission = () => {
       <div className="w-[90%] mx-auto">
         <div className="text-3xl md:text-5xl py-3 font-bold ">Our Mission</div>
         <div className="text-neutral-300 capitalize">
-          Today, Volume Exchange is the world’s leading blockchain ecosystem,
+          Today, Coins Exchange is the world’s leading blockchain ecosystem,
           with a product suite that includes the largest digital asset exchange.
           Our Mission is to be the infrastructure service provider in crypto.
         </div>
@@ -25,7 +25,7 @@ const AboutOurMission = () => {
                 Users are at the heart of everything we do. From the beginning,
                 we made user protection our top priority. That’s why we’ve
                 embedded state-of-the-art security measures and strict data
-                privacy controls across the entire Volume exchange ecosystem.
+                privacy controls across the entire Coins Exchange ecosystem.
               </div>
             </div>
           </div>

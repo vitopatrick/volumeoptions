@@ -22,10 +22,10 @@ const AboutWelcome = () => {
       <div className="w-[90%] mx-auto">
         <div className="py-12">
           <div className="text-3xl md:text-5xl py-3 font-bold ">
-            Welcome to volume exchange
+            Welcome to Coins Exchange
           </div>
           <div className="text-neutral-300 capitalize">
-            At Volume Exchange, we believe that everyone should have the freedom
+            At Coins Exchange, we believe that everyone should have the freedom
             to earn, hold, spend, share and give their money - no matter who you
             are or where you come from.
           </div>
@@ -44,12 +44,12 @@ const AboutWelcome = () => {
           </div>
           <div className="content-center">
             <div className="text-xl md:text-3xl py-3 font-bold ">
-              Grow with volume exchange
+              Grow with Coins Exchange
             </div>
             <div className="text-neutral-300 capitalize">
-              At volume exchange, we give people the freedom to own their
+              At Coins Exchange, we give people the freedom to own their
               decisions, collaborate openly, and serve our users with passion
-              and integrity. Join the volume exchange team today and work with
+              and integrity. Join the Coins Exchange team today and work with
               some of the world’s most talented, hardworking, and passionate
               people.
             </div>

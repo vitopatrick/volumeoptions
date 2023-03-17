@@ -14,7 +14,7 @@ const StartToday = () => {
             </h4>
             <p className="capitalize font-main leading-relaxed my-8 text-neutral-300">
               seize and maximize the opportunities and potentials of crypto
-              today by joining volume exchange
+              today by joining Coins Exchange
             </p>
             <Link
               href="/auth/sign-up"
