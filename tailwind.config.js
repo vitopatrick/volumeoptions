@@ -11,9 +11,10 @@ module.exports = {
         main: ["Nunito Sans", "sans-serif"],
       },
       colors: {
-        bg: "#18181b",
-        card: "#27272a",
+        bg: "#111827",
+        card: "#1f2937",
         bgBoard: "#0b0e11",
+        button: "#f59e0b",
       },
     },
   },

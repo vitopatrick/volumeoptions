@@ -8,15 +8,15 @@ const MobileSideNav = ({ hide, setHide }: any) => {
 
   const boxClasses = (url: any) =>
     clsx({
-      ["font-sec text-teal-50 font-main flex gap-1 items-center my-6 pl-4"]:
+      ["font-sec text-button font-main flex gap-1 items-center my-6 pl-4"]:
         true,
       ["bg-bg w-full py-2 pl-2 rounded-lg "]: pathname === url,
     });
 
   const textClasses = (url: any) =>
     clsx({
-      ["font-sec"]: true,
-      ["font-sec font-semibold text-teal-200"]: pathname === url,
+      ["font-main"]: true,
+      ["font-main font-semibold text-orange-200"]: pathname === url,
     });
 
   return (
@@ -34,7 +34,7 @@ const MobileSideNav = ({ hide, setHide }: any) => {
           {/* first links flex container */}
           <div>
             {/* logo flex container */}
-            <div className="mb-8 font-sec font-bold text-teal-100 font-main text-xl">
+            <div className="mb-8 font-sec font-bold text-button uppercase font-main text-xl">
               Coins Exchange
             </div>
             {FIRST_LINKS.map((link) => (

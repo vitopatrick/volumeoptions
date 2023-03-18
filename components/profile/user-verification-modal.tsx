@@ -36,16 +36,13 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
     }
 
     try {
-      // upload Image
-      const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
-      await uploadBytes(imgRef, photoRef.current.files[0]);
-
       // update the document
       const userRef = doc(store, "users", `${state.email}`);
       await updateDoc(userRef, {
         verfied: true,
         address: homeAddress,
       });
+      // hide modal
       setHide(false);
       toast(e.code, {
         type: "success",
@@ -53,6 +50,9 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
         bodyClassName: "toast",
       });
       router.reload();
+      // upload Image
+      const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
+      await uploadBytes(imgRef, photoRef.current.files[0]);
     } catch (e: any) {
       toast(e.code, {
         type: "error",

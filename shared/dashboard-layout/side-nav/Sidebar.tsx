@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   const boxClasses = (url: any) =>
     clsx({
-      ["font-sec text-teal-50 font-main flex gap-1 items-center my-6 pl-4"]:
+      ["font-sec text-orange-100 font-main flex gap-1 items-center my-6 pl-4"]:
         true,
       ["bg-bg w-full py-2 pl-2 rounded-lg "]: pathname === url,
     });
@@ -16,7 +16,7 @@ const Sidebar = () => {
   const textClasses = (url: any) =>
     clsx({
       ["font-sec"]: true,
-      ["font-sec font-semibold text-teal-200"]: pathname === url,
+      ["font-sec font-semibold text-orange-300"]: pathname === url,
     });
 
   return (
@@ -26,7 +26,7 @@ const Sidebar = () => {
         {/* first links flex container */}
         <div>
           {/* logo flex container */}
-          <div className="mb-8 font-bold text-teal-100 font-main text-xl">
+          <div className="mb-8 font-bold text-button uppercase font-main text-xl">
             Coins Exchange
           </div>
           {FIRST_LINKS.map((link) => (
