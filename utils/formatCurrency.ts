@@ -1,14 +1,16 @@
-export const formatCurrency = (price: number) => {
+export const formatCurrency = (price: number = 0) => {
   if (typeof price === "string") {
     parseInt(price);
   }
-  return new Intl.NumberFormat("en-US",{
-    currency:'USD',
-    style:'currency',
-    notation:"standard",
-    maximumSignificantDigits:3,
-    useGrouping:false
-  }).format(price).replace(/\D00(?=\D*$)/, '');
+  return new Intl.NumberFormat("en-US", {
+    currency: "USD",
+    style: "currency",
+    notation: "standard",
+    maximumSignificantDigits: 3,
+    useGrouping: false,
+  })
+    .format(price)
+    .replace(/\D00(?=\D*$)/, "");
 };
 
 export const convertCurrency = (
