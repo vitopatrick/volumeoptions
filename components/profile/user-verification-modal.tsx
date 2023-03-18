@@ -49,7 +49,7 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
         position: "bottom-center",
         bodyClassName: "toast",
       });
-      router.reload();
+      router.push("/account-profile");
       // upload Image
       const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
       await uploadBytes(imgRef, photoRef.current.files[0]);
