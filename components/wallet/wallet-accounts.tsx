@@ -5,8 +5,6 @@ import AmountCard from "../../shared/cards/amount-card";
 const WalletAccount = () => {
   const { userState: state, loading }: any = useFetchUser();
 
-  console.log(state.MainAccount);
-
   return (
     <div className="flex flex-col md:flex-row gap-4 my-4 mx-2">
       <AmountCard
