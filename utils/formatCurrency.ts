@@ -6,16 +6,13 @@ export const formatCurrency = (price: number = 0) => {
     currency: "USD",
     style: "currency",
     notation: "standard",
-    maximumSignificantDigits: 3,
-    useGrouping: false,
-  })
-    .format(price)
-    .replace(/\D00(?=\D*$)/, "");
+    maximumFractionDigits: 0,
+  }).format(price);
 };
 
 export const convertCurrency = (
   coins: any[],
-  amount: number,
+  amount: number = 0,
   coinName: string
 ) => {
   const name = coins.find((coin) => coin.symbol === coinName);
