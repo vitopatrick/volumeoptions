@@ -57,14 +57,14 @@ const DepositForm = () => {
 
       const userRef = doc(store, "/users", `/${state.email}`);
       await addDoc(depositRef, {
-        amount,
+        amount: parseInt(amount),
         date: serverTimestamp(),
         coin: selectedCoin.sym,
         approved: false,
       });
 
       await updateDoc(userRef, {
-        MainAccount: amount,
+        MainAccount: parseInt(amount),
       });
       // hide trading modal first
       setShow(false);

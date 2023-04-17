@@ -7,10 +7,8 @@ export const formatCurrency = (price: number = 0) => {
     style: "currency",
     notation: "standard",
     maximumFractionDigits: 0,
-    useGrouping: true,
-  })
-    .format(price)
-    .replace(/\D00(?=\D*$)/, "");
+  }).format(price);
+   
 };
 
 export const convertCurrency = (
