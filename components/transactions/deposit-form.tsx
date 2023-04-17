@@ -21,7 +21,7 @@ const DepositForm = () => {
   const [show, setShow] = useState(false);
 
   // get the user
-  const { userState: user } = useFetchUser();
+  const { userState: user }: any = useFetchUser();
 
   const findCoin = () => {
     const selected = addresses.find((address) => address.network == coin);
@@ -60,6 +60,7 @@ const DepositForm = () => {
       );
 
       const userRef = doc(store, "/users", `/${state.email}`);
+      const userMainAccount = user.MainAccount;
       await addDoc(depositRef, {
         amount: parseInt(amount),
         date: serverTimestamp(),
@@ -67,9 +68,9 @@ const DepositForm = () => {
         approved: false,
       });
 
-      // await updateDoc(userRef, {
-      //   MainAccount: user?.MainAccount + parseInt(amount),
-      // });
+      await updateDoc(userRef, {
+        MainAccount: userMainAccount + parseInt(amount),
+      });
       // hide trading modal first
       setShow(false);
       // navigate to the deposit
