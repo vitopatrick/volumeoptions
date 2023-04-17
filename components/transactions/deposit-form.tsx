@@ -12,12 +12,16 @@ import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import TradingModal from "../../shared/modal/trading-modal";
+import { useFetchUser } from "../../hooks/useFetchUser";
 
 const DepositForm = () => {
   const [selectedCoin, setSelectedCoin] = useState<any | null | undefined>({});
   const [coin, setCoin] = useState<string>("bnb");
   const [amount, setAmount] = useState<string | number | any>("");
   const [show, setShow] = useState(false);
+
+  // get the user
+  const { userState: user } = useFetchUser();
 
   const findCoin = () => {
     const selected = addresses.find((address) => address.network == coin);
@@ -63,9 +67,9 @@ const DepositForm = () => {
         approved: false,
       });
 
-      await updateDoc(userRef, {
-        MainAccount: parseInt(amount),
-      });
+      // await updateDoc(userRef, {
+      //   MainAccount: user?.MainAccount + parseInt(amount),
+      // });
       // hide trading modal first
       setShow(false);
       // navigate to the deposit
