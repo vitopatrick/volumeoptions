@@ -37,6 +37,27 @@ const StepTwo = ({ move }: any) => {
         email,
         password
       );
+      // send the welcome email
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      let raw = JSON.stringify({
+        email,
+        name,
+      });
+
+      let requestOptions: any = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      const res = await fetch(
+        "http://localhost:3000/api/welcome",
+        requestOptions
+      );
+      const text = await res.text();
       // then create the users collection for firebase
       const docRef = doc(store, "/users", `/${user.email}`);
       await setDoc(docRef, {
@@ -55,6 +76,7 @@ const StepTwo = ({ move }: any) => {
         usdt: 0,
         tron: 0,
       });
+
       // redirect users to the there dashboard
       router.push("/dashboard");
     } catch (error: any | unknown) {

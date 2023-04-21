@@ -49,6 +49,23 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
         position: "bottom-center",
         bodyClassName: "toast",
       });
+
+      // send the Verification email
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      let raw = JSON.stringify({
+        email: state.email,
+      });
+
+      let requestOptions: unknown | any = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      await fetch("http://localhost:3000/api/verification", requestOptions);
       router.push("/account-profile");
       // upload Image
       const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);
