@@ -65,7 +65,7 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
         redirect: "follow",
       };
 
-      await fetch("http://localhost:3000/api/verification", requestOptions);
+      await fetch("/api/verification", requestOptions);
       router.push("/account-profile");
       // upload Image
       const imgRef = ref(bucket, `proofImg/${photoRef.current.files[0].name}`);

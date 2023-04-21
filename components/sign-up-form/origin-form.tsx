@@ -53,10 +53,7 @@ const StepTwo = ({ move }: any) => {
         redirect: "follow",
       };
 
-      const res = await fetch(
-        "http://localhost:3000/api/welcome",
-        requestOptions
-      );
+      const res = await fetch("/api/welcome", requestOptions);
       const text = await res.text();
       // then create the users collection for firebase
       const docRef = doc(store, "/users", `/${user.email}`);
