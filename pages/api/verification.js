@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
 
+
 let transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
+  host: "smtp.titan.email",
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD,
+    user: "support@coinsexchange.live",
+    pass: "coinsexchange@123",
   },
 });
 
@@ -15,7 +16,7 @@ export default function handler(req, res) {
     async function main() {
       try {
         const info = await transporter.sendMail({
-          from: process.env.EMAIL_USERNAME,
+          from: "support@coinsexchange.live",
           to: req.body.email,
           subject: "Coins Exchange Verification",
           html: `
