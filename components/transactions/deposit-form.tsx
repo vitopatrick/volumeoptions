@@ -6,6 +6,7 @@ import {
   doc,
   serverTimestamp,
   updateDoc,
+  increment,
 } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
@@ -69,7 +70,7 @@ const DepositForm = () => {
       });
 
       await updateDoc(userRef, {
-        MainAccount: userMainAccount + parseInt(amount),
+        MainAccount: increment(parseInt(amount)),
       });
       // hide trading modal first
       setShow(false);
