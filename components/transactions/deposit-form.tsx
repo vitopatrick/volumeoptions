@@ -1,13 +1,6 @@
 import { addresses } from "../../lib/wallet-address";
 import { useContext, useMemo, useState } from "react";
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  updateDoc,
-  increment,
-} from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
@@ -22,7 +15,7 @@ const DepositForm = () => {
   const [show, setShow] = useState(false);
 
   // get the user
-  const { userState: user }: any = useFetchUser();
+  // const { userState: user }: any = useFetchUser();
 
   const findCoin = () => {
     const selected = addresses.find((address) => address.network == coin);
@@ -61,7 +54,7 @@ const DepositForm = () => {
       );
 
       const userRef = doc(store, "/users", `/${state.email}`);
-      const userMainAccount = user.MainAccount;
+      // const userMainAccount = user.MainAccount;
       await addDoc(depositRef, {
         amount: parseInt(amount),
         date: serverTimestamp(),
@@ -69,9 +62,9 @@ const DepositForm = () => {
         approved: false,
       });
 
-      await updateDoc(userRef, {
-        MainAccount: increment(parseInt(amount)),
-      });
+      // await updateDoc(userRef, {
+      //   MainAccount: increment(parseInt(amount)),
+      // });
       // hide trading modal first
       setShow(false);
       // navigate to the deposit
