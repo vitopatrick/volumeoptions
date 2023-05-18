@@ -37,24 +37,18 @@ const StepTwo = ({ move }: any) => {
         email,
         password
       );
-      // send the welcome email
-      let myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
 
-      let raw = JSON.stringify({
-        email,
-        name,
+      await fetch("/api/welcome", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+        }),
       });
 
-      let requestOptions: any = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow",
-      };
-
-      const res = await fetch("/api/welcome", requestOptions);
-      const text = await res.text();
       // then create the users collection for firebase
       const docRef = doc(store, "/users", `/${user.email}`);
       await setDoc(docRef, {

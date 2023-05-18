@@ -17,10 +17,10 @@ const AccordionItems = ({ question, answer, index }: any) => {
       <h2>
         <button
           type="button"
-          className="flex items-center justify-between w-full p-5 font-bold text-left text-teal-500 bg-card rounded-t"
+          className="flex items-center justify-between w-full p-5 text-left text-teal-500 bg-card rounded-t"
           onClick={() => changeIndex(index)}
         >
-          <span className="flex items-center font-main">
+          <span className="flex items-center font-medium">
             <InfoSvg />
             {question}
           </span>

@@ -8,13 +8,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        main: ["Nunito Sans", "sans-serif"],
+        black: "satoshi-black",
+        bold: "satoshi-bold",
+        light: "satoshi-light",
+        medium: "satoshi-medium",
+        regular: "satoshi-regular",
+        variable: "satoshi-variable",
       },
       colors: {
-        bg: "#111827",
-        card: "#1f2937",
+        bg: "#0c0a09",
+        card: "#18181b",
         bgBoard: "#0b0e11",
-        button: "#f59e0b",
+        button: "#059669",
       },
     },
   },

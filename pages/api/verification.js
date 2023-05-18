@@ -1,26 +1,23 @@
 const nodemailer = require("nodemailer");
 
 
-let transporter = nodemailer.createTransport({
-  host: "smtp.titan.email",
-  port: 465,
-  secure: true,
-  auth: {
-    user: "support@coinsexchange.live",
-    pass: "coinsexchange@123",
-  },
-});
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "POST") {
-    async function main() {
-      try {
-        const info = await transporter.sendMail({
-          from: "support@coinsexchange.live",
-          to: req.body.email,
-          subject: "Coins Exchange Verification",
-          html: `
-          <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    let transporter = await nodemailer.createTransport({
+      host: "smtp.titan.email",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "support@coinsexchange.live",
+        pass: "coinsexchange@123",
+      },
+    });
+
+    await transporter.sendMail({
+      from: "support@coinsexchange.live",
+      to: req.body.email,
+      subject: "Verification ",
+      html: `  <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <!--[if gte mso 9]>
@@ -343,17 +340,15 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <!--[if mso]></div><![endif]-->
   <!--[if IE]></div><![endif]-->
 </body>
-
 </html>
 `,
-        });
-      } catch (error) {
-        res.status(400).json({ msg: "Could not send Email" });
-      }
-    }
-
-    main();
-
-    res.status(200).json({ msg: "sent email" });
+    });
   }
+  res.status(200).json({ msg: "sent email" });
 }
+
+
+
+// HTML Email Text
+
+ 

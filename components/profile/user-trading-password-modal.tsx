@@ -1,13 +1,12 @@
-import { AiFillHome } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
-import { useContext, useRef, useState } from "react";
-import { ref, uploadBytes } from "firebase/storage";
-import { bucket, store } from "../../firebase";
+import { useContext, useState } from "react";
+import { store } from "../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface UserTradingModalTypes {
   hide: Boolean;
@@ -58,9 +57,30 @@ const UserTradingModal = ({
   };
 
   return (
-    <>
+    <AnimatePresence>
       {/* parent div positioned absolute */}
-      <div
+      <motion.div
+        key={hide ? 1 : 0}
+        variants={{
+          start: {
+            opacity: 0,
+            scale: 0,
+          },
+          end: {
+            opacity: 1,
+            scale: 1,
+          },
+          exit: {
+            opacity: 0,
+            scale: 0,
+          },
+        }}
+        initial="start"
+        animate="end"
+        exit="exit"
+        transition={{
+          duration: 0.2,
+        }}
         className={
           hide
             ? "absolute top-0 left-0 backdrop-blur-sm bg-black/25 w-screen h-screen"
@@ -68,7 +88,7 @@ const UserTradingModal = ({
         }
       >
         {/* main div that will be center */}
-        <div className="w-[80%] md:w-[40%] mx-auto my-12 bg-bg rounded-md font-main relative shadow-md p-4">
+        <div className="w-[80%] md:w-[40%] mx-auto my-12 bg-bg rounded-md font-variable relative shadow-md p-4">
           <div className="absolute top-0 right-0">
             <FaTimes
               className="text-white text-4xl mx-4 mt-6 cursor-pointer"
@@ -116,8 +136,8 @@ const UserTradingModal = ({
             </button>
           </form>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

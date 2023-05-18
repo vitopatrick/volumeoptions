@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserModal from "./user-verification-modal";
 import UserTradingModal from "./user-trading-password-modal";
+import * as Md from "react-icons/md";
 
 const UserVerification = ({ user, loading }: any) => {
   const [hide, setHide] = useState(false);
@@ -10,30 +11,22 @@ const UserVerification = ({ user, loading }: any) => {
 
   return (
     <>
-      <div className="flex items-center gap-2 px-3 font-main">
-        <div className="my-4">
-          <button
-            onClick={() => setHide(true)}
-            className="font-sec rounded-full block px-3 py-1 text-xs border-teal-500 border-[1px] font-bold text-teal-500"
-          >
-            Start verification
-          </button>
+      <div className="flex items-center my-4 justify-center gap-5 px-3 font-medium">
+        <div className="flex items-center gap-2 text-green-400">
+          <Md.MdVerifiedUser />
+          <button onClick={() => setHide(true)}>Start verification</button>
         </div>
         {!isTradingPassword ? (
-          <div>
-            <button
-              onClick={() => setSecondModal(true)}
-              className="font-sec rounded-full block px-3 py-1 text-xs border-teal-500 border-[1px] font-bold text-teal-500"
-            >
+          <div className="flex items-center gap-2 text-red-400">
+            <Md.MdPassword />
+            <button onClick={() => setSecondModal(true)}>
               Add Trading Password
             </button>
           </div>
         ) : (
-          <div>
-            <button
-              onClick={() => setSecondModal(true)}
-              className="font-sec rounded-full block px-3 py-1 text-xs border-orange-500 border-[1px] font-bold text-orange-500"
-            >
+          <div className="flex items-center gap-2 text-red-400">
+            <Md.MdOutlinePassword />
+            <button onClick={() => setSecondModal(true)}>
               Change Trading Password
             </button>
           </div>

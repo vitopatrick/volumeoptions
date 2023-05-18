@@ -5,7 +5,7 @@ const Faq = () => {
   return (
     <section className="my-12">
       <div className="w-[90%] mx-auto">
-        <div className="font-main text-xl md:text-4xl font-bold text-white capitalize text-center mb-6">
+        <div className="font-bold text-xl md:text-4xl text-white capitalize text-center mb-6">
           Frequently Asked Questions
         </div>
         {faqs.map((faq) => (

@@ -8,15 +8,15 @@ const Sidebar = () => {
 
   const boxClasses = (url: any) =>
     clsx({
-      ["font-sec text-orange-100 font-main flex gap-1 items-center my-6 pl-4"]:
+      ["font-regular text-white flex gap-3 p-3 hover:text-button hover:bg-button/30 transition-all ease-in items-center"]:
         true,
-      ["bg-bg w-full py-2 pl-2 rounded-lg "]: pathname === url,
+      ["bg-button/30 w-full p-3 rounded font-medium "]: pathname === url,
     });
 
   const textClasses = (url: any) =>
     clsx({
-      ["font-sec"]: true,
-      ["font-sec font-semibold text-orange-300"]: pathname === url,
+      ["font-regular"]: true,
+      ["font-medium text-button"]: pathname === url,
     });
 
   return (
@@ -26,34 +26,33 @@ const Sidebar = () => {
         {/* first links flex container */}
         <div>
           {/* logo flex container */}
-          <div className="mb-8 font-bold text-button uppercase font-main text-xl">
+          <div className="mb-8 font-medium text-button uppercase underline tracking-widest text-xl">
             Coins Exchange
           </div>
-          {FIRST_LINKS.map((link) => (
-            <Link
-              href={link.path}
-              key={link.key}
-              className={boxClasses(link.path)}
-            >
-              {/* flex item */}
-              <div className={textClasses(link.path)}>{link.icon}</div>
-              <div className={textClasses(link.path)}>{link.label}</div>
-            </Link>
-          ))}
-        </div>
-        {/* second links flex container */}
-        <div>
-          {SECOND_LINKS.map((link) => (
-            <Link
-              href={link.path}
-              key={link.key}
-              className={boxClasses(link.path)}
-            >
-              {/* flex item */}
-              <div className={textClasses(link.path)}>{link.icon}</div>
-              <div className={textClasses(link.path)}>{link.label}</div>
-            </Link>
-          ))}
+          <div className="space-y-5">
+            {FIRST_LINKS.map((link) => (
+              <Link
+                href={link.path}
+                key={link.key}
+                className={boxClasses(link.path)}
+              >
+                {/* flex item */}
+                <div className={textClasses(link.path)}>{link.icon}</div>
+                <div className={textClasses(link.path)}>{link.label}</div>
+              </Link>
+            ))}
+            {SECOND_LINKS.map((link) => (
+              <Link
+                href={link.path}
+                key={link.key}
+                className={boxClasses(link.path)}
+              >
+                {/* flex item */}
+                <div className={textClasses(link.path)}>{link.icon}</div>
+                <div className={textClasses(link.path)}>{link.label}</div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

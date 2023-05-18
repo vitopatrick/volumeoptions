@@ -8,9 +8,12 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="bg-bg text-white font-main shadow-md">
+    <nav className="bg-bg text-white shadow-md">
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
-        <Link href="/" className="text-lg md:text-2xl text-teal-500 font-bold">
+        <Link
+          href="/"
+          className="text-2xl text-teal-500 font-medium uppercase tracking-widest underline"
+        >
           Coins Exchange
         </Link>
         {/* links */}
@@ -21,23 +24,23 @@ const Navbar = () => {
               <Link
                 href={`/${link.path}`}
                 key={link.id}
-                className="capitalize hover:text-teal-500 hover:font-bold"
+                className="capitalize font-medium hover:text-teal-500 hover:font-bold hover:underline"
               >
                 {link.name}
               </Link>
             ))}
           </div>
           {/* cta buttons */}
-          <div className="flex items-center gap-4">
+          <div className="md:flex hidden items-center gap-4">
             <Link
               href="/auth/sign-up"
-              className="font-main bg-teal-500 py-2 px-4 rounded text-bg font-medium"
+              className="bg-teal-500 py-2 px-4 rounded text-bg font-medium"
             >
               Register Now
             </Link>
             <Link
               href="/auth/sign-in"
-              className="font-main hidden md:inline-block border-teal-500 border-[1px] px-6 py-2 rounded font-medium text-teal-500"
+              className="md:inline-block border-teal-500 border-[1px] px-6 py-2 rounded font-medium text-teal-500"
             >
               Login
             </Link>

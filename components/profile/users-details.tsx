@@ -19,20 +19,20 @@ const UsersDetails = ({
   return (
     <>
       {/* parent grid container */}
-      <div className=" md:grid grid-cols-2 gap-4 px-2 text-white font-main">
+      <div className="md:w-[60%] mx-auto  md:grid grid-cols-2 gap-4 px-2 text-white">
         {/* grid children */}
         <div className="my-2 p-4 flex items-center gap-6 bg-bg rounded shadow">
           {loading && <SkeletonCircle width={50} height={50} />}
           {!loading && (
             <div className="bg-card p-3 md:p-5 rounded-full">
-              <TfiEmail className="text-base md:text-2xl" />
+              <TfiEmail color="#4ade80" className="text-base md:text-2xl" />
             </div>
           )}
-          <div>
-            <h2 className="font-medium text-base mb-1">Email</h2>
+          <div className="space-y-3 font-medium">
+            <h2 className="text-neutral-400">Email</h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-semibold text-base md:text-lg text-paper">
+              <h1 className="font-medium text-base md:text-base text-paper">
                 {user.Email}
               </h1>
             )}
@@ -43,14 +43,14 @@ const UsersDetails = ({
           {loading && <SkeletonCircle width={50} height={50} />}
           {!loading && (
             <div className="bg-card p-3 md:p-5 rounded-full">
-              <MdOutlineVerified className="fill-paper text-base md:text-2xl" />
+              <MdOutlineVerified className="text-[#dc2626] text-base md:text-2xl" />
             </div>
           )}
-          <div>
-            <h2 className="font-medium text-base mb-1">Account Status</h2>
+          <div className="space-y-3 font-medium">
+            <h2 className="text-neutral-400">Account Status</h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-semibold text-base md:text-lg text-paper">
+              <h1 className="font-medium text-base md:text-base text-paper">
                 {user.verfied ? "Verified" : "Not Verified"}
               </h1>
             )}
@@ -61,14 +61,14 @@ const UsersDetails = ({
           {loading && <SkeletonCircle width={50} height={50} />}
           {!loading && (
             <div className="bg-card p-3 md:p-5 rounded-full">
-              <MdPublishedWithChanges className="text-base md:text-2xl" />
+              <MdPublishedWithChanges className="text-[#fbbf24] text-base md:text-2xl" />
             </div>
           )}
-          <div>
-            <h2 className="font-medium text-base mb-1">Withdrawal Limit</h2>
+          <div className="space-y-3 font-medium">
+            <h2 className="text-neutral-400">Withdrawal Limit</h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-semibold text-base md:text-lg">
+              <h1 className="font-medium text-base md:text-base">
                 {user.verfied
                   ? "unlimited"
                   : "No withdrawal please verify account"}
@@ -81,11 +81,11 @@ const UsersDetails = ({
           {loading && <SkeletonCircle width={50} height={50} />}
           {!loading && (
             <div className="bg-card p-3 md:p-5 rounded-full">
-              <RiLockPasswordLine className="text-base md:text-2xl" />
+              <RiLockPasswordLine className="text-[#ea580c] text-base md:text-2xl" />
             </div>
           )}
-          <div>
-            <h2 className="font-medium text-base mb-1">Trading Password</h2>
+          <div className="space-y-3 font-medium">
+            <h2 className="text-neutral-400">Trading Password</h2>
             {loading && <SkeletonText width={200} height={5} />}
             {!loading && (
               <div className="flex items-center gap-3">

@@ -12,7 +12,7 @@ const TrendingCoins = () => {
               <div className="w-[15%]">
                 <img src={coin.img} alt={coin.name} />
               </div>
-              <div className="font-main flex items-center gap-2 mt-2 mb-1">
+              <div className="flex items-center gap-2 mt-2 mb-1">
                 <h3 className="font-medium text-xl">{coin.name} </h3>
                 <h4 className="text-sm font-medium">({coin.symbol})</h4>
               </div>
