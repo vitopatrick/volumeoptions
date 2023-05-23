@@ -36,6 +36,8 @@ const UserModal = ({ hide, setHide }: UserModalTypes) => {
       return;
     }
 
+    
+
     try {
       // upload Image
       const imgRef = ref(bucket, `proofImg/${photo.name}`);
