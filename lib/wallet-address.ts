@@ -28,7 +28,7 @@ export const addresses = [
   {
     id: 4,
     sym: "usdt",
-    name: "Tether ",
+    name: "TRC20",
     address: "TXWucereWQGR1nxjQW1pBMhiVyxugm3CYc",
     network: "usdt",
     img: "/usdt.jpg",
