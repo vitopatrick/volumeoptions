@@ -94,7 +94,7 @@ const DepositForm = () => {
           <div className="w-full md:w-[50%] mx-auto my-4 bg-bg rounded p-2">
             <p className="text-sm text-text_min">Network</p>
             <h3 className="text-text_main font-semibold">
-              {selectedCoin.name}
+              {selectedCoin.network}
             </h3>
           </div>
         </div>

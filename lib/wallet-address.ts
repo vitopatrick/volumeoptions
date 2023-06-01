@@ -28,7 +28,7 @@ export const addresses = [
   {
     id: 4,
     sym: "usdt",
-    name: "TRC20",
+    name: "USDT",
     address: "TXWucereWQGR1nxjQW1pBMhiVyxugm3CYc",
     network: "TRC20",
     img: "/usdt.jpg",
