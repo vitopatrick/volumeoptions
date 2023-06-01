@@ -22,7 +22,7 @@ export const addresses = [
     sym: "trx",
     name: "Tron Trx ",
     address: "TXWucereWQGR1nxjQW1pBMhiVyxugm3CYc",
-    network: "Tron",
+    network: "TRC20",
     img: "/tron.jpg",
   },
   {
