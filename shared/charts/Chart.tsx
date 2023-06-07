@@ -28,11 +28,11 @@ const Chart = () => {
             value={selected}
             onChange={(e) => setCoin(e.target.value)}
           >
-            <option value="bitcoin">Bitcoin</option>
+            <option value="bitcoin">BTC/USD</option>
             <option value="tether">USDT</option>
-            <option value="ethereum">Ethereum</option>
-            <option value="solana">Solana</option>
-            <option value="tron">Tron</option>
+            <option value="ethereum">ETH/USD</option>
+            <option value="solana">SOL/USD</option>
+            <option value="tron">TRX/USD</option>
           </select>
         </div>
         <div className="text-paper border-paper border-[1px] px-2 rounded cursor-pointer">
