@@ -6,7 +6,7 @@ import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import TradingModal from "../../shared/modal/trading-modal";
-import { useFetchUser } from "../../hooks/useFetchUser";
+import * as Fa from "react-icons/fa";
 
 const DepositForm = () => {
   const [selectedCoin, setSelectedCoin] = useState<any | null | undefined>({});
@@ -136,14 +136,15 @@ const DepositForm = () => {
               <label htmlFor="amount" className="text-sm">
                 Enter Amount to deposit
               </label>
-              <div className="w-full bg-neutral-300 py-2 rounded">
+              <div className="w-full flex items-center bg-neutral-300 rounded">
+                <Fa.FaDollarSign color="#000" />
                 <input
                   type="text"
                   name="amount"
                   id="amount"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  className="bg-transparent w-full outline-none text-bg px-2"
+                  className="w-full px-1 py-2 bg-transparent outline-none text-black"
                 />
               </div>
             </div>

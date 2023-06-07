@@ -12,6 +12,7 @@ import { store } from "../../firebase";
 import { toast } from "react-toastify";
 import ToggleButton from "./toggle";
 import TradingModal from "../../shared/modal/trading-modal";
+import * as Fa from "react-icons/fa";
 
 const coins = [
   "Ethereum",
@@ -96,14 +97,15 @@ const WithdrawalForm = () => {
             <label htmlFor="amount" className="font-sec py-2 text-sm">
               Enter Amount
             </label>
-            <div className="w-full bg-neutral-300 py-2 rounded">
+            <div className="w-full bg-neutral-300 flex items-center py-2 rounded">
+              <Fa.FaDollarSign color="#000" />
               <input
                 type="text"
                 name="amount"
                 id="amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="bg-transparent text-bg outline-none px-2"
+                className="bg-transparent w-full text-bg outline-none px-2"
               />
             </div>
           </div>
