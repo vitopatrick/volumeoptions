@@ -22,7 +22,7 @@ export const addresses = [
     sym: "trx",
     name: "Tron Trx ",
     address: "TXWucereWQGR1nxjQW1pBMhiVyxugm3CYc",
-    network: "TRC20",
+    network: "Tron TRC20",
     img: "/tron.jpg",
   },
   {
@@ -30,7 +30,7 @@ export const addresses = [
     sym: "usdt",
     name: "USDT",
     address: "TXWucereWQGR1nxjQW1pBMhiVyxugm3CYc",
-    network: "TRC20",
+    network: "USDT TRC20",
     img: "/usdt.jpg",
   },
   {
