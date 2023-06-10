@@ -33,7 +33,6 @@ export const useTransaction = (id: String | any) => {
             date: new Date(doc.data().date.toDate()).toDateString(),
             network: doc.data().network,
             hash: doc.data().hash,
-            remarks: doc.data().remarks,
             address: doc.data().address,
           };
 

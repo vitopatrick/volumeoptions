@@ -209,9 +209,7 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">
                   Remarks
                 </h4>
-                <p className="font-semibold ">
-                  {transaction?.remarks ? transaction?.remarks : "N/A"}
-                </p>
+                <p className="font-semibold ">Deposit</p>
               </div>
             </div>
           )}

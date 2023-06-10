@@ -69,7 +69,7 @@ const Form = () => {
         network: defaultCoin.network,
         address: defaultCoin.address,
         hash: "",
-        remarks: "",
+
         approved: false,
       });
 
