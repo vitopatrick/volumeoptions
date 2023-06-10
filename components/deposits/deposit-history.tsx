@@ -11,7 +11,9 @@ const DepositHistory = () => {
 
   return (
     <div className="w-[90%] mx-auto text-white my-10">
-      <h4 className="underline text-2xl font-semibold">Deposit History</h4>
+      <h4 className="underline text-base md:text-xl font-semibold">
+        Deposit History
+      </h4>
       {transactions.length < 1 ? (
         <NoDeposit />
       ) : (
@@ -55,18 +57,18 @@ const DepositTable = ({ transactions, loading }: any) => {
                 className="flex items-center justify-between cursor-pointer hover:bg-bg/40 p-3 ease transition-all rounded-xl"
               >
                 <div>
-                  <h3 className="font-semibold uppercase">
+                  <h3 className="font-semibold text-xs uppercase">
                     {transaction.coin}
                   </h3>
-                  <h3 className="text-neutral-400 font-semibold">
+                  <h3 className="text-neutral-400 text-xs font-semibold">
                     {transaction.date}
                   </h3>
                 </div>
                 <div>
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-xs">
                     {formatCurrency(transaction.amount)}
                   </h3>
-                  <h3 className="text-neutral-400 font-semibold">
+                  <h3 className="text-neutral-400 text-xs font-semibold">
                     {transaction.approved ? "Completed" : "0/3 block confirm"}
                   </h3>
                 </div>
@@ -85,7 +87,7 @@ const DepositTable = ({ transactions, loading }: any) => {
 };
 
 const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
-  const { transaction, loading } = useTransaction(id);
+  const { transaction, loading } = useTransaction(id, "deposits");
 
   return (
     <AnimatePresence>
@@ -108,13 +110,13 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
         }}
         className={
           show
-            ? "absolute top-0 left-0 bottom-0 right-0 w-full h-full bg-card/30 backdrop-blur-sm"
+            ? "fixed top-0 left-0 bottom-0 right-0 w-full h-[700px] md:h-full overflow-scroll bg-card/30 backdrop-blur-sm"
             : "hidden"
         }
       >
         <div className="md:w-[50%] w-[80%] mx-auto md:mt-14 bg-bg p-4">
           <div className="flex justify-between items-center">
-            <h4 className="font-bold text-xl underline">Deposit Details</h4>
+            <h4 className="font-bold text-base underline">Deposit Details</h4>
             <Md.MdClose
               className="cursor-pointer"
               onClick={() => close(false)}
@@ -124,7 +126,7 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
           {loading ? (
             <Loading />
           ) : (
-            <div className="my-8 md:space-y-4">
+            <div className="my-8 md:space-y-4 text-xs md:text-base">
               <div>
                 <h4 className="text-neutral-400 font-semibold">Time</h4>
                 <h4 className="font-semibold">{transaction?.date}</h4>
@@ -193,7 +195,7 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">
                   Receiving Address
                 </h4>
-                <p className="font-semibold">
+                <p className="font-semibold break-words">
                   {transaction?.address ? transaction?.address : "N/A"}
                 </p>
               </div>
@@ -201,7 +203,7 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">
                   Transaction Hash
                 </h4>
-                <p className="font-semibold underline">
+                <p className="font-semibold underline break-words">
                   {transaction?.hash ? transaction?.hash : "N/A"}
                 </p>
               </div>

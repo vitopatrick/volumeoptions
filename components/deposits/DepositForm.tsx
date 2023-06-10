@@ -14,7 +14,9 @@ const DepositForm = () => {
   return (
     <section className="py-3 px-2 flex-1 w-full">
       <div>
-        <h3 className="font-medium text-2xl  underline">Deposit Crypto</h3>
+        <h3 className="font-medium text-base md:text-xl  underline">
+          Deposit Crypto
+        </h3>
       </div>
       {/* Form */}
       <Form />
@@ -43,6 +45,15 @@ const Form = () => {
   // user context
   const { user: state }: any = useContext(UserContext);
 
+  // copy address
+  const copyAddress = (address: string) => {
+    navigator.clipboard.writeText(address);
+    toast.success("copied address", {
+      position: "top-center",
+      bodyClassName: "toast",
+    });
+  };
+
   // function to submit to firebase
   async function DepositMoney(e: any) {
     e.preventDefault();
@@ -69,7 +80,6 @@ const Form = () => {
         network: defaultCoin.network,
         address: defaultCoin.address,
         hash: "",
-
         approved: false,
       });
 
@@ -87,7 +97,7 @@ const Form = () => {
   return (
     <>
       <section>
-        <div className="my-3 space-y-8">
+        <div className="my-3 space-y-6">
           {/* coin */}
           <div>
             <p className="font-semibold text-neutral-400">Coin</p>
@@ -95,15 +105,11 @@ const Form = () => {
               onClick={() => setCoinModal(true)}
               className="flex justify-between items-center my-2 cursor-pointer bg-neutral-500  rounded"
             >
-              <div className="flex items-center w-full">
-                <div className="w-[6%] py-3 px-2">
-                  <img
-                    src={defaultCoin?.logo}
-                    alt=""
-                    className="rounded-full"
-                  />
+              <div className="flex items-center w-full px-2 py-3">
+                <div className="md:w-[4%] w-[5%]">
+                  <img src={defaultCoin?.logo} className="rounded-full" />
                 </div>
-                <h1 className="mx-2 font-bold">{defaultCoin?.name}</h1>
+                <h1 className="mx-2 font-bold text-xs">{defaultCoin?.name}</h1>
               </div>
               <div className="flex-1">
                 <Md.MdArrowDropDown />
@@ -123,18 +129,26 @@ const Form = () => {
           </div>
           {/* end of network */}
           {/* wallet details */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <div>
-              <h3 className="font-bold text-neutral-400 mb-1">Address</h3>
-              <p className="font-bold">{defaultCoin?.address}</p>
+              <h3 className="font-bold text-neutral-400">Address</h3>
+              <p className="font-bold text-sm break-all">
+                {defaultCoin?.address}
+              </p>
             </div>
-            <h4
-              className="font-bold capitalize cursor-pointer"
-              onClick={() => setBarCode(true)}
-            >
-              bar code
-            </h4>
+            <div>
+              <Fa.FaClipboardCheck
+                className="cursor-pointer text-neutral-300"
+                onClick={() => copyAddress(defaultCoin.address)}
+              />
+            </div>
           </div>
+          <h4
+            className="font-bold capitalize text-xs cursor-pointer"
+            onClick={() => setBarCode(true)}
+          >
+            bar code
+          </h4>
           {/* amount input field */}
           <div className="flex bg-neutral-500 items-center py-3 px-2 rounded">
             <Fa.FaDollarSign />
@@ -167,23 +181,23 @@ const Details = () => {
   return (
     <div className="my-8 space-y-6">
       <div>
-        <h4 className="font-semibold text-neutral-400 my-1">
+        <h4 className="font-semibold text-neutral-400 my-1 text-sm">
           Recipient Account
         </h4>
-        <h4 className="font-semibold">Main Account</h4>
+        <h4 className="font-semibold text-sm">Main Account</h4>
       </div>
       <div className="flex items-center justify-between">
         <div>
-          <h4 className="my-1 font-semibold text-neutral-400">
+          <h4 className="my-1 font-semibold text-neutral-400 text-sm">
             Deposit Confirmation
           </h4>
-          <h4 className="font-semibold">3 Block(s)</h4>
+          <h4 className="font-semibold text-sm">3 Block(s)</h4>
         </div>
         <div>
-          <h4 className="my-1 font-semibold text-neutral-400">
+          <h4 className="my-1 font-semibold text-neutral-400 text-sm">
             Withdrawal Confirmation
           </h4>
-          <h4 className="font-semibold">3 Blocks(s)</h4>
+          <h4 className="font-semibold text-sm">3 Blocks(s)</h4>
         </div>
       </div>
     </div>
@@ -240,14 +254,14 @@ const CoinModal = ({ show, close, coin }: any) => {
                   className="hover:bg-card ease-in transition-all cursor-pointer rounded py-4 px-2"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-[5%]">
+                    <div className="w-[10%] md:w-[5%]">
                       <img src={address.logo} alt="" className="rounded-full" />
                     </div>
                     <div className="space-y-2">
                       <h4 className="capitalize font-semibold">
                         {address.name}
                       </h4>
-                      <p className="uppercase font-semibold text-neutral-400">
+                      <p className="uppercase font-semibold text-neutral-400 break-words">
                         {address.network}
                       </p>
                     </div>

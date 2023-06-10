@@ -3,7 +3,7 @@ import { useState, useMemo, useContext } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { store } from "../firebase";
 
-export const useTransaction = (id: String | any) => {
+export const useTransaction = (id: String | any, path: string | any) => {
   const [transaction, setTransaction] = useState<{} | null | any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -16,13 +16,7 @@ export const useTransaction = (id: String | any) => {
     setLoading(true);
     const fetchTransactions = async () => {
       // create docRef
-      const docRef = doc(
-        store,
-        "/users",
-        `${user.email}`,
-        "/deposits",
-        `${id}`
-      );
+      const docRef = doc(store, "/users", `${user.email}`, `/${path}`, `${id}`);
       onSnapshot(
         docRef,
         (doc: any) => {

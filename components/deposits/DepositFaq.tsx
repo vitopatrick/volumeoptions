@@ -60,7 +60,7 @@ const DepositFaq = () => {
     <AnimatePresence>
       <section className="flex-1 w-full">
         <div className="py-3 px-2">
-          <h3 className="font-medium text-2xl  underline">Faq</h3>
+          <h3 className="font-medium text-base md:text-xl  underline">Faq</h3>
           <div className="space-y-6 mt-4">
             {faqs.map((faq, index) => (
               <div key={faq.id}>
