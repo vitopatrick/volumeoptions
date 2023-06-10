@@ -119,7 +119,6 @@ const Form = () => {
               <div className="flex items-center">
                 <h1 className="mx-2 font-bold">{defaultCoin?.network}</h1>
               </div>
-              <Md.MdArrowDropDown />
             </div>
           </div>
           {/* end of network */}
@@ -292,8 +291,8 @@ const BarCodeModal = ({ coin, show, close }: any) => {
         }
       >
         <div className="w-[50%] mx-auto p-4 relative">
-          <div className="absolute right-0 bg-bg top-0 p-4">
-            <Md.MdClose onClick={() => close(false)} />
+          <div className=" p-4 my-5">
+            <Md.MdClose onClick={() => close(false)} size={30} />
           </div>
           <img src={coin?.img} />
         </div>

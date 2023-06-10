@@ -15,7 +15,7 @@ export const addresses = [
     name: "Ethereum",
     address: "0x423A6503304df12541467A2f7Aead1D9059b2BB4",
     network: "ETH",
-    img: "/sth-ero20.png",
+    img: "/sth-erc20.png",
     logo: "/eth.png",
   },
 
@@ -108,7 +108,7 @@ export const addresses = [
     name: "USDT",
     address: "0x423A6503304df12541467A2f7Aead1D9059b2BB4",
     network: "BEP20",
-    img: "/usdt-bep20.jpg",
+    img: "/usdt-bep20.png",
     logo: "./usdt.png",
   },
 ];
