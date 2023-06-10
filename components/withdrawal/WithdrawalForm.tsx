@@ -168,12 +168,6 @@ const Form = () => {
 const Details = () => {
   return (
     <div className="my-8 space-y-6">
-      <div>
-        <h4 className="font-semibold text-neutral-400 my-1 text-sm">
-          Recipient Account
-        </h4>
-        <h4 className="font-semibold text-sm">Main Account</h4>
-      </div>
       <div className="flex items-center justify-between">
         <div>
           <h4 className="my-1 font-semibold text-neutral-400 text-sm">
