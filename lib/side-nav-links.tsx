@@ -56,8 +56,8 @@ export const SECOND_LINKS = [
   },
   {
     key: "trading",
-    label: "Volume Staking",
-    path: "/volume-staking",
+    label: "Volume Trading",
+    path: "/volume-trading",
     icon: <RiExchangeDollarFill />,
   },
   // {

@@ -30,10 +30,11 @@ export const useTransactions = (path: String | any) => {
             const data = doc.data();
 
             transactionsArray.push({
-              coin: data.coin,
-              approved: data.approved,
+              coin: doc.data().coin,
+              approved: doc.data().approved,
               amount: parseInt(data.amount),
               date: new Date(data.date.toDate()).toDateString(),
+              id: doc.id,
             });
             setTransactions(transactionsArray);
           });

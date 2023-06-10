@@ -1,11 +1,15 @@
-import DepositForm from "../../components/transactions/deposit-form";
-import DepositHistory from "../../components/transactions/deposit-history";
+import DepositFaq from "../../components/deposits/DepositFaq";
+import DepositForm from "../../components/deposits/DepositForm";
+import DepositHistory from "../../components/deposits/deposit-history";
 import Layout from "../../shared/dashboard-layout/Layout";
 
 const index = () => {
   return (
     <Layout>
-      <DepositForm />
+      <div className="text-white flex items-start gap-4 flex-col md:flex-row mx-auto w-[90%]">
+        <DepositForm />
+        <DepositFaq />
+      </div>
       <DepositHistory />
     </Layout>
   );
