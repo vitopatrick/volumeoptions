@@ -185,8 +185,8 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
                 </h4>
                 <p className="font-semibold uppercase">
                   {transaction?.network
-                    ? transaction?.coin
-                    : transaction?.network}
+                    ? transaction?.network
+                    : transaction?.coin}
                 </p>
               </div>
               <div>
