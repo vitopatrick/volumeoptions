@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
+import TradingModal from "../../shared/modal/trading-modal";
 
 // Parent form component
 const WithdrawalForm = () => {
@@ -34,6 +35,7 @@ const Form = () => {
   const [showCoinModal, setCoinModal] = useState(false);
   const [defaultCoin, setDefaultCoin] = useState<null | any>(null);
   const [showBarCode, setBarCode] = useState(false);
+  const [tradingModal, setTradingModal] = useState(false);
 
   useEffect(() => {
     const selectedCoin = addresses.find((address) => address.id === coinId);
@@ -47,8 +49,9 @@ const Form = () => {
   const { user: state }: any = useContext(UserContext);
 
   // function to submit to firebase
-  async function WithdrawFunction(e: any) {
+  function openModal(e: any) {
     e.preventDefault();
+
     if (!amount || !address) {
       return toast.error("Please Fill the form Properly", {
         theme: "colored",
@@ -56,6 +59,10 @@ const Form = () => {
         bodyClassName: "toast",
       });
     }
+    setTradingModal(true);
+  }
+
+  async function WithdrawalFunction() {
     try {
       // get the collection Ref
       const withdrawalRef = collection(
@@ -64,7 +71,6 @@ const Form = () => {
         `/${state.email}`,
         "/withdraw"
       );
-
       await addDoc(withdrawalRef, {
         amount: amount,
         date: serverTimestamp(),
@@ -74,7 +80,6 @@ const Form = () => {
         hash: "",
         approved: false,
       });
-
       // navigate to the deposit
       router.reload();
     } catch (e: any) {
@@ -88,7 +93,7 @@ const Form = () => {
 
   return (
     <>
-      <section>
+      <section className="md:p-4">
         <div className="my-3 space-y-6">
           {/* coin */}
           <div>
@@ -149,7 +154,7 @@ const Form = () => {
             </div>
           </div>
           <button
-            onClick={WithdrawFunction}
+            onClick={openModal}
             className="bg-teal-600 shadow rounded px-4 py-2"
           >
             Withdraw
@@ -158,7 +163,11 @@ const Form = () => {
         </div>
       </section>
       <CoinModal show={showCoinModal} close={setCoinModal} coin={setCoinId} />
-
+      <TradingModal
+        hide={tradingModal}
+        setHide={setTradingModal}
+        tradingFunction={WithdrawalFunction}
+      />
       <BarCodeModal show={showBarCode} close={setBarCode} coin={defaultCoin} />
     </>
   );

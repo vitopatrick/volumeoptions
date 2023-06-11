@@ -1,8 +1,9 @@
 import { FaTimes } from "react-icons/fa";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { useFetchUser } from "../../hooks/useFetchUser";
+import OtpInput from "react-otp-input";
+import { AnimatePresence, motion } from "framer-motion";
 
 const TradingModal = ({ hide, setHide, tradingFunction }: any) => {
   const [tradingPassword, setTradingPassword] = useState<string>("");
@@ -33,19 +34,23 @@ const TradingModal = ({ hide, setHide, tradingFunction }: any) => {
     }
     tradingFunction();
 
-  toast("Request submitted", {
-    bodyClassName: "toast",
-    type: "info",
-    position: "top-center",
-  });
+    toast("Request submitted", {
+      bodyClassName: "toast",
+      type: "info",
+      position: "top-center",
+    });
 
-  setHide(false);
+    setHide(false);
   };
 
   return (
-    <>
+    <AnimatePresence>
       {/* parent div positioned absolute */}
-      <div
+      <motion.div
+        key={hide}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
         className={
           hide
             ? "absolute top-0 left-0 backdrop-blur-sm bg-black/25 w-screen h-screen"
@@ -61,37 +66,42 @@ const TradingModal = ({ hide, setHide, tradingFunction }: any) => {
             />
           </div>
           <div>
-            <h2 className="font-sec py-3 font-semibold text-xl capitalize underline underline-offset-2">
-              Enter Trading Password
+            <h2 className="font-sec py-3 text-center font-semibold text-xl capitalize underline underline-offset-2">
+              Trading Password
             </h2>
           </div>
           {/* form  */}
-          <form>
-            <div className="my-4">
-              <label htmlFor="enter address">Enter Trading Password</label>
-              <div className="bg-neutral-300 rounded py-2">
-                <input
-                  type="text"
-                  name="tradingPassword"
-                  id="tradingPassword"
-                  value={tradingPassword}
-                  className="bg-transparent outline-none text-bg px-2"
-                  onChange={(e) => setTradingPassword(e.target.value)}
-                />
-              </div>
+          <form className="my-3">
+            <div className="flex items-center justify-center">
+              <OtpInput
+                value={tradingPassword}
+                onChange={setTradingPassword}
+                numInputs={4}
+                renderSeparator={<span className="text-neutral-400">-</span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={{
+                  color: "#000",
+                  backgroundColor: "#a3a3a3",
+                  fontSize: "28px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "5px",
+                }}
+              />
             </div>
-            {/* submit button */}
             <button
               onClick={modalFunction}
               type="submit"
-              className="inline-block w-full mt-6 font-sec py-2 bg-card text-white rounded"
+              className="inline-block w-full mt-6 font-sec py-2 bg-teal-400 text-white rounded"
             >
               Submit
             </button>
           </form>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

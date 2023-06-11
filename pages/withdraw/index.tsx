@@ -6,7 +6,7 @@ import WithdrawalHistory from "../../components/withdrawal/WithdrawalHistory";
 const withdraw = () => {
   return (
     <Layout>
-      <div className="text-white flex">
+      <div className="text-white flex md:flex-row flex-col">
         <WithdrawalForm />
         <WithdrawalFaq />
       </div>

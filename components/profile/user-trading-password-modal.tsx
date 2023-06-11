@@ -5,8 +5,8 @@ import { doc, updateDoc } from "firebase/firestore";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import OTPInput from "react-otp-input";
 
 interface UserTradingModalTypes {
   hide: Boolean;
@@ -20,7 +20,6 @@ const UserTradingModal = ({
   heading,
 }: UserTradingModalTypes) => {
   const [tradingPassword, setTradingPassword] = useState("");
-  const [isText, setIsText] = useState(false);
 
   const { user: state }: any = useContext(UserContext);
   const router = useRouter();
@@ -96,41 +95,35 @@ const UserTradingModal = ({
             />
           </div>
           <div>
-            <h2 className="py-3 font-semibold text-white text-xl capitalize underline">
+            <h2 className="py-3 font-semibold text-center text-white text-xl capitalize underline">
               {heading ? "Change Password" : "Add Trading Password"}
             </h2>
           </div>
           {/* form  */}
           <form>
-            {/* enter address */}
-            {/* password fieldset */}
-            <div className="mt-4 flex flex-col">
-              <label htmlFor="password" className="text-sm text-white">
-                Password
-              </label>
-              <div className="flex items-center mt-3 bg-neutral-300 py-2 rounded">
-                <input
-                  type={isText ? "text" : "password"}
-                  name="password"
-                  id="password"
-                  value={tradingPassword}
-                  onChange={(e) => setTradingPassword(e.target.value)}
-                  className="flex-1 bg-transparent outline-none py-1 pl-2"
-                />
-                <div className="pr-4">
-                  {/* change type based on state changes */}
-                  {isText ? (
-                    <BsEye onClick={() => setIsText(!isText)} />
-                  ) : (
-                    <BsEyeSlash onClick={() => setIsText(!isText)} />
-                  )}
-                </div>
-              </div>
+            <div className="flex items-center justify-center">
+              <OTPInput
+                value={tradingPassword}
+                onChange={setTradingPassword}
+                numInputs={4}
+                renderSeparator={<span className="text-neutral-400">-</span>}
+                renderInput={(props) => <input {...props} />}
+                inputStyle={{
+                  color: "#000",
+                  backgroundColor: "#a3a3a3",
+                  fontSize: "28px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "5px",
+                }}
+              />
             </div>
             {/* submit button */}
             <button
               onClick={submitVerification}
-              className="inline-block w-full mt-6 font-sec py-2 bg-card text-white rounded"
+              className="inline-block w-full mt-6 font-sec py-2 bg-teal-600 text-white rounded"
             >
               Submit
             </button>
