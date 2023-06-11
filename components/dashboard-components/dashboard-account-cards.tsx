@@ -15,11 +15,13 @@ const DashboardAccountCards = () => {
           accountType={"Main Account"}
           amount={user?.MainAccount}
           loading={loading}
+          color="blue"
         />
         <AmountCard
           accountType={"Trading Account"}
           amount={user?.TradingAccount}
           loading={loading}
+          color="green"
         />
       </div>
     </section>

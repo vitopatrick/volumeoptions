@@ -8,8 +8,8 @@ const HotCoinTable = ({ coins, loading }: any) => {
       {!loading && (
         <div>
           <div className="flex items-center justify-between mt-3 bg-card py-3 px-2 rounded">
-            <div className="font-sec font-bold text-paper">Coin</div>
-            <div className="font-sec font-bold text-paper">Price</div>
+            <div className="text-neutral-400 font-semibold">Coin</div>
+            <div className="text-neutral-400 font-semibold">Price</div>
           </div>
           {coins.map((coin: any) => (
             <div
@@ -20,10 +20,10 @@ const HotCoinTable = ({ coins, loading }: any) => {
                 <div className="w-[8%]">
                   <img src={coin.img} />
                 </div>
-                <h2 className="font-sec text-paper font-bold">{coin.name}</h2>
+                <h2 className="text-sm font-semibold">{coin.name}</h2>
               </div>
               <div>
-                <h3 className="font-sec text-paper font-bold">
+                <h3 className="text-sm font-semibold">
                   {formatCurrency(coin.currentPrice)}
                 </h3>
               </div>

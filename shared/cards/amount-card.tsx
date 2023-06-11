@@ -4,19 +4,35 @@ interface AmountCardType {
   accountType: String;
   amount: Number | any;
   loading: boolean;
+  color: string;
 }
 
-const AmountCard = ({ accountType, amount, loading }: AmountCardType) => {
+const AmountCard = ({
+  accountType,
+  amount,
+  loading,
+  color,
+}: AmountCardType) => {
   return (
-    <div className="bg-bg font-main text-white rounded font-sec w-full p-3">
+    <div
+      className={
+        color == "blue"
+          ? `bg-bg font-main text-white rounded font-sec w-full p-3 shadow-md cursor-pointer border-blue-400 border-t-[2px]`
+          : color == "green"
+          ? `bg-bg font-main text-white rounded font-sec w-full p-3 shadow-md cursor-pointer border-green-400 border-t-[2px]`
+          : `bg-bg font-main text-white rounded font-sec w-full p-3 shadow-md cursor-pointer border-red-400 border-t-[2px]`
+      }
+    >
       <div className="flex flex-col gap-3">
         <div>
-          <h1 className="font-semibold">{accountType}</h1>
+          <h1 className="font-semibold text-neutral-400 text-sm">
+            {accountType}
+          </h1>
         </div>
         <div>
           {loading && <SkeletonText height={10} width={200} />}
           {!loading && (
-            <h1 className="font-bold text-2xl">{formatCurrency(amount)}</h1>
+            <h1 className="font-bold text-lg">{formatCurrency(amount)}</h1>
           )}
         </div>
       </div>

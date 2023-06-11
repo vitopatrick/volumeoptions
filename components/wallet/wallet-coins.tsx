@@ -51,7 +51,7 @@ const WalletCoins = () => {
 
   return (
     <section className="font-main text-white mx-2 my-8">
-      <h4 className="text-xl font-semibold">Portfolio</h4>
+      <h4 className="text-xl font-semibold">Assets</h4>
       <div className="grid grid-cols-3 gap-3 mt-4 px-2 py-3 rounded-t bg-bg font-bold">
         <div>Coin</div>
         <div>Quantity</div>
@@ -63,7 +63,7 @@ const WalletCoins = () => {
           <div className="grid grid-cols-3 gap-3 px-2 py-3 bg-bg/40">
             <div className="flex items-center md:gap-3">
               <div className="w-[18%] md:w-[10%] mr-2">
-                <img src={coin.img} alt={coin.coin} />
+                <img src={coin.img} alt={coin.coin} className="rounded-full" />
               </div>
               <div>{coin.coin}</div>
             </div>
@@ -152,7 +152,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
 
   return (
     <section className="my-6">
-      <div className="font-semibold text-xl">Convert</div>
+      <div className="font-semibold text-xl underline">Convert</div>
       <label htmlFor="warning" className="text-red-300 my-2 text-sm capitalize">
         Please enter the quantity of coins
       </label>
@@ -201,7 +201,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
         </div>
       </div>
       <button
-        className="w-fit px-3 py-2 bg-bg rounded font-semibold"
+        className="w-fit px-3 py-2 bg-teal-600 rounded font-semibold"
         onClick={convertCurrency}
       >
         Convert
