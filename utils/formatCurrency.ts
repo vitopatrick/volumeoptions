@@ -42,3 +42,16 @@ export const convertCoin = (
 
   return result.toFixed(5);
 };
+
+
+export function getSum(
+  coinOne: number = 0,
+  coinTwo: number = 0,
+  coinThree: number = 0,
+  coinFour: number = 0,
+  coinFive: number = 0
+) {
+  const answer = coinOne + coinTwo + coinThree + coinFour + coinFive;
+
+  return answer;
+}

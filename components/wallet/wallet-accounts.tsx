@@ -1,21 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import AmountCard from "../../shared/cards/amount-card";
 import { formatCurrency } from "../../utils/formatCurrency";
 import Link from "next/link";
+import { TotalCoinContext } from "./context/TotalCoinContext";
 
 const WalletAccount = () => {
   const { userState: state, loading }: any = useFetchUser();
+  const context = useContext(TotalCoinContext);
+
+  // console.log(context);
 
   return (
     <div className="p-4">
       <div>
         <h4 className="font-semibold text-white px-4 py-2 text-xl md:text-2xl underline">
-          Assets OverView
+          Assets Overview
         </h4>
-        <p className="text-neutral-400 px-3 py-2 md:text-xl text-lg font-bold">
+        {/* <p className="text-white px-3 py-2 md:text-xl text-lg font-bold">
           {formatCurrency(state?.MainAccount)}
-        </p>
+        </p> */}
+        <div className="flex items-center gap-4 my-6 text-white px-3">
+          <div className="flex gap-2">
+            <p className="font-semibold text-neutral-400">Tron</p>
+            <p className="font-semibold uppercase">{state?.tron}trx</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="font-semibold text-neutral-400">Eth</p>
+            <p className="font-semibold uppercase">{state?.eth}eth</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="font-semibold text-neutral-400">Btc</p>
+            <p className="font-semibold uppercase">{state?.btc}btc</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="font-semibold text-neutral-400">usdt</p>
+            <p className="font-semibold uppercase">{state?.usdt}usdt</p>
+          </div>
+        </div>
         <Link
           href="/wallet/coins"
           className="text-teal-600 font-semibold p-2 capitalize bg-teal-100/10  mx-2 my-4 inline-block rounded"

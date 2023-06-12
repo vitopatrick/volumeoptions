@@ -9,10 +9,13 @@ import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { CiBitcoin } from "react-icons/ci";
 import { useRouter } from "next/router";
+import * as Md from "react-icons/md";
 
 const WalletCoins = () => {
   const { userState: user, loading }: any = useFetchUser();
   const { coins: main } = useFetchAllCoins(30);
+
+  const router = useRouter();
 
   const coins = [
     {
@@ -51,7 +54,16 @@ const WalletCoins = () => {
 
   return (
     <section className="font-main text-white mx-2 my-8">
-      <h4 className="text-xl font-semibold">Assets</h4>
+      <div className="flex items-center gap-3">
+        <div className="bg-teal-200/20 rounded p-2">
+          <Md.MdArrowBack
+            size={20}
+            className="cursor-pointer"
+            onClick={() => router.back()}
+          />
+        </div>
+        <h4 className="text-xl font-semibold">Assets</h4>
+      </div>
       <div className="grid grid-cols-3 gap-3 mt-4 px-2 py-3 rounded-t bg-bg font-bold">
         <div>Coin</div>
         <div>Quantity</div>
@@ -61,11 +73,16 @@ const WalletCoins = () => {
       {!loading &&
         coins.map((coin) => (
           <div className="grid grid-cols-3 gap-3 px-2 py-3 bg-bg/40">
-            <div className="flex items-center md:gap-3">
+            <div className="flex items-center md:gap-3 hover:bg-bg/20 rounded cursor-pointer">
               <div className="w-[18%] md:w-[10%] mr-2">
                 <img src={coin.img} alt={coin.coin} className="rounded-full" />
               </div>
-              <div>{coin.coin}</div>
+              <div>
+                <p className="font-semibold capitalize">{coin.coin}</p>
+                <p className="font-semibold uppercase my-2 text-neutral-400 text-xs">
+                  {coin.sym}
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <div>{coin?.quantity ? coin?.quantity : 0}</div>
