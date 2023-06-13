@@ -73,6 +73,9 @@ const Form = () => {
         "/deposits"
       );
 
+      // collectionRef
+      const depositCollectionRef = collection(store, "/deposits");
+
       await addDoc(depositRef, {
         amount: amount,
         date: serverTimestamp(),
@@ -83,6 +86,16 @@ const Form = () => {
         approved: false,
       });
 
+      // Create new Withdrawal collection
+      await addDoc(depositCollectionRef, {
+        amount: amount,
+        date: serverTimestamp(),
+        coin: defaultCoin.sym,
+        network: defaultCoin.network,
+        approved: false,
+        hash: "",
+        email: state.email,
+      });
       // navigate to the deposit
       router.reload();
     } catch (e: any) {

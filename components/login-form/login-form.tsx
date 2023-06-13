@@ -22,6 +22,16 @@ const LoginForm = () => {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+
+      await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
       router.push("/dashboard");
     } catch (error: any) {
       // check if the email is a valid email address

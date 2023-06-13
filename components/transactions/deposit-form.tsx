@@ -1,6 +1,12 @@
 import { addresses } from "../../lib/wallet-address";
 import { useContext, useMemo, useState } from "react";
-import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+} from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import { useRouter } from "next/router";
@@ -53,10 +59,21 @@ const DepositForm = () => {
         "/deposits"
       );
 
+      // create another collection called Deposit
+      const depositRefCollection = doc(store, "/deposits");
+
       const userRef = doc(store, "/users", `/${state.email}`);
       // const userMainAccount = user.MainAccount;
       await addDoc(depositRef, {
         amount: parseInt(amount),
+        date: serverTimestamp(),
+        coin: selectedCoin.sym,
+        approved: false,
+      });
+
+      await setDoc(depositRefCollection, {
+        amount: parseInt(amount),
+        email: `${state.email}`,
         date: serverTimestamp(),
         coin: selectedCoin.sym,
         approved: false,

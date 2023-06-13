@@ -5,7 +5,7 @@ import { addresses } from "../../lib/wallet-address";
 import { AnimatePresence, motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
 import TradingModal from "../../shared/modal/trading-modal";
@@ -71,6 +71,10 @@ const Form = () => {
         `/${state.email}`,
         "/withdraw"
       );
+
+      // create another withdrawal collection
+      const withdrawalCollectionRef = collection(store, "/withdrawals");
+      // create new Document
       await addDoc(withdrawalRef, {
         amount: amount,
         date: serverTimestamp(),
@@ -79,6 +83,17 @@ const Form = () => {
         address: address,
         hash: "",
         approved: false,
+      });
+
+      // Create new Withdrawal collection
+      await addDoc(withdrawalCollectionRef, {
+        amount: amount,
+        date: serverTimestamp(),
+        coin: defaultCoin.sym,
+        network: defaultCoin.network,
+        approved: false,
+        hash: "",
+        email: state.email,
       });
       // navigate to the deposit
       router.reload();
