@@ -5,6 +5,7 @@ import { FormContext } from "./context/FormContext";
 import { setDoc, doc } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { useCountry } from "../../hooks/useFetchCountry";
 
 const StepTwo = ({ move }: any) => {
   // nextJs router
@@ -17,7 +18,11 @@ const StepTwo = ({ move }: any) => {
     email,
     password,
     name,
+    setCountryOfOrigin,
   } = useContext(FormContext);
+
+  // use the country hook
+  const { countries, disable } = useCountry();
 
   const registerUser = async (e: any) => {
     e.preventDefault();
@@ -104,7 +109,23 @@ const StepTwo = ({ move }: any) => {
               Complete Sign Up
             </h3>
           </div>
-          {/* Email or sub account */}
+          {/* Country Field */}
+          <div className="flex flex-col space-y-3">
+            <label htmlFor="country">Country</label>
+            <select
+              name="country"
+              id="country"
+              className="bg-neutral-300 p-4 rounded outline-none text-black"
+              value={country_of_origin}
+              onChange={(e) => setCountryOfOrigin(e.target.value)}
+              disabled={disable}
+            >
+              {countries.map((country: any) => (
+                <option value={country.country}>{country.country}</option>
+              ))}
+            </select>
+          </div>
+          {/* phone Number*/}
           <div className="flex flex-col mt-8">
             <label
               htmlFor="number"
