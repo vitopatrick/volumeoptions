@@ -25,7 +25,7 @@ interface ModalProps {
 
 const StakingModal = ({ visible, setVisible }: ModalProps) => {
   const [amount, setAmount] = useState<string | number | any>();
-  const [plan, setPlan] = useState("Silver");
+  const [plan, setPlan] = useState<string | number>("USDT");
   const [selectedPlan, setSelectedPlan] = useState<any>();
   const [show, setShow] = useState(false);
 
@@ -35,8 +35,8 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
   const router = useRouter();
 
   const selectPlan = () => {
-    const findPlan = stakingOptions.find((stakingOption) =>
-      stakingOption.name.match(plan)
+    const findPlan = stakingOptions.find(
+      (stakingOption) => stakingOption.plan == plan
     );
 
     setSelectedPlan(findPlan);
@@ -105,7 +105,7 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
       });
       setVisible(false);
       setShow(false);
-    router.reload();
+      router.reload();
     } catch (error: unknown | any) {
       toast(e.code, {
         type: "error",
@@ -170,8 +170,8 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
                   className="w-full bg-transparent text-bg focus:outline-none px-2"
                 >
                   {stakingOptions.map((stakingOption) => (
-                    <option key={stakingOption.id} value={stakingOption.name}>
-                      {stakingOption.name}
+                    <option key={stakingOption.id} value={stakingOption.plan}>
+                      {stakingOption.plan}
                     </option>
                   ))}
                 </select>

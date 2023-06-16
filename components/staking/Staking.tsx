@@ -15,20 +15,28 @@ const Staking = () => {
             key={opt.id}
             className="bg-bg p-4 font-main text-white rounded shadow my-4 md:my-0"
           >
-            {/* header (name and apr) */}
-            <div className="flex items-baseline gap-3 mb-4">
-              <h4 className="font-sec text-base font-semibold">{opt.name}</h4>
-              <span className="text-2xl text-teal-700 font-semibold">
-                {opt.apr}
-              </span>
-            </div>
             {/*  body duration and range */}
 
             <div className="my-4 flex items-center gap-3 font-sec">
-              <p className="font-semibold text-paper">Duration</p>
-              <p className="font-bold text-paper">{opt.duration}</p>
+              <p className="font-semibold text-xs text-neutral-400">Duration</p>
+              <p className="font-semibold text-xs">{opt.duration}</p>
             </div>
 
+            {/* staking name */}
+            <div className="py-4">
+              <p
+                className={
+                  opt.plan === "USDT"
+                    ? "text-teal-600 font-semibold text-xl"
+                    : opt.plan === "TON"
+                    ? "text-blue-600 font-semibold text-xl"
+                    : "text-red-500 font-semibold text-xl"
+                }
+              >
+                {opt.plan}
+              </p>
+            </div>
+            {/* staking range */}
             <div>
               <p className="font-sec text-2xl font-bold text-paper">
                 {opt.range}
