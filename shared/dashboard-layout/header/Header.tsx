@@ -28,8 +28,8 @@ const Header = () => {
         {/* parent div */}
         <div className="flex justify-between items-center ">
           {/* flex item child */}
-          <div className="flex items-center w-[90%] text-2xl font-semibold font-sec text-paper py-2 capitalize">
-            {header}
+          <div className="flex items-center w-[90%] text-2xl font-semibold py-2 capitalize">
+            <h2>{header}</h2>
           </div>
           {/* icons div */}
           <div className="flex items-center flex-1 gap-4">
