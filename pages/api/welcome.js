@@ -7,13 +7,13 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "support@coinsexchange.live",
+        user: "contact@coinsexchange.live",
         pass: "coinsexchange@123",
       },
     });
 
     await transporter.sendMail({
-      from: "support@coinsexchange.live",
+      from: "contact@coinsexchange.live",
       to: req.body.email,
       subject: "Welcome", //
       html: `
