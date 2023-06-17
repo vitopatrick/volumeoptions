@@ -1,11 +1,14 @@
 import React from "react";
 import VolumeTradingContainer from "../../components/volume-trading/volume-trading-container";
 import Layout from "../../shared/dashboard-layout/Layout";
+import VolumeProvider from "../../components/volume-trading/context/VolumeContext";
 
 const VolumeTradePage = () => {
   return (
     <Layout>
-      <VolumeTradingContainer />
+      <VolumeProvider>
+        <VolumeTradingContainer />
+      </VolumeProvider>
     </Layout>
   );
 };

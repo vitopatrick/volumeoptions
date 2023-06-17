@@ -1,13 +1,13 @@
 import React from "react";
-import Chart from "../../shared/charts/Chart";
 import VolumeOrderBook from "./volume-order-book";
 import VolumeTradingPlan from "./volume-trading-plan";
+import VolumeChart from "./Volume-chart";
 
 const VolumeTradingContainer = () => {
   return (
     <div className="mx-2 my-2">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center mb-4">
-        <Chart />
+      <div className="md:grid md:grid-cols-4">
+        <VolumeChart />
         <VolumeTradingPlan />
       </div>
       <VolumeOrderBook />

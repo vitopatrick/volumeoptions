@@ -6,157 +6,126 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../../context/UserContext";
 import { store } from "../../firebase";
 import { useFetchUser } from "../../hooks/useFetchUser";
-import { tradingOptions } from "../../lib/trading-options";
 import { toast } from "react-toastify";
 import { formatCurrency } from "../../utils/formatCurrency";
 import TradingModal from "../../shared/modal/trading-modal";
+import { profitCalculation } from "../../lib/calculate-profit";
+import { VolumeContext } from "./context/VolumeContext";
 
 const VolumeTradingPlan = () => {
   // State of the select tag
-  const [level, setLevel] = useState("level 1");
+  const [amount, setAmount] = useState<number>(0);
   const [show, setShow] = useState(false);
 
-  const handleChange = (event: any) => {
-    setLevel(event.target.value);
-  };
-
-  // state for Trading options
-  const [options, setOptions] = useState<any | undefined>();
-
-  useMemo(() => {
-    const options = tradingOptions.find((tradingOption) =>
-      tradingOption.level.match(level)
-    );
-    setOptions(options);
-  }, [level]);
-
   const router = useRouter();
-  const { user: state, coin }: any = useContext(UserContext);
+  const { user: state }: any = useContext(UserContext);
+  const { selectedCoin } = useContext(VolumeContext);
   const { userState }: any = useFetchUser();
 
   // function to add Orders
-  const addOrders = async (e: any) => {
-    if (userState.MainAccount < options.minAmount) {
-      toast("Insufficient balance,please deposit", {
-        type: "error",
-        position: "bottom-center",
-        bodyClassName: "toast",
-      });
-      return;
-    }
-
+  async function addOrders(e: any) {
     try {
+      // create the collection ref
       const orderRef = collection(store, "users", `${state.email}`, "orders");
-      const userRef = doc(store, "users", `${state.email}`);
-      const interest = (options.minAmount * options.roi) / 100;
 
-      const profit = interest + options.minAmount;
-
-      await addDoc(orderRef, {
-        coin,
-        amount: options.minAmount,
-        duration: "4 days",
-        profit,
-        level: options.level,
-        date: serverTimestamp(),
-      });
-
+      const profit = profitCalculation(+amount);
+      //removed and update the amount from the Main Balance
+      const tradingAccount = userState.MainAccount - amount;
+      // update account
+      const userRef = doc(store, "/users", `${state.email}`);
       await updateDoc(userRef, {
-        MainAccount: userState.MainAccount - options.minAmount,
-        TradingAccount: userState.TradingAccount + options.minAmount,
+        TradingAccount: tradingAccount,
       });
-
-      setShow(false);
-      router.reload()
-    } catch (error: any) {
-      toast(e.code, {
+      // create Collection and then reload page or refresh page
+      await addDoc(orderRef, {
+        coin: selectedCoin.name,
+        amount,
+        date: serverTimestamp(),
+        profit,
+      });
+      router.reload();
+    } catch (error) {
+      console.log(error);
+      return toast("Could not Perform Trade", {
         type: "error",
         position: "bottom-center",
         bodyClassName: "toast",
       });
     }
-  };
+  }
 
   return (
-    <div className="bg-bg text-white font-main flex-2 p-4 rounded">
-      {/* parent container */}
-      <div>
-        {/* child content */}
-        <div className="flex flex-col gap-4">
-          {/* header component */}
-          <div className="mb-4">
-            <h3 className="pt-2 pb-1 text-xl font-bold">Trading Options</h3>
-            <p className="text-sm">select your appropriate trading plan ...</p>
-          </div>
-          {/* form component */}
-          <div>
+    <>
+      <div className="bg-bg text-white font-main p-4 rounded">
+        {/* parent container */}
+        <div>
+          {/* child content */}
+          <div className="flex flex-col gap-4">
+            {/* header component */}
+            <div className="mb-4">
+              <h3 className="pt-2 pb-1 text-xl font-bold">Call Trade</h3>
+              <p className="text-sm text-neutral-400 capitalize">
+                select your trading options
+              </p>
+            </div>
+            {/* form component */}
             <div>
-              <label
-                htmlFor="trading options"
-                className="text-sm font-bold mb-6"
-              >
-                Options
-              </label>
-              <div className="bg-card py-2 px-2 rounded mt-2 w-full">
-                <select
-                  value={level}
-                  className="bg-card text-white outline-none text-sm w-full"
-                  onChange={handleChange}
-                >
-                  {tradingOptions.map((option) => (
-                    <option
-                      key={option.id}
-                      value={option.level}
-                      id={option.level}
+              <div>
+                <div className="mt-3 space-y-3">
+                  <div className="flex flex-col ">
+                    <label
+                      htmlFor="amount"
+                      className="font-semibold text-neutral-500 py-2 text-sm"
                     >
-                      {option.level}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="font-sec">
-                  <h4 className="font-bold text-neutral-500 text-sm">
-                    Trading Level
-                  </h4>
-                  <h3 className="font-bold text-paper">{options?.level}</h3>
+                      Enter Amount
+                    </label>
+                    <input
+                      type="number"
+                      name="amount"
+                      id="amount"
+                      value={amount}
+                      onChange={(e: any) => setAmount(e.target.value)}
+                      className="bg-neutral-400 py-3 px-2 rounded text-black outline-none"
+                    />
+                  </div>
                 </div>
-                <div className="font-sec">
-                  <h4 className="font-bold text-neutral-500 text-sm">
-                    Minimum Amount
-                  </h4>
-                  <h3 className="font-bold text-paper">
-                    {formatCurrency(options?.minAmount)}
-                  </h3>
-                </div>
-                <div className="font-sec">
-                  <h4 className="font-bold text-neutral-500 text-sm">
-                    Duration
-                  </h4>
-                  <h3 className="font-bold text-paper">4 days</h3>
+                <div className="my-3">
+                  <p className="text-sm font-semibold text-neutral-500">
+                    Minimum Trading Amount
+                  </p>
+                  <h4 className="my-1 font-semibold">{formatCurrency(300)}</h4>
                 </div>
               </div>
             </div>
-          </div>
-          {/* end of form component */}
-          {/* button */}
-          <div>
-            <button
-              onClick={() => setShow(true)}
-              className=" text-paper font-sec py-1 my-4 text-sm w-full px-3 capitalize rounded border-paper border-[1px]"
-            >
-              Call
-            </button>
+            {/* end of form component */}
+            {/* button */}
+            <div>
+              <button
+                onClick={() => setShow(true)}
+                className="font-bold py-3 my-4 text-sm w-full px-3 uppercase rounded text-black bg-teal-400"
+              >
+                Call
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <AboutCoin />
       <TradingModal hide={show} setHide={setShow} tradingFunction={addOrders} />
-    </div>
+    </>
   );
 };
+
+function AboutCoin() {
+  const { selectedCoin } = useContext(VolumeContext);
+
+  useEffect(() => {}, []);
+
+  return <div>this is the about card</div>;
+}
 
 export default VolumeTradingPlan;

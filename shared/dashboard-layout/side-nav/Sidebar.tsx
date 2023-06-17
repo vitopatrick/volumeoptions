@@ -20,7 +20,7 @@ const Sidebar = () => {
     });
 
   return (
-    <div className={"w-[260px] hidden md:block bg-bg h-full"}>
+    <div className="w-[260px] hidden md:block bg-bg h-full">
       {/* parent flex container */}
       <div className="flex flex-col justify-between gap-4 p-3">
         {/* first links flex container */}
