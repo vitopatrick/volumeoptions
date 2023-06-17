@@ -8,11 +8,10 @@ const VolumeOrderBook = () => {
   return (
     <div className="text-white">
       <h1 className="text-xl font-sec py-4 font-bold text-paper">Order book</h1>
-      <div className="font-sec grid grid-cols-5 md:grid-cols-6 justify-items-center py-2 px-2 bg-bg rounded-t font-semibold">
+      <div className="font-sec grid grid-cols-4 md:grid-cols-5 place-items-center justify-items-center py-2 px-2 bg-bg rounded-t font-semibold">
         <div className="justify-self-start">Coin</div>
         <div className="justify-self-start">Amount</div>
-        <div className="justify-self-start">Start</div>
-        <div className="justify-self-start hidden md:block">Level</div>
+        <div className="justify-self-start hidden md:block">Start</div>
         <div className="justify-self-start">Profit</div>
         <div className="justify-self-start">End</div>
       </div>
@@ -29,7 +28,6 @@ const VolumeOrderBook = () => {
 
 const VolumeTable = () => {
   const { orders, loading } = useOrders();
-  console.log(orders);
   return (
     <>
       {loading && <Loading />}
@@ -39,7 +37,6 @@ const VolumeTable = () => {
             coin={order.coin}
             amount={order.amount}
             end={order.end}
-            level={order.level ? order.level : "N/A"}
             profit={order.profit}
             start={order.date}
             loading={loading}
@@ -50,21 +47,13 @@ const VolumeTable = () => {
   );
 };
 
-const VolumeOrderTableItem = ({
-  coin,
-  amount,
-  end,
-  level,
-  profit,
-  start,
-}: any) => {
+const VolumeOrderTableItem = ({ coin, amount, end, profit, start }: any) => {
   return (
     <>
-      <div className="grid grid-cols-5 md:grid-cols-6 font-sec font-medium py-2 px-2 bg-bg/50">
+      <div className="grid grid-cols-4 md:grid-cols-5  font-medium py-2 px-2 bg-bg/50">
         <div>{coin}</div>
         <div>{formatCurrency(amount)}</div>
-        <div>{start}</div>
-        <div className="hidden md:block">{level}</div>
+        <div className="hidden md:block">{start}</div>
         <div>{formatCurrency(profit)}</div>
         <div>{end}</div>
       </div>
