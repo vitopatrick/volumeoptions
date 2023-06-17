@@ -38,9 +38,14 @@ const VolumeChart = () => {
 
 export default VolumeChart;
 
-// TradingViewWidget.jsx
-
+// TradingViewWidget.tsx
 let tvScriptLoadingPromise: unknown | any;
+
+declare global {
+  interface Window {
+    TradingView: any;
+  }
+}
 
 function TradingViewWidget({ commodity }: any) {
   const onLoadScriptRef = useRef<unknown | any>();
