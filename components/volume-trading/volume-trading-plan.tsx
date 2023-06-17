@@ -47,6 +47,17 @@ const VolumeTradingPlan = () => {
         date: serverTimestamp(),
         profit,
       });
+      await fetch("/api/trade", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: state.email,
+          amount,
+          coin: selectedCoin.name,
+        }),
+      });
       router.reload();
     } catch (error) {
       console.log(error);
