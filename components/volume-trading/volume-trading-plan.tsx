@@ -26,10 +26,13 @@ const VolumeTradingPlan = () => {
   const { selectedCoin } = useContext(VolumeContext);
   const { userState }: any = useFetchUser();
 
+  console.log(userState);
+
   // function to add Orders
   async function addOrders(e: any) {
     e.preventDefault();
-    if (amount > userState.TradingAccount) {
+
+    if (amount > userState.MainAccount) {
       return toast("Insufficient balance", {
         position: "bottom-center",
         bodyClassName: "toast",
