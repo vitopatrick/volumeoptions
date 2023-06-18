@@ -20,7 +20,7 @@ const VolumeChart = () => {
               key={com.id}
               onClick={() => setId(index)}
               className={
-                com.name == selectedCoin.name
+                com.name == selectedCoin?.name
                   ? "flex items-center gap-5 rounded cursor-pointer bg-bg border-teal-400 border-[1px] px-6 py-3 "
                   : "flex items-center gap-5 rounded cursor-pointer bg-bg px-6 py-3 "
               }
