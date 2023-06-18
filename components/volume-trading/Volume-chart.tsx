@@ -19,7 +19,11 @@ const VolumeChart = () => {
             <div
               key={com.id}
               onClick={() => setId(index)}
-              className="flex items-center gap-5 rounded cursor-pointer bg-bg p-4 "
+              className={
+                com.name == selectedCoin.name
+                  ? "flex items-center gap-5 rounded cursor-pointer bg-bg border-teal-400 border-[1px] px-6 py-3 "
+                  : "flex items-center gap-5 rounded cursor-pointer bg-bg px-6 py-3 "
+              }
             >
               <div className="w-[30px] h-[30px]">
                 <img src={com.logo} alt="" className="rounded-full" />
