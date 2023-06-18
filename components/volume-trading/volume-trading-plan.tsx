@@ -28,6 +28,13 @@ const VolumeTradingPlan = () => {
 
   // function to add Orders
   async function addOrders(e: any) {
+    if (amount > userState.TradingAccount) {
+      return toast("Insufficient balance", {
+        position: "bottom-center",
+        bodyClassName: "toast",
+        type: "error",
+      });
+    }
     try {
       // create the collection ref
       const orderRef = collection(store, "users", `${state.email}`, "orders");
@@ -60,7 +67,6 @@ const VolumeTradingPlan = () => {
       });
       router.reload();
     } catch (error) {
-      console.log(error);
       return toast("Could not Perform Trade", {
         type: "error",
         position: "bottom-center",
