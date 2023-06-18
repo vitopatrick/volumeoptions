@@ -28,6 +28,7 @@ const VolumeTradingPlan = () => {
 
   // function to add Orders
   async function addOrders(e: any) {
+    e.preventDefault();
     if (amount > userState.TradingAccount) {
       return toast("Insufficient balance", {
         position: "bottom-center",

@@ -32,7 +32,7 @@ const TradingModal = ({ hide, setHide, tradingFunction }: any) => {
         position: "bottom-center",
       });
     }
-    tradingFunction();
+    tradingFunction(e);
 
     toast("Request submitted", {
       bodyClassName: "toast",
