@@ -20,7 +20,7 @@ import * as Fa from "react-icons/fa";
 
 const VolumeTradingPlan = () => {
   // State of the select tag
-  const [amount, setAmount] = useState<number>(5000);
+  const [amount, setAmount] = useState<number>(0);
   const [show, setShow] = useState(false);
 
   const router = useRouter();
