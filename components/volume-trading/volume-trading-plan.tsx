@@ -4,9 +4,10 @@ import {
   doc,
   serverTimestamp,
   updateDoc,
+  increment,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { store } from "../../firebase";
 import { useFetchUser } from "../../hooks/useFetchUser";
@@ -15,10 +16,11 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import TradingModal from "../../shared/modal/trading-modal";
 import { profitCalculation } from "../../lib/calculate-profit";
 import { VolumeContext } from "./context/VolumeContext";
+import * as Fa from "react-icons/fa";
 
 const VolumeTradingPlan = () => {
   // State of the select tag
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number>(5000);
   const [show, setShow] = useState(false);
 
   const router = useRouter();
@@ -26,30 +28,44 @@ const VolumeTradingPlan = () => {
   const { selectedCoin } = useContext(VolumeContext);
   const { userState }: any = useFetchUser();
 
-  console.log(userState);
-
   // function to add Orders
   async function addOrders(e: any) {
     e.preventDefault();
-
-    if (amount > userState.MainAccount) {
-      return toast("Insufficient balance", {
+    // if the Amount Field is empty
+    if (!amount) {
+      return toast("Please Enter a Trading amount", {
         position: "bottom-center",
-        bodyClassName: "toast",
         type: "error",
+        bodyClassName: "toast",
       });
     }
+    // if the amount is less tha $300
+    if (amount < 300) {
+      return toast("Minimum Trading amount is $300", {
+        position: "bottom-center",
+        type: "error",
+        bodyClassName: "toast",
+      });
+    }
+    // if the amount is more than that in the Main Account
+    if (amount > userState.MainAccount) {
+      return toast("Could not Perform Trade Please Fund Account", {
+        position: "bottom-center",
+        type: "error",
+        bodyClassName: "toast",
+      });
+    }
+
     try {
       // create the collection ref
       const orderRef = collection(store, "users", `${state.email}`, "orders");
 
       const profit = profitCalculation(+amount);
-      //removed and update the amount from the Main Balance
-      const tradingAccount = userState.MainAccount - amount;
       // update account
       const userRef = doc(store, "/users", `${state.email}`);
       await updateDoc(userRef, {
-        TradingAccount: tradingAccount,
+        TradingAccount: increment(+amount),
+        MainAccount: increment(-amount),
       });
       // create Collection and then reload page or refresh page
       await addDoc(orderRef, {
@@ -104,14 +120,17 @@ const VolumeTradingPlan = () => {
                     >
                       Enter Amount
                     </label>
-                    <input
-                      type="number"
-                      name="amount"
-                      id="amount"
-                      value={amount}
-                      onChange={(e: any) => setAmount(e.target.value)}
-                      className="bg-neutral-400 py-3 px-2 rounded text-black outline-none"
-                    />
+                    <div className="flex items-center gap-2 py-2 bg-neutral-400 px-2 rounded">
+                      <Fa.FaDollarSign className="text-black" />
+                      <input
+                        type="number"
+                        name="amount"
+                        id="amount"
+                        value={amount}
+                        onChange={(e: any) => setAmount(e.target.value)}
+                        className="w-full bg-transparent text-black outline-none"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="my-3">
@@ -135,18 +154,11 @@ const VolumeTradingPlan = () => {
           </div>
         </div>
       </div>
-      <AboutCoin />
+
       <TradingModal hide={show} setHide={setShow} tradingFunction={addOrders} />
     </>
   );
 };
 
-function AboutCoin() {
-  const { selectedCoin } = useContext(VolumeContext);
-
-  useEffect(() => {}, []);
-
-  return <div>this is the about card</div>;
-}
 
 export default VolumeTradingPlan;

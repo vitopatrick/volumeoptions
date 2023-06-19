@@ -32,15 +32,16 @@ const TradingModal = ({ hide, setHide, tradingFunction }: any) => {
         position: "bottom-center",
       });
     }
-    tradingFunction(e);
-
-    toast("Request submitted", {
-      bodyClassName: "toast",
-      type: "info",
-      position: "top-center",
-    });
-
-    setHide(false);
+    try {
+      tradingFunction(e);
+      setHide(false);
+    } catch (error) {
+      toast("Request submitted", {
+        bodyClassName: "toast",
+        type: "info",
+        position: "top-center",
+      });
+    }
   };
 
   return (
