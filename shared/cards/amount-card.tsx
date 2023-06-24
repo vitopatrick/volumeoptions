@@ -32,7 +32,9 @@ const AmountCard = ({
         <div>
           {loading && <SkeletonText height={10} width={200} />}
           {!loading && (
-            <h1 className="font-bold text-lg">{formatCurrency(amount)}</h1>
+            <h1 className="font-bold md:text-lg text-sm">
+              {formatCurrency(amount)}
+            </h1>
           )}
         </div>
       </div>

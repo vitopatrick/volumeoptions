@@ -28,7 +28,7 @@ const Header = () => {
         {/* parent div */}
         <div className="flex justify-between items-center ">
           {/* flex item child */}
-          <div className="flex items-center w-[90%] text-2xl font-semibold py-2 capitalize">
+          <div className="flex items-center w-[90%] md:text-2xl text-base font-semibold py-2 capitalize">
             <h2>{header}</h2>
           </div>
           {/* icons div */}
@@ -53,7 +53,7 @@ const Header = () => {
             </div>
             <div className="block md:hidden">
               <FiMenu
-                className="text-paper text-2xl cursor-pointer"
+                className="text-paper md:text-2xl text-xl cursor-pointer"
                 onClick={() => setHide(false)}
               />
             </div>

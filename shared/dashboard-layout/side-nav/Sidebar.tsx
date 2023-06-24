@@ -26,7 +26,7 @@ const Sidebar = () => {
         {/* first links flex container */}
         <div>
           {/* logo flex container */}
-          <div className="mb-8 font-medium text-button uppercase underline tracking-widest text-xl">
+          <div className="mb-8 font-medium text-button uppercase underline tracking-widest text-xl ">
             Coins Exchange
           </div>
           <div className="space-y-5">

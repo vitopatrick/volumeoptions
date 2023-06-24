@@ -21,7 +21,7 @@ const UsersName = ({
         <div>
           {loading && <SkeletonText height={5} width={200} />}
           {!loading && (
-            <h1 className="font-bold text-xl text-center text-white uppercase">
+            <h1 className="font-bold md:text-xl text-base text-center text-white uppercase">
               {user.Name}
             </h1>
           )}

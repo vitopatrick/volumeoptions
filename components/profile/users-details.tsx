@@ -29,12 +29,10 @@ const UsersDetails = ({
             </div>
           )}
           <div className="space-y-3 font-medium">
-            <h2 className="text-neutral-400">Email</h2>
+            <h2 className="text-neutral-400 text-sm md:text-base">Email</h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-medium text-base md:text-base text-paper">
-                {user.Email}
-              </h1>
+              <h1 className="font-medium text-sm md:text-base">{user.Email}</h1>
             )}
           </div>
         </div>
@@ -47,10 +45,12 @@ const UsersDetails = ({
             </div>
           )}
           <div className="space-y-3 font-medium">
-            <h2 className="text-neutral-400">Account Status</h2>
+            <h2 className="text-neutral-400 text-sm md:text-base">
+              Account Status
+            </h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-medium text-base md:text-base text-paper">
+              <h1 className="font-medium text-sm md:text-base text-paper">
                 {user.verfied ? "Verified" : "Not Verified"}
               </h1>
             )}
@@ -65,10 +65,12 @@ const UsersDetails = ({
             </div>
           )}
           <div className="space-y-3 font-medium">
-            <h2 className="text-neutral-400">Withdrawal Limit</h2>
+            <h2 className="text-neutral-400 text-sm md:text-base">
+              Withdrawal Limit
+            </h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
-              <h1 className="font-medium text-base md:text-base">
+              <h1 className="font-medium text-sm md:text-base">
                 {user.verfied
                   ? "unlimited"
                   : "No withdrawal please verify account"}
@@ -85,7 +87,9 @@ const UsersDetails = ({
             </div>
           )}
           <div className="space-y-3 font-medium">
-            <h2 className="text-neutral-400">Trading Password</h2>
+            <h2 className="text-neutral-400 text-sm md:text-base">
+              Trading Password
+            </h2>
             {loading && <SkeletonText width={200} height={5} />}
             {!loading && (
               <div className="flex items-center gap-3">
