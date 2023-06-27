@@ -23,6 +23,10 @@ const LoginForm = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
 
+      // get user IP Address
+      const userIpAddress = await fetch("https://api64.ipify.org");
+      const ip = await userIpAddress.text();
+
       await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -30,6 +34,7 @@ const LoginForm = () => {
         },
         body: JSON.stringify({
           email,
+          ip,
         }),
       });
       router.push("/dashboard");

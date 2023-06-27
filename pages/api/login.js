@@ -164,7 +164,11 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 12px; line-height: 150%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 150%;">We noticed your Coins Exchange account [<a rel="noopener" href="mailto:${req.body.email}" target="_blank">${req.body.email}</a>] was accessed from a new IP address. </p>
+    <p style="line-height: 150%;">We noticed your Coins Exchange account [<a rel="noopener" href="mailto:${
+      req.body.email
+    }" target="_blank">${
+        req.body.email
+      }</a>] was accessed from a new IP address. </p>
   </div>
 
       </td>
@@ -178,7 +182,9 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 13px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;"><strong>When</strong> : 2024-01-21 07:30:44(UTC)<br /><strong>IP Address</strong> : 197.109.809.20</p>
+    <p style="line-height: 140%;"><strong>When</strong> : ${new Date()}<br /><strong>IP Address</strong> : ${
+        req.body.ip
+      }</p>
   </div>
 
       </td>
@@ -193,8 +199,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
 <div align="left">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.coinsexchange.live/auth/sign-in" style="height:39px; v-text-anchor:middle; width:173px;" arcsize="10.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
-    <a href="https://www.coinsexchange.live/auth/sign-in" target="_self" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 15px;">
+  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.coinsexchange.pro/auth/sign-in" style="height:39px; v-text-anchor:middle; width:173px;" arcsize="10.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
+    <a href="https://www.coinsexchange.pro/auth/sign-in" target="_self" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 15px;">
       <span style="display:block;padding:11px 20px 10px;line-height:120%;"><strong>Visit Your Account</strong></span>
     </a>
   <!--[if mso]></center></v:roundrect><![endif]-->
