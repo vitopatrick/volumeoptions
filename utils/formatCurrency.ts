@@ -1,4 +1,7 @@
-export const formatCurrency = (price: number = 0) => {
+export const formatCurrency = (
+  price: number = 0,
+  fractionUnits: number = 0
+) => {
   if (typeof price === "string") {
     parseInt(price);
   }
@@ -6,9 +9,8 @@ export const formatCurrency = (price: number = 0) => {
     currency: "USD",
     style: "currency",
     notation: "standard",
-    maximumFractionDigits: 0,
+    maximumFractionDigits: fractionUnits,
   }).format(price);
-   
 };
 
 export const convertCurrency = (
@@ -42,7 +44,6 @@ export const convertCoin = (
 
   return result.toFixed(5);
 };
-
 
 export function getSum(
   coinOne: number = 0,
