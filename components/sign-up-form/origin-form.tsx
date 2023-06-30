@@ -43,6 +43,9 @@ const StepTwo = ({ move }: any) => {
         password
       );
 
+      // add the refresh token to localStorage
+      localStorage.setItem("token", user.refreshToken);
+
       await fetch("/api/welcome", {
         method: "POST",
         headers: {

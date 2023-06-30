@@ -21,7 +21,10 @@ const LoginForm = () => {
   const loginUser = async (event: any) => {
     event.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      // add the refresh token to localStorage
+      localStorage.setItem("token", user.refreshToken);
 
       // get user IP Address
       const userIpAddress = await fetch("https://api64.ipify.org");

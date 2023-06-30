@@ -19,6 +19,7 @@ const Header = () => {
 
   const logOut = () => {
     signOut(auth);
+    localStorage.removeItem("token");
     router.push("/");
   };
 

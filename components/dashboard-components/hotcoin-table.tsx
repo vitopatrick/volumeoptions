@@ -24,7 +24,7 @@ const HotCoinTable = ({ coins, loading }: any) => {
               </div>
               <div>
                 <h3 className="text-sm font-semibold">
-                  {formatCurrency(coin.currentPrice)}
+                  {formatCurrency(coin.currentPrice, 4)}
                 </h3>
               </div>
             </div>
