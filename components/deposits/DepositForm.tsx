@@ -36,19 +36,18 @@ const Form = () => {
   const [showCoinModal, setCoinModal] = useState(false);
   const [defaultCoin, setDefaultCoin] = useState<null | any>(null);
   const [showBarCode, setBarCode] = useState(false);
-
   useEffect(() => {
     // check if the address is 1 or 2
     const walletAddress =
-      user?.address == 1
+      user?.deposit_address == 1
         ? addresses
-        : user?.address == 2
+        : user?.deposit_address == 2
         ? addressTwo
         : addresses;
     const selectedCoin = walletAddress.find((address) => address.id === coinId);
 
     setDefaultCoin(selectedCoin);
-  }, [coinId, defaultCoin, user?.address]);
+  }, [coinId, defaultCoin, user?.deposit_address]);
 
   const router = useRouter();
 
