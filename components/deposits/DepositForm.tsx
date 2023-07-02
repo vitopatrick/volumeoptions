@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import * as Md from "react-icons/md";
 import * as Fa from "react-icons/fa";
-import { addresses } from "../../lib/wallet-address";
+import { addresses, addressTwo } from "../../lib/wallet-address";
 import { AnimatePresence, motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { store } from "../../firebase";
 import { UserContext } from "../../context/UserContext";
+import { useFetchUser } from "../../hooks/useFetchUser";
 
 // Parent form component
 const DepositForm = () => {
@@ -28,6 +29,8 @@ const DepositForm = () => {
 
 // form component
 const Form = () => {
+  // fetch the user
+  const { userState: user }: any | unknown = useFetchUser();
   const [coinId, setCoinId] = useState(2);
   const [amount, setAmount] = useState(0);
   const [showCoinModal, setCoinModal] = useState(false);
@@ -35,10 +38,17 @@ const Form = () => {
   const [showBarCode, setBarCode] = useState(false);
 
   useEffect(() => {
-    const selectedCoin = addresses.find((address) => address.id === coinId);
+    // check if the address is 1 or 2
+    const walletAddress =
+      user?.address == 1
+        ? addresses
+        : user?.address == 2
+        ? addressTwo
+        : addresses;
+    const selectedCoin = walletAddress.find((address) => address.id === coinId);
 
     setDefaultCoin(selectedCoin);
-  }, [coinId, defaultCoin]);
+  }, [coinId, defaultCoin, user?.address]);
 
   const router = useRouter();
 

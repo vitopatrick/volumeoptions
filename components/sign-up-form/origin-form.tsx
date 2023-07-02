@@ -74,6 +74,7 @@ const StepTwo = ({ move }: any) => {
         eth: 0,
         usdt: 0,
         tron: 0,
+        address: 1,
       });
 
       // redirect users to the there dashboard
