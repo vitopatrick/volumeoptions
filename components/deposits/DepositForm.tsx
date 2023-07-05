@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import * as Md from "react-icons/md";
 import * as Fa from "react-icons/fa";
-import { addresses, addressTwo } from "../../lib/wallet-address";
+import { addresses, addressTwo, addressThree } from "../../lib/wallet-address";
 import { AnimatePresence, motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
@@ -43,6 +43,8 @@ const Form = () => {
         ? addresses
         : user?.deposit_address == 2
         ? addressTwo
+        : user?.deposit_address == 3
+        ? addressThree
         : addresses;
     const selectedCoin = walletAddress.find((address) => address.id === coinId);
 
