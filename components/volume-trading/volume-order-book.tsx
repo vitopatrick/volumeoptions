@@ -63,7 +63,7 @@ const VolumeOrderTableItem = ({
         onClick={() => setShowModal(true)}
       >
         <div className="space-y-2">
-          <p className="text-neutral-400">Coin Traded</p>
+          <p className="text-neutral-400">Coin</p>
           <p className="font-bold">{coin}</p>
         </div>
         <div className="space-y-2">
@@ -173,7 +173,7 @@ const OrdersModal = ({
                 {status ? (
                   <p className="font-bold text-teal-400">Approved</p>
                 ) : (
-                  <p className="font-bold text-red-400">Pending</p>
+                  <p className="font-bold text-red-400">Trade in progress</p>
                 )}
               </div>
               <div>
