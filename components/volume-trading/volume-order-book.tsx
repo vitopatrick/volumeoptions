@@ -62,15 +62,15 @@ const VolumeOrderTableItem = ({
         className="flex items-center justify-between p-3 rounded hover:bg-neutral-800 transition ease-in"
         onClick={() => setShowModal(true)}
       >
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-start">
           <p className="text-neutral-400">Coin</p>
           <p className="font-bold">{coin}</p>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-start">
           <p className="text-neutral-400">Entry Price</p>
           <p className="font-bold">{formatCurrency(amount)}</p>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-start">
           <p className="text-neutral-400">Profit</p>
           <p className="font-bold">{formatCurrency(profit)}</p>
         </div>
