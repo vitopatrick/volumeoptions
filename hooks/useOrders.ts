@@ -32,9 +32,18 @@ export const useOrders = () => {
         (docs) => {
           docs.forEach((doc) => {
             doc.data();
+
             const data = doc.data();
             const date = new Date(data.date.toDate());
-            const newDate = date.setUTCDate(date.getUTCDate() + 4);
+            const endDate =
+              data.duration == "24 hours"
+                ? 1
+                : data.duration == "4 days"
+                ? 4
+                : data.duration == "7 days"
+                ? 7
+                : 0;
+            const newDate = date.setUTCDate(date.getUTCDate() + endDate);
 
             ordersArray.push({
               coin: data.coin,

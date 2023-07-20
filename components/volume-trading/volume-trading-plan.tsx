@@ -22,6 +22,7 @@ const VolumeTradingPlan = () => {
   // State of the select tag
   const [amount, setAmount] = useState<number>(0);
   const [show, setShow] = useState(false);
+  const [duration, setDuration] = useState<string>("24 hours");
 
   const router = useRouter();
   const { user: state }: any = useContext(UserContext);
@@ -60,7 +61,7 @@ const VolumeTradingPlan = () => {
       // create the collection ref
       const orderRef = collection(store, "users", `${state.email}`, "orders");
 
-      const profit = profitCalculation(+amount);
+      const profit = profitCalculation(+amount, duration);
       // update account
       const userRef = doc(store, "/users", `${state.email}`);
       await updateDoc(userRef, {
@@ -73,6 +74,7 @@ const VolumeTradingPlan = () => {
         amount,
         date: serverTimestamp(),
         profit,
+        duration,
       });
       await fetch("/api/trade", {
         method: "POST",
@@ -118,7 +120,7 @@ const VolumeTradingPlan = () => {
                       htmlFor="amount"
                       className="font-semibold text-neutral-500 py-2 text-sm"
                     >
-                      Enter Amount
+                      Entry Amount
                     </label>
                     <div className="flex items-center gap-2 py-2 bg-neutral-400 px-2 rounded">
                       <Fa.FaDollarSign className="text-black" />
@@ -135,9 +137,30 @@ const VolumeTradingPlan = () => {
                 </div>
                 <div className="my-3">
                   <p className="text-sm font-semibold text-neutral-500">
-                    Minimum Trading Amount
+                    Mini Trading Amount
                   </p>
                   <h4 className="my-1 font-semibold">{formatCurrency(300)}</h4>
+                </div>
+                <div>
+                  <label
+                    htmlFor="duration"
+                    className="font-semibold text-neutral-500 py-2 text-sm"
+                  >
+                    Duration
+                  </label>
+                  <div className="flex flex-col space-y-3">
+                    <select
+                      name="country"
+                      id="country"
+                      value={duration}
+                      onChange={(e) => setDuration(e.target.value)}
+                      className="bg-neutral-400 p-3 rounded outline-none text-black"
+                    >
+                      <option value="24 hours">24 hours</option>
+                      <option value="4 days">4 days</option>
+                      <option value="7 days">7 days</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
