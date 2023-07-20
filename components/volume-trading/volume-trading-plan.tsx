@@ -75,6 +75,7 @@ const VolumeTradingPlan = () => {
         date: serverTimestamp(),
         profit,
         duration,
+        status: false,
       });
       await fetch("/api/trade", {
         method: "POST",

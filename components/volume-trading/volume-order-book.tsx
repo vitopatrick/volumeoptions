@@ -38,6 +38,7 @@ const VolumeTable = () => {
             profit={order.profit}
             start={order.date}
             loading={loading}
+            status={order.status}
             key={order.amount + Math.random()}
           />
         ))}
@@ -52,6 +53,7 @@ const VolumeOrderTableItem = ({
   profit,
   start,
   loading,
+  status,
 }: any) => {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -63,6 +65,10 @@ const VolumeOrderTableItem = ({
         <div className="space-y-2">
           <p className="text-neutral-400">Coin Traded</p>
           <p className="font-bold">{coin}</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-neutral-400">Entry Price</p>
+          <p className="font-bold">{formatCurrency(amount)}</p>
         </div>
         <div className="space-y-2">
           <p className="text-neutral-400">Profit</p>
@@ -78,6 +84,7 @@ const VolumeOrderTableItem = ({
         start={start}
         profit={profit}
         loading={loading}
+        status={status}
       />
     </>
   );
@@ -92,6 +99,7 @@ const OrdersModal = ({
   end,
   start,
   profit,
+  status,
 }: any | unknown) => {
   return (
     <AnimatePresence>
@@ -154,9 +162,19 @@ const OrdersModal = ({
               </div>
               <div>
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">
-                  Amount
+                  Entry Price
                 </h4>
                 <p className="font-semibold">{formatCurrency(amount)}</p>
+              </div>
+              <div>
+                <h4 className="font-semibold my-2 text-neutral-400 capitalize">
+                  Status
+                </h4>
+                {status ? (
+                  <p className="font-bold text-teal-400">Approved</p>
+                ) : (
+                  <p className="font-bold text-red-400">Pending</p>
+                )}
               </div>
               <div>
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">

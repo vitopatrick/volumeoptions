@@ -52,6 +52,7 @@ export const useOrders = () => {
               profit: data.profit,
               level: data.level,
               date: new Date(data.date.toDate()).toDateString(),
+              status: data.status,
             });
             setOrders(ordersArray);
           });
