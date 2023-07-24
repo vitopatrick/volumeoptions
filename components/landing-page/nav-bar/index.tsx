@@ -14,7 +14,7 @@ const Navbar = () => {
           href="/"
           className="text-2xl text-teal-500 font-medium uppercase tracking-widest underline"
         >
-          Coins Exchange
+          VSAexchange
         </Link>
         {/* links */}
         <div className="flex items-center md:gap-12 justify-between">

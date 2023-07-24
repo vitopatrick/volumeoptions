@@ -1,9 +1,9 @@
 export const faqs = [
   {
     id: 1,
-    question: "What is Coins Exchange",
+    question: "What is VSAexchange",
     answer:
-      "Coins Exchange is a crypto Exchange and defi institution,dedicated to helping new comers in crypto get started.",
+      "VSAexchange is a crypto Exchange and defi institution,dedicated to helping new comers in crypto get started.",
   },
   {
     id: 2,
@@ -13,14 +13,14 @@ export const faqs = [
   },
   {
     id: 3,
-    question: "Does Coins Exchange accept fiat",
+    question: "Does VSAexchange accept fiat",
     answer:
-      "Yes Coins Exchange accepts fiat currencies in exchange for the equivalent value.",
+      "Yes VSAexchange accepts fiat currencies in exchange for the equivalent value.",
   },
   {
     id: 4,
-    question: "Is Coins Exchange safe?",
+    question: "Is VSAexchange safe?",
     answer:
-      "Coins Exchange boasts one of the world's most sophisticated security technology and maintenance team, and is constantly upgrading our security systems to ensure the safety of user assets and accounts",
+      "VSAexchange boasts one of the world's most sophisticated security technology and maintenance team, and is constantly upgrading our security systems to ensure the safety of user assets and accounts",
   },
 ];

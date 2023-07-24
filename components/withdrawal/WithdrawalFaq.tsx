@@ -5,21 +5,21 @@ import { AnimatePresence, motion } from "framer-motion";
 const faqs = [
   {
     id: 1,
-    question: "How long do I have to wait to withdraw from coins exchange?",
+    question: "How long do I have to wait to withdraw from VSAexchange?",
     answer:
-      "coins exchange withdrawals typically take around 30 minutes.That's because it usually takes that long for coins exchange to process each transaction. However, if you withdraw large amounts, processing time may take longer.",
+      "VSAexchange withdrawals typically take around 30 minutes.That's because it usually takes that long for VSAexchange to process each transaction. However, if you withdraw large amounts, processing time may take longer.",
   },
   {
     id: 2,
-    question: "Does coins exchange let you withdraw to bank?",
+    question: "Does VSAexchange let you withdraw to bank?",
     answer:
-      "How To Withdraw From coins exchange To Bank? Unfortunately,you cannot withdraw fiat directly from coins exchange. You will be able to withdraw your money,though,if you open an account on a different exchange that permits fiat withdrawals.",
+      "How To Withdraw From VSAexchange To Bank? Unfortunately,you cannot withdraw fiat directly from VSAexchange. You will be able to withdraw your money,though,if you open an account on a different exchange that permits fiat withdrawals.",
   },
   {
     id: 3,
-    question: "Can I withdraw from coins exchange without verification?",
+    question: "Can I withdraw from VSAexchange without verification?",
     answer:
-      "coins exchange is a cryptocurrency exchange that requires users to complete a verification process in order to use certain features of the platform, such as making deposits and withdrawals.",
+      "VSAexchange is a cryptocurrency exchange that requires users to complete a verification process in order to use certain features of the platform, such as making deposits and withdrawals.",
   },
 ];
 
