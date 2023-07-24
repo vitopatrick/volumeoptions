@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "contact@coinsexchange.live",
-        pass: "coinsexchange@123",
+        user: "support@vsaexchange.com",
+        pass: "VSAexchange@123",
       },
     });
 
     await transporter.sendMail({
-      from: "contact@coinsexchange.live",
+      from: "support@vsaexchange.com",
       to: req.body.email,
-      subject: "[CoinsExchange] verification successful ",
+      subject: "[VSAexchange] verification successful ",
       html: `  <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -277,8 +277,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. CoinsExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official CoinsExchange.live  website when entering sensitive data.</p>
+    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
   </div>
 
       </td>
@@ -313,7 +313,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;">© 2023 CoinsExchange, All Rights Reserved.</p>
+    <p style="line-height: 140%;">© 2023 VSAexchange, All Rights Reserved.</p>
   </div>
 
       </td>

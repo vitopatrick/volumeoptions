@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "contact@coinsexchange.live",
-        pass: "coinsexchange@123",
+        user: "support@vsaexchange.com",
+        pass: "VSAexchange@123",
       },
     });
 
     await transporter.sendMail({
-      from: "contact@coinsexchange.live",
+      from: "support@vsaexchange.com",
       to: req.body.email,
-      subject: "[CoinsExchange] New Sign in",
+      subject: "[VSAexchange] New Sign in",
       html: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -164,7 +164,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 12px; line-height: 150%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 150%;">We noticed your Coins Exchange account [<a rel="noopener" href="mailto:${
+    <p style="line-height: 150%;">We noticed your VSAexchange account [<a rel="noopener" href="mailto:${
       req.body.email
     }" target="_blank">${
         req.body.email
@@ -199,8 +199,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
 <div align="left">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.coinsexchange.pro/auth/sign-in" style="height:39px; v-text-anchor:middle; width:173px;" arcsize="10.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
-    <a href="https://www.coinsexchange.pro/auth/sign-in" target="_self" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 15px;">
+  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.VSAexchange.pro/auth/sign-in" style="height:39px; v-text-anchor:middle; width:173px;" arcsize="10.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
+    <a href="https://www.VSAexchange.pro/auth/sign-in" target="_self" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 15px;">
       <span style="display:block;padding:11px 20px 10px;line-height:120%;"><strong>Visit Your Account</strong></span>
     </a>
   <!--[if mso]></center></v:roundrect><![endif]-->
@@ -279,8 +279,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 12px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. CoinsExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official CoinsExchange.live  website when entering sensitive data.</p>
+    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
 <p style="line-height: 140%;"> </p>
 <p style="line-height: 140%;"> </p>
   </div>
@@ -296,7 +296,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 11px; line-height: 180%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 180%;">© 2023 CoinsExchange, All Rights Reserved.</p>
+    <p style="line-height: 180%;">© 2023 VSAexchange, All Rights Reserved.</p>
   </div>
 
       </td>

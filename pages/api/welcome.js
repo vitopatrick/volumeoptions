@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "contact@coinsexchange.live",
-        pass: "coinsexchange@123",
+        user: "support@vsaexchange.com",
+        pass: "VSAexchange@123",
       },
     });
 
     await transporter.sendMail({
-      from: "contact@coinsexchange.live",
+      from: "support@vsaexchange.com",
       to: req.body.email,
-      subject: "[CoinsExchange] welcome to CoinsExchange",
+      subject: "[VSAexchange] welcome to VSAexchange",
       html: `
       <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -223,7 +223,7 @@ export default async function handler(req, res) {
           <td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px;font-family:'Cabin',sans-serif;" align="left">
 
       <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
-        <p style="line-height: 160%;"><span style="font-size: 20px; line-height: 32px;"><strong>Hello ${req.body.name} Welcome to Coinsexchange. </strong></span><br />proceed to the Verification tab. To enable you trade volume of coins. </p>
+        <p style="line-height: 160%;"><span style="font-size: 20px; line-height: 32px;"><strong>Hello ${req.body.name} Welcome to VSAexchange. </strong></span><br />proceed to the Verification tab. To enable you trade volume of coins. </p>
       </div>
 
           </td>
@@ -256,8 +256,8 @@ export default async function handler(req, res) {
           <td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
 
       <div style="color: #ffffff; line-height: 160%; text-align: center; word-wrap: break-word;">
-        <p style="line-height: 160%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. CoinsExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-    <p style="line-height: 160%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official CoinsExchange.live  website when entering sensitive data.</p>
+        <p style="line-height: 160%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+    <p style="line-height: 160%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
       </div>
 
           </td>
@@ -290,7 +290,7 @@ export default async function handler(req, res) {
           <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
       <div style="color: #fafafa; line-height: 180%; text-align: center; word-wrap: break-word;">
-        <p style="line-height: 180%;">© 2023 CoinsExchange, All Rights Reserved.</p>
+        <p style="line-height: 180%;">© 2023 VSAexchange, All Rights Reserved.</p>
       </div>
 
           </td>
