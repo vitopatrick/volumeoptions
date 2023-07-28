@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       from: "support@vsaexchange.com",
       to: req.body.email,
       subject: "[VSAexchange] verification successful ",
-      html: `  <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      html: ` <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <!--[if gte mso 9]>
@@ -34,21 +34,21 @@ export default async function handler(req, res) {
   <title></title>
   
     <style type="text/css">
-      @media only screen and (min-width: 250px) {
+      @media only screen and (min-width: 290px) {
   .u-row {
-    width: 230px !important;
+    width: 270px !important;
   }
   .u-row .u-col {
     vertical-align: top;
   }
 
   .u-row .u-col-100 {
-    width: 230px !important;
+    width: 270px !important;
   }
 
 }
 
-@media (max-width: 250px) {
+@media (max-width: 290px) {
   .u-row-container {
     max-width: 100% !important;
     padding-left: 0px !important;
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
   .u-col > div {
     margin: 0 auto;
   }
-  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -106,23 +106,24 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 
 </head>
 
-<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000">
+<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ecf0f1;color: #000000">
   <!--[if IE]><div class="ie-container"><![endif]-->
   <!--[if mso]><div class="mso-container"><![endif]-->
-  <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%" cellpadding="0" cellspacing="0">
+  <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ecf0f1;width:100%" cellpadding="0" cellspacing="0">
   <tbody>
   <tr style="vertical-align: top">
     <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #e7e7e7;"><![endif]-->
+    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #ecf0f1;"><![endif]-->
     
-
+  
+  
 <div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 230px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 270px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:230px;"><tr style="background-color: transparent;"><![endif]-->
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:270px;"><tr style="background-color: transparent;"><![endif]-->
       
-<!--[if (mso)|(IE)]><td align="center" width="230" style="width: 230px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 230px;display: table-cell;vertical-align: top;">
+<!--[if (mso)|(IE)]><td align="center" width="270" style="width: 270px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 270px;display: table-cell;vertical-align: top;">
   <div style="height: 100%;width: 100% !important;">
   <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
   
@@ -135,7 +136,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://assets.unlayer.com/projects/155285/1682068446731-2F3E031A-52DF-41F5-8FD7-553F21261065.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 210px;" width="210"/>
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/174604/1690468977820-EDC11D14-1136-4962-9E32-357CDE62FA6C.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 250px;" width="250"/>
       
     </td>
   </tr>
@@ -151,7 +152,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <h1 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-size: 28px; "><strong>Verification Successful </strong></h1>
+  <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 30px; font-weight: 700;"><h3 data-originalcomputedfontsize="24" data-originalfontsize="24px"><span style="text-decoration: underline;"><strong>Verification Successful</strong></span></h3></h1>
 
       </td>
     </tr>
@@ -163,10 +164,15 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 20px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">Congratulations, you have passed the review and are now a VerifiedPlus customer. For an overview of your account benefits, please visit the Verification Centre.</p>
-<p style="line-height: 140%;"><br />Read our FAQs if you are running into problems.</p>
-<p style="line-height: 140%;"> </p>
+  <div style="font-size: 20px; line-height: 170%; text-align: left; word-wrap: break-word;">
+    <p style="line-height: 170%;" data-originalcomputedfontsize="14" data-removefontsize="true"><br />Congratulations, you have passed the review and are now a Verified customer. For an overview of your account benefits, please visit the Verification Centre. </p>
+<div data-originalcomputedfontsize="14" data-removefontsize="true">Read our <a rel="noopener" href="https://www.binance.com/en/support/faq/360027287111" target="_blank" data-originalcomputedfontsize="14" data-removefontsize="true" data-saferedirecturl="https://www.google.com/url?q=https://www.binance.com/en/support/faq/360027287111&amp;source=gmail&amp;ust=1690554573495000&amp;usg=AOvVaw3A2tlLdw9LQQew3nbcqtVR">FAQs</a> if you are running into problems.</div>
+<p style="line-height: 170%;">To make your first crypto deposit, press <a rel="noopener" href="https://www.binance.com/" target="_blank" data-originalcomputedfontsize="14" data-removefontsize="true" data-saferedirecturl="https://www.google.com/url?q=https://www.binance.com/&amp;source=gmail&amp;ust=1690554573495000&amp;usg=AOvVaw2ziu5jPbHoOAxHZcdVagc0">here</a> to log-in to your account and navigate to the deposit page.</p>
+<p style="line-height: 170%;"> </p>
+<p style="line-height: 170%;" data-originalcomputedfontsize="14" data-removefontsize="true">If you don't recognize this activity, please contact us immediately at</p>
+<p style="line-height: 170%;"><a href="https://www.vsaexchange.com/support">https://www.vsaexchange.com/support</a></p>
+<p style="line-height: 170%;" data-originalcomputedfontsize="14" data-removefontsize="true"> </p>
+<p style="line-height: 170%;" data-originalcomputedfontsize="14" data-originalfontsize="14px">VSA Team<br />This is an automated message, please do not reply.</p>
   </div>
 
       </td>
@@ -179,14 +185,10 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
-<div align="left">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:53px; v-text-anchor:middle; width:218px;" arcsize="7.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
-    <a href="" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 28px;">
-      <span style="display:block;padding:10px 20px;line-height:120%;"><strong>Visit Account</strong></span>
-    </a>
-  <!--[if mso]></center></v:roundrect><![endif]-->
-</div>
+  <div style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
+    <p style="line-height: 140%;" data-originalfontsize="14px" data-originalcomputedfontsize="14">© 2018 - 2023 VSAExchange.com All Rights Reserved</p>
+<p style="line-height: 140%;" data-originalfontsize="14px" data-originalcomputedfontsize="14">URL: <a href="https://www.vsaexchange.com">https://www.vsaexchange.com</a></p>
+  </div>
 
       </td>
     </tr>
@@ -200,135 +202,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
     </div>
   </div>
-</div>
-
-
-
-<div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 230px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:230px;"><tr style="background-color: transparent;"><![endif]-->
-      
-<!--[if (mso)|(IE)]><td align="center" width="230" style="width: 230px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 230px;display: table-cell;vertical-align: top;">
-  <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  </div>
   
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;"><br />Don’t recognize this activity? Please reset your password and contact customer support immediately. </p>
-<p style="line-height: 140%;"> </p>
-<p style="line-height: 140%;"><em>This is an automated message, please do not reply. </em></p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-  </div>
-</div>
-<!--[if (mso)|(IE)]></td><![endif]-->
-      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-    </div>
-  </div>
-</div>
-
-
-
-<div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 230px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:230px;"><tr style="background-color: transparent;"><![endif]-->
-      
-<!--[if (mso)|(IE)]><td align="center" width="230" style="background-color: #000000;width: 230px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 230px;display: table-cell;vertical-align: top;">
-  <div style="background-color: #000000;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
-  
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-    <tbody>
-      <tr style="vertical-align: top">
-        <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-          <span>&#160;</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-  </div>
-</div>
-<!--[if (mso)|(IE)]></td><![endif]-->
-      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-    </div>
-  </div>
-</div>
-
-
-
-<div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 230px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:230px;"><tr style="background-color: transparent;"><![endif]-->
-      
-<!--[if (mso)|(IE)]><td align="center" width="230" style="background-color: #169179;width: 230px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 230px;display: table-cell;vertical-align: top;">
-  <div style="background-color: #169179;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
-  
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;">© 2023 VSAexchange, All Rights Reserved.</p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
-  </div>
-</div>
-<!--[if (mso)|(IE)]></td><![endif]-->
-      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-    </div>
-  </div>
-</div>
 
 
     <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
@@ -339,6 +214,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <!--[if mso]></div><![endif]-->
   <!--[if IE]></div><![endif]-->
 </body>
+
 </html>
 `,
     });

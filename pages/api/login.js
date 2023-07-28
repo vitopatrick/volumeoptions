@@ -34,21 +34,21 @@ export default async function handler(req, res) {
   <title></title>
   
     <style type="text/css">
-      @media only screen and (min-width: 270px) {
+      @media only screen and (min-width: 220px) {
   .u-row {
-    width: 250px !important;
+    width: 200px !important;
   }
   .u-row .u-col {
     vertical-align: top;
   }
 
   .u-row .u-col-100 {
-    width: 250px !important;
+    width: 200px !important;
   }
 
 }
 
-@media (max-width: 270px) {
+@media (max-width: 220px) {
   .u-row-container {
     max-width: 100% !important;
     padding-left: 0px !important;
@@ -106,36 +106,37 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 
 </head>
 
-<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;color: #000000">
+<body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000">
   <!--[if IE]><div class="ie-container"><![endif]-->
   <!--[if mso]><div class="mso-container"><![endif]-->
-  <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ffffff;width:100%" cellpadding="0" cellspacing="0">
+  <table id="u_body" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%" cellpadding="0" cellspacing="0">
   <tbody>
   <tr style="vertical-align: top">
     <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #ffffff;"><![endif]-->
+    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #e7e7e7;"><![endif]-->
     
-
-<div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 250px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+  
+  
+<div class="u-row-container" style="padding: 0px;background-color: #169179">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 200px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:250px;"><tr style="background-color: transparent;"><![endif]-->
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: #169179;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:200px;"><tr style="background-color: transparent;"><![endif]-->
       
-<!--[if (mso)|(IE)]><td align="center" width="250" style="width: 250px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 250px;display: table-cell;vertical-align: top;">
-  <div style="height: 100%;width: 100% !important;">
+<!--[if (mso)|(IE)]><td align="center" width="200" style="background-color: #169179;width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+  <div style="background-color: #169179;height: 100%;width: 100% !important;">
   <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
   
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:arial,helvetica,sans-serif;" align="left">
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://assets.unlayer.com/projects/164549/1685864192689-IMG_0007.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 250px;" width="250"/>
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/174604/1690470408441-8E43C486-6728-40F0-9DD1-D33475202D6F.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 180px;" width="180"/>
       
     </td>
   </tr>
@@ -146,93 +147,43 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   </tbody>
 </table>
 
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <h1 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-size: 15px; font-weight: 400;"><strong>Did You Login From a New Device or Location?</strong></h1>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 12px; line-height: 150%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 150%;">We noticed your VSAexchange account [<a rel="noopener" href="mailto:${
-      req.body.email
-    }" target="_blank">${
-        req.body.email
-      }</a>] was accessed from a new IP address. </p>
+  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
   </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 13px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;"><strong>When</strong> : ${new Date()}<br /><strong>IP Address</strong> : ${
-        req.body.ip
-      }</p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
-<div align="left">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.VSAexchange.pro/auth/sign-in" style="height:39px; v-text-anchor:middle; width:173px;" arcsize="10.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
-    <a href="https://www.VSAexchange.pro/auth/sign-in" target="_self" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 15px;">
-      <span style="display:block;padding:11px 20px 10px;line-height:120%;"><strong>Visit Your Account</strong></span>
-    </a>
-  <!--[if mso]></center></v:roundrect><![endif]-->
 </div>
+<!--[if (mso)|(IE)]></td><![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+    </div>
+  </div>
+  </div>
+  
 
-      </td>
-    </tr>
-  </tbody>
-</table>
 
+  
+  
+<div class="u-row-container" style="padding: 0px;background-color: transparent">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 200px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:200px;"><tr style="background-color: transparent;"><![endif]-->
+      
+<!--[if (mso)|(IE)]><td align="center" width="200" style="width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+  <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 12px; line-height: 200%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 200%;">Don’t recognize this activity? Please reset your password and contact customer support immediately. </p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="padding-right: 0px;padding-left: 0px;" align="center">
+      
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/174604/1690470687764-5F9570E1-07E2-4A5D-9CFD-B7C40808EE13.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 180px;" width="180"/>
+      
+    </td>
+  </tr>
 </table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 12px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;"><em>This is an automated message, please do not reply. </em></p>
-  </div>
 
       </td>
     </tr>
@@ -264,39 +215,17 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 13px; line-height: 170%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 170%;"><strong>Stay connected!</strong></p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 12px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
-<p style="line-height: 140%;"> </p>
-<p style="line-height: 140%;"> </p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 11px; line-height: 180%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 180%;">© 2023 VSAexchange, All Rights Reserved.</p>
+  <div style="font-size: 20px; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <div>
+<div>
+<div data-originalcomputedfontsize="14" data-originalfontsize="14px">Dear (Name) ,</div>
+</div>
+</div>
+<div>
+<div>
+<div data-originalcomputedfontsize="14" data-originalfontsize="14px">You logged into VSA Exchange</div>
+</div>
+</div>
   </div>
 
       </td>
@@ -311,7 +240,124 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
     </div>
   </div>
+  </div>
+  
+
+
+  
+  
+<div class="u-row-container" style="padding: 0px;background-color: transparent">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 200px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:200px;"><tr style="background-color: transparent;"><![endif]-->
+      
+<!--[if (mso)|(IE)]><td align="center" width="200" style="background-color: #ced4d9;width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+  <div style="background-color: #ced4d9;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  
+<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
+        
+  <div style="font-size: 23px; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <p style="line-height: 140%;">Account: ${req.body.email}</p>
+<p style="line-height: 140%;"> </p>
+<p style="line-height: 140%;">IP: ${req.body.ip}</p>
+<p style="line-height: 140%;"> </p>
+<p style="line-height: 140%;">Time: ${new Date().toUTCString()}</p>
+  </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+  </div>
 </div>
+<!--[if (mso)|(IE)]></td><![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+    </div>
+  </div>
+  </div>
+  
+
+
+  
+  
+<div class="u-row-container" style="padding: 0px;background-color: transparent">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 200px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:200px;"><tr style="background-color: transparent;"><![endif]-->
+      
+<!--[if (mso)|(IE)]><td align="center" width="200" style="width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+  <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  
+<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
+        
+  <div style="font-size: 18px; line-height: 190%; text-align: left; word-wrap: break-word;">
+    <p style="line-height: 190%;">Note: If you did not submit this application, your account may have been stolen. Please <a rel="noopener" href="https://u15071047.ct.sendgrid.net/ls/click?upn=PC4QStp3E-2BPhc8uZt1PVWWWvOxf9HXR0cQRqvVgyJ7Ls1ZU88Dti-2FhRPqGWf38g4-2FfyFK87gLbnLvcrCmNsN-2BA-3D-3D8GH8_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOycCRVAsqc5AsnnFzSXXwF-2B0-2Fl8w5-2B6dZzM2xohlHJJ2m-2FasenBYnbbBXJSx1MUX6YTegQg8oak6zRBc5Tx7YXr0dBpU2rcwcMo43NCzk8hHU4BK4bbOdb3x3I4E98jvz2YYZmyUyr-2FdxmYVhG611vX" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u15071047.ct.sendgrid.net/ls/click?upn%3DPC4QStp3E-2BPhc8uZt1PVWWWvOxf9HXR0cQRqvVgyJ7Ls1ZU88Dti-2FhRPqGWf38g4-2FfyFK87gLbnLvcrCmNsN-2BA-3D-3D8GH8_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOycCRVAsqc5AsnnFzSXXwF-2B0-2Fl8w5-2B6dZzM2xohlHJJ2m-2FasenBYnbbBXJSx1MUX6YTegQg8oak6zRBc5Tx7YXr0dBpU2rcwcMo43NCzk8hHU4BK4bbOdb3x3I4E98jvz2YYZmyUyr-2FdxmYVhG611vX&amp;source=gmail&amp;ust=1690483066722000&amp;usg=AOvVaw3qymYuusxCpSAoglzNauJg" data-removefontsize="true" data-originalcomputedfontsize="14">change your password</a> immediately.</p>
+  </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+  </div>
+</div>
+<!--[if (mso)|(IE)]></td><![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+    </div>
+  </div>
+  </div>
+  
+
+
+  
+  
+<div class="u-row-container" style="padding: 0px;background-color: transparent">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 200px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+    <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:200px;"><tr style="background-color: transparent;"><![endif]-->
+      
+<!--[if (mso)|(IE)]><td align="center" width="200" style="background-color: #169179;width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+  <div style="background-color: #169179;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  
+<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
+        
+  <div style="font-size: 20px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
+    <div data-originalfontsize="14px" data-originalcomputedfontsize="14">24/7 <a rel="noopener" href="https://u15071047.ct.sendgrid.net/ls/click?upn=PC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHzPCk_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzU0FI2XzAYDG139SqhHfWDW-2FyiUR7kLKdM0UogvvKZdt1Rf5nxUiAVW9Kiqt7PFPcIquwntwu5Nr6P9NScCjzm3hgRbHZnxyCHT2brJGdIUNgOAI7pmccLT7o9nGC3fLvN4yBC0sc2K20D3lfCqzUg" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u15071047.ct.sendgrid.net/ls/click?upn%3DPC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHzPCk_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzU0FI2XzAYDG139SqhHfWDW-2FyiUR7kLKdM0UogvvKZdt1Rf5nxUiAVW9Kiqt7PFPcIquwntwu5Nr6P9NScCjzm3hgRbHZnxyCHT2brJGdIUNgOAI7pmccLT7o9nGC3fLvN4yBC0sc2K20D3lfCqzUg&amp;source=gmail&amp;ust=1690483066723000&amp;usg=AOvVaw0LgkX4RJPdFGF9sw810048" data-removefontsize="true" data-originalcomputedfontsize="14">Help Center</a> &amp; <a rel="noopener" href="https://u15071047.ct.sendgrid.net/ls/click?upn=PC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHHeaK_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzWGp3hNXvf-2FtY7ZRWZ45kRVX8rTe2pMIbd3c7usPMF6OB7ua-2FSsYIpP4xEFy-2BRlk5NzRgn7QqzCOgPOWqsl8bs3BTf011rJJsKj54jjb86KIRVXxFZ-2FcX4xRlD223FSOeyfsAZ4WrZJEery7EbO-2Bpp" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u15071047.ct.sendgrid.net/ls/click?upn%3DPC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHHeaK_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzWGp3hNXvf-2FtY7ZRWZ45kRVX8rTe2pMIbd3c7usPMF6OB7ua-2FSsYIpP4xEFy-2BRlk5NzRgn7QqzCOgPOWqsl8bs3BTf011rJJsKj54jjb86KIRVXxFZ-2FcX4xRlD223FSOeyfsAZ4WrZJEery7EbO-2Bpp&amp;source=gmail&amp;ust=1690483066723000&amp;usg=AOvVaw1sV10CZihRRDiHt8E3ujP5" data-removefontsize="true" data-originalcomputedfontsize="14">Live Support</a></div>
+<div data-originalfontsize="14px" data-originalcomputedfontsize="14">© 2018 - 2023 VSAExchange.com. All Rights Reserved.</div>
+  </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+  </div>
+</div>
+<!--[if (mso)|(IE)]></td><![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+    </div>
+  </div>
+  </div>
+  
 
 
     <!--[if (mso)|(IE)]></td></tr></table><![endif]-->

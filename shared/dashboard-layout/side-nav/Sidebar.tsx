@@ -27,7 +27,7 @@ const Sidebar = () => {
         <div>
           {/* logo flex container */}
           <div className="mb-8 font-medium text-button uppercase underline tracking-widest text-xl ">
-            Coins Exchange
+            VSAexchange
           </div>
           <div className="space-y-5">
             {FIRST_LINKS.map((link) => (

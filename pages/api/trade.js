@@ -34,21 +34,21 @@ export default async function handler(req, res) {
   <title></title>
   
     <style type="text/css">
-      @media only screen and (min-width: 300px) {
+      @media only screen and (min-width: 190px) {
   .u-row {
-    width: 280px !important;
+    width: 170px !important;
   }
   .u-row .u-col {
     vertical-align: top;
   }
 
   .u-row .u-col-100 {
-    width: 280px !important;
+    width: 170px !important;
   }
 
 }
 
-@media (max-width: 300px) {
+@media (max-width: 190px) {
   .u-row-container {
     max-width: 100% !important;
     padding-left: 0px !important;
@@ -115,14 +115,15 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
     <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #e7e7e7;"><![endif]-->
     
-
+  
+  
 <div class="u-row-container" style="padding: 0px;background-color: transparent">
-  <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 280px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+  <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 170px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
     <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:280px;"><tr style="background-color: transparent;"><![endif]-->
+      <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:170px;"><tr style="background-color: transparent;"><![endif]-->
       
-<!--[if (mso)|(IE)]><td align="center" width="280" style="width: 280px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-<div class="u-col u-col-100" style="max-width: 320px;min-width: 280px;display: table-cell;vertical-align: top;">
+<!--[if (mso)|(IE)]><td align="center" width="170" style="width: 170px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+<div class="u-col u-col-100" style="max-width: 320px;min-width: 170px;display: table-cell;vertical-align: top;">
   <div style="height: 100%;width: 100% !important;">
   <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
   
@@ -135,7 +136,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://assets.unlayer.com/projects/164549/1685867756066-IMG_0007.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 260px;" width="260"/>
+      <img align="center" border="0" src="https://assets.unlayer.com/projects/174604/1690473127295-16A0465B-5E56-431E-AC43-4DBC4C284FE9.jpeg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 150px;" width="150"/>
       
     </td>
   </tr>
@@ -151,7 +152,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <h1 style="margin: 0px; line-height: 140%; text-align: left; word-wrap: break-word; font-size: 23px; font-weight: 400;"><strong>Volume Trade In Progress</strong></h1>
+  <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 14px; font-weight: 700;"><h1><strong>Volume Trade In Progress</strong></h1></h1>
 
       </td>
     </tr>
@@ -163,8 +164,11 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">Your volume trade on $${req.body.amount} ${req.body.coin} have been processed successfully and your trade has began. <br />Trade is completed in the next 96 hours</p>
+  <div style="font-size: 19px; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <div>
+<p style="line-height: 140%;" data-originalcomputedfontsize="14" data-removefontsize="true">Your volume trade on $${req.body.amount} ${req.body.coin} have been processed successfully and your trade has began. <br />Trade is completed in the ${req.body.duration}</p>
+</div>
+<div align="justify"> </div>
   </div>
 
       </td>
@@ -178,12 +182,12 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
-<div align="justify">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.VSAexchange.com" style="height:43px; v-text-anchor:middle; width:185px;" arcsize="9.5%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->  
-    <a href="https://www.VSAexchange.com" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 17px;">
-      <span style="display:block;padding:10px 20px;line-height:140%;"><span style="line-height: 23.8px;">Visit Trading Wallet</span></span>
+<div align="left">
+  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.vsaexchange.com" style="height:41px; v-text-anchor:middle; width:151px;" arcsize="10%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;"><![endif]-->
+    <a href="https://www.vsaexchange.com" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 18px;">
+      <span style="display:block;padding:10px 20px;line-height:120%;">Trading wallet</span>
     </a>
-  <!--[if mso]></center></v:roundrect><![endif]-->
+    <!--[if mso]></center></v:roundrect><![endif]-->
 </div>
 
       </td>
@@ -196,7 +200,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
+  <div style="font-size: 19px; font-weight: 400; line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="line-height: 140%;">Don’t recognize this activity? Please reset your password and contact customer support immediately.</p>
   </div>
 
@@ -210,8 +214,11 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;"><em>This is an automated message, please do not reply.</em></p>
+  <div style="font-size: 18px; font-weight: 400; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <div>
+<p style="line-height: 140%;"><em data-removefontsize="true" data-originalcomputedfontsize="14">This is an automated message, please do not reply.</em></p>
+</div>
+<p style="line-height: 140%;"> </p>
   </div>
 
       </td>
@@ -244,8 +251,21 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 21px; color: #169179; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;"><strong>Stay connected!</strong></p>
+  <h1 style="margin: 0px; color: #169179; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 28px; font-weight: 700;">Stay Connected!</h1>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"> 
+  <tbody>
+    <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
+        
+  <div style="font-size: 19px; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">To stay secure, setup your phishing code here<br /><br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+<p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAExchange.com website when entering sensitive data.</p>
   </div>
 
       </td>
@@ -258,25 +278,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;">To stay secure, setup your phishing code here<br /> <br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAexchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAexchange.com  website when entering sensitive data.</p>
-<p style="line-height: 140%;"> </p>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="font-size: 16px; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;">© 2023 VSAexchange, All Rights Reserved.</p>
-  </div>
+  <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 16px; font-weight: 400;">© 2023 VSAExchange, All Rights Reserved.</h1>
 
       </td>
     </tr>
@@ -290,7 +292,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
     </div>
   </div>
-</div>
+  </div>
+  
 
 
     <!--[if (mso)|(IE)]></td></tr></table><![endif]-->

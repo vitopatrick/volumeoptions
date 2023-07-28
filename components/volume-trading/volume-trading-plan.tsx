@@ -86,6 +86,7 @@ const VolumeTradingPlan = () => {
           email: state.email,
           amount,
           coin: selectedCoin.name,
+          duration,
         }),
       });
       router.reload();
