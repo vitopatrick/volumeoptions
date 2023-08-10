@@ -23,7 +23,7 @@ export const addresses = [
     id: 3,
     sym: "trx",
     name: "Tron",
-    address: "TP9tnRaTTX24gYDrH1u6Q6TMs8gqRrLHMG",
+    address: "TEY9TMtWetMbhtx9Qwp6kL6p4avMaABCSF",
     network: "Tron TRC20",
     img: "/tron-bar.png",
     logo: "/tron.png",
