@@ -171,7 +171,7 @@ const OrdersModal = ({
                   Status
                 </h4>
                 {status ? (
-                  <p className="font-bold text-teal-400">Approved</p>
+                  <p className="font-bold text-teal-400">Trade Completed</p>
                 ) : (
                   <p className="font-bold text-red-400">Trade in progress</p>
                 )}
