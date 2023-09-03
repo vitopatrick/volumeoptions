@@ -1,7 +1,12 @@
 import { useFetchAllCoins } from "../../hooks/useFetchAllCoins";
 import { useFetchUser } from "../../hooks/useFetchUser";
 import Loading from "../../shared/loading/Loading";
-import { convertCoin, convertCurrency } from "../../utils/formatCurrency";
+import {
+  Sub,
+  convertCoin,
+  convertCurrency,
+  getSum,
+} from "../../utils/formatCurrency";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
@@ -13,7 +18,7 @@ import * as Md from "react-icons/md";
 
 const WalletCoins = () => {
   const { userState: user, loading }: any = useFetchUser();
-  const { coins: main } = useFetchAllCoins(30);
+  const { coins: main, loading: boolean } = useFetchAllCoins();
 
   const router = useRouter();
 
@@ -24,7 +29,7 @@ const WalletCoins = () => {
       img: "/tron.png",
       quantity: user?.tron ? user?.tron : 0,
       sym: "trx",
-      amount: convertCurrency(main, user?.tron ? user?.tron : 0, "trx"),
+      amount: convertCurrency(main, user?.tron ? user?.tron : 0, "TRX"),
     },
     {
       id: 2,
@@ -32,7 +37,7 @@ const WalletCoins = () => {
       img: "/usdt.png",
       quantity: user?.usdt ? user?.usdt : 0,
       sym: "usdt",
-      amount: convertCurrency(main, user?.usdt ? user?.usdt : 0, "usdt"),
+      amount: convertCurrency(main, user?.usdt ? user?.usdt : 0, "USDT"),
     },
     {
       id: 3,
@@ -40,7 +45,7 @@ const WalletCoins = () => {
       img: "/btc.png",
       sym: "btc",
       quantity: user?.btc ? user?.btc : 0,
-      amount: convertCurrency(main, user?.btc ? user?.btc : 0, "btc"),
+      amount: convertCurrency(main, user?.btc ? user?.btc : 0, "BTC"),
     },
     {
       id: 4,
@@ -48,7 +53,7 @@ const WalletCoins = () => {
       img: "/eth.png",
       quantity: user?.eth ? user?.eth : 0,
       sym: "eth",
-      amount: convertCurrency(main, user?.eth ? user?.eth : 0, "eth"),
+      amount: convertCurrency(main, user?.eth ? user?.eth : 0, "ETH"),
     },
   ];
 
@@ -88,7 +93,7 @@ const WalletCoins = () => {
               <div>{coin?.quantity ? coin?.quantity : 0}</div>
               <div className="uppercase font-bold">{coin.sym}</div>
             </div>
-            <div>{coin.amount}</div>
+            <div>{loading ? "...Loading" : coin.amount}</div>
           </div>
         ))}
       <ConvertCoin convert={coins} main={main} user={user} />
@@ -104,9 +109,12 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
   const { user }: any = useContext(UserContext);
   const router = useRouter();
 
+  // convert the currency.
   const convertCurrency = async (e: any) => {
+    // Prevent Default Browser behavior
     e.preventDefault();
 
+    // check if the amount is valid
     if (!amount) {
       return toast("Enter Amount of coin", {
         position: "bottom-center",
@@ -115,6 +123,7 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
       });
     }
 
+    // check that users selected a coin to trade
     if (!to || !from) {
       return toast("Please Select coin", {
         position: "bottom-center",
@@ -123,10 +132,24 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
       });
     }
 
-    const converted = convertCoin(main, amount, to, from);
+    /**
+     * @returns the current value of the traded coin
+     * @param list_of_coins,
+     * @param amount
+     * @param convert_from
+     * @param convert_to
+     */
+    const converted = convertCoin(
+      main,
+      amount,
+      to.toUpperCase(),
+      from.toUpperCase()
+    );
+    // check if the select coin is Tron, then change the value of the selected coin
     const convertTo = to === "trx" ? "tron" : to;
     const convertFrom = from === "trx" ? "tron" : from;
 
+    // get the value of the selected fields from the user database
     const convertFromValue: any = Object.entries(state).find(
       (value) => value[0] === convertFrom
     );
@@ -136,6 +159,8 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
     );
 
     try {
+      // if the amount to be converted to is larger than the amount available in the wallet
+      // send the error handler
       if (convertFromValue[1] < amount) {
         return toast("You do not have enough coin in your wallet", {
           type: "error",
@@ -143,9 +168,10 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
           bodyClassName: "toast",
         });
       }
-
+      // this is the user reference
       const userRef = doc(store, "users", `${user.email}`);
 
+      // Toast Successful message
       toast(
         `Conversion of ${amount}${convertFromValue[0]} to ${convertToValue[0]} was successful`,
         {
@@ -154,9 +180,11 @@ const ConvertCoin = ({ convert, main, user: state }: any) => {
           type: "success",
         }
       );
+
+      // update the data in firebase
       await updateDoc(userRef, {
-        [convertToValue[0]]: convertToValue[1] + parseInt(converted),
-        [convertFromValue[0]]: convertFromValue[1] - parseInt(amount),
+        [convertToValue[0]]: getSum(+converted.result, convertToValue[1]),
+        [convertFromValue[0]]: Sub(convertFromValue[1], amount),
       });
     } catch (error: any) {
       toast(error.code, {

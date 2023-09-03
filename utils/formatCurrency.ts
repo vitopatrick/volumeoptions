@@ -18,9 +18,10 @@ export const convertCurrency = (
   amount: number = 0,
   coinName: string
 ) => {
-  const name = coins.find((coin) => coin.symbol === coinName);
-  const coinPrice = name?.currentPrice;
+  const name = coins.find((coin) => coin.sym === coinName);
+  const coinPrice = name?.price;
   const result = amount * coinPrice;
+
   return formatCurrency(result);
 };
 
@@ -32,27 +33,30 @@ export const convertCoin = (
   conFrom: string | undefined | null
 ) => {
   // convert coin to dollars first
-  const prevCoin = coins.find((coin) => coin.symbol === conFrom);
-  const prevCoinPrice = +prevCoin?.currentPrice;
+  const prevCoin = coins.find((coin) => coin.sym === conFrom);
+  const prevCoinPrice = +prevCoin?.price;
 
   const amtDollar = amount * prevCoinPrice;
 
   // convert to new Coin
-  const newCoin = coins.find((coin) => coin.symbol === conTo);
-  const newCoinPrice = newCoin?.currentPrice;
+  const newCoin = coins.find((coin) => coin.sym === conTo);
+  const newCoinPrice = newCoin?.price;
   const result = amtDollar / newCoinPrice;
 
-  return result.toFixed(5);
+  return {
+    result: result.toFixed(5),
+    newCoin: newCoin,
+    oldCoin: prevCoin,
+  };
 };
 
-export function getSum(
-  coinOne: number = 0,
-  coinTwo: number = 0,
-  coinThree: number = 0,
-  coinFour: number = 0,
-  coinFive: number = 0
-) {
-  const answer = coinOne + coinTwo + coinThree + coinFour + coinFive;
+export function getSum(firstNum: number, secondNum: number) {
+  const answer = firstNum + secondNum;
+
+  return answer;
+}
+export function Sub(firstNum: number, secondNum: number) {
+  const answer = firstNum - secondNum;
 
   return answer;
 }

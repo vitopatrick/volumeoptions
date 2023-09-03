@@ -16,15 +16,13 @@ const HotCoinTable = ({ coins, loading }: any) => {
               key={coin.id}
               className="flex items-center my-9 justify-between"
             >
-              <div className="flex items-center gap-2">
-                <div className="w-[8%]">
-                  <img src={coin.img} />
-                </div>
+              <div className="flex flex-col  gap-2">
                 <h2 className="text-sm font-semibold">{coin.name}</h2>
+                <p className="text-neutral-400">{coin.sym}</p>
               </div>
               <div>
                 <h3 className="text-sm font-semibold">
-                  {formatCurrency(coin.currentPrice, 4)}
+                  {formatCurrency(coin.price, 4)}
                 </h3>
               </div>
             </div>

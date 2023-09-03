@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import axios from "axios";
 
-export const useFetchAllCoins = (length = 10) => {
+export const useFetchAllCoins = (length = 9) => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -13,19 +13,18 @@ export const useFetchAllCoins = (length = 10) => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${length}&page=1&sparkline=false&price_change_percentage=24h`
+          "https://api.coinranking.com/v2/coins"
         );
 
-        const newData = data.map((d: any) => ({
-          id: d.id,
-          name: d.name,
-          img: d.image,
-          currentPrice: d.current_price,
-          percentageChange: d.price_change_percentage_24h_in_currency,
-          symbol: d.symbol,
+        const coinData = data.data?.coins?.map((coin: any) => ({
+          name: coin.name,
+          price: coin.price,
+          sym: coin.symbol,
+          img: coin.iconUrl,
+          marketCap: coin.marketCap,
         }));
 
-        setCoins(newData);
+        setCoins(coinData);
         setLoading(false);
       } catch (error) {
         setError(error);
