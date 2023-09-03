@@ -5,7 +5,9 @@ import { formatCurrency } from "../../../utils/formatCurrency";
 import { motion } from "framer-motion";
 
 const TrendingCoinsTable = () => {
-  const { coins, loading } = useFetchAllCoins(6);
+  const { coins: firstCoins, loading } = useFetchAllCoins(6);
+
+  const coins = firstCoins.slice(0, 9);
 
   return (
     <section className="text-white mt-12">
@@ -23,10 +25,9 @@ const TrendingCoinsTable = () => {
 const CoinTable = ({ coins }: any) => {
   return (
     <div className="font-bold mt-5">
-      <div className="grid grid-cols-5 gap-2 justify-self-center bg-card py-3 px-2 rounded-t-md">
+      <div className="grid grid-cols-4 gap-2 justify-self-center bg-card py-3 px-2 rounded-t-md">
         <div className="col-span-2">Coin</div>
         <div className="hidden md:block">Sym</div>
-        <div>24h</div>
         <div>Price</div>
       </div>
       <motion.div
@@ -47,7 +48,7 @@ const CoinTable = ({ coins }: any) => {
         }}
         initial="start"
         animate="end"
-        className="grid grid-cols-5 bg-card/25 px-2"
+        className="grid grid-cols-4 bg-card/25 px-2"
       >
         {coins.map((coin: any) => (
           <>
@@ -58,19 +59,10 @@ const CoinTable = ({ coins }: any) => {
               <div className="font-bold text-paper">{coin.name}</div>
             </motion.div>
             <motion.div className=" py-3 font-bold text-paper uppercase hidden md:block">
-              {coin.symbol}
-            </motion.div>
-            <motion.div
-              className={
-                coin.percentageChange < 0
-                  ? "py-5 text-red-500"
-                  : "py-5 text-teal-500"
-              }
-            >
-              {coin.percentageChange.toFixed(2)}%
+              {coin.sym}
             </motion.div>
             <motion.div className="font-bold py-5">
-              {formatCurrency(coin.currentPrice)}
+              {formatCurrency(coin.price)}
             </motion.div>
           </>
         ))}
