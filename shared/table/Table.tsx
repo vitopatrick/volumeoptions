@@ -1,4 +1,3 @@
-import { DataType } from "../../pages/market";
 import Loading from "../loading/Loading";
 import TableItem from "./TableItem";
 
@@ -20,7 +19,7 @@ const Table = ({ coins, loading }: TableProps) => {
       </div>
       {/* table Body */}
       {loading && <Loading />}
-      {coins.map((coin: DataType) => (
+      {/* {coins.map((coin: DataType) => (
         <TableItem
           key={coin.id}
           name={coin.name}
@@ -29,7 +28,7 @@ const Table = ({ coins, loading }: TableProps) => {
           img={coin.img}
           symbol={coin.symbol}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
