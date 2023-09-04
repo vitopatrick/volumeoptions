@@ -1,7 +1,9 @@
 import Loading from "../../shared/loading/Loading";
 import { formatCurrency } from "../../utils/formatCurrency";
 
-const HotCoinTable = ({ coins, loading }: any) => {
+const HotCoinTable = ({ coins: firstCoins, loading }: any) => {
+  const coins = firstCoins.slice(0, 5);
+
   return (
     <>
       {loading && <Loading />}

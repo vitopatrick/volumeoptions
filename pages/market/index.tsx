@@ -1,23 +1,50 @@
 import Layout from "../../shared/dashboard-layout/Layout";
-import MarketTable from "../../components/market-table/market-table";
 import { useAuth } from "../../hooks/useAuth";
-
-export interface DataType {
-  id: String | number | any;
-  name: String;
-  img: String;
-  currentPrice: Number;
-  percentageChange: Number;
-  symbol: String;
-}
+import { useFetchAllCoins } from "../../hooks/useFetchAllCoins";
+import Loading from "../../shared/loading/Loading";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const MarketsPage = () => {
   // call the auth hook
   useAuth();
+
+  // call the get coin hook
+  const { loading, coins } = useFetchAllCoins();
+
+  console.log(coins);
   return (
     <Layout>
-      {/* table component */}
-      <MarketTable />
+      {/* Table header */}
+      <div className="p-4 font-semibold text-white flex justify-between bg-bg/50 mx-4 mt-2 rounded">
+        <div className="flex-1">Coin</div>
+        <div className="flex-1 text-center">Market Cap</div>
+        <div className="text-center flex-1">Price</div>
+      </div>
+      {/* end of table header */}
+      {/* table body */}
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {coins.map((coin: any) => (
+            <div className="mx-4 mt-2 p-4 font-normal text-white flex justify-between bg-bg/30 rounded">
+              <div className="flex-1">
+                <h4 className="font-semibold">{coin.name}</h4>
+                <p className="text-neutral-400">{coin.sym}</p>
+              </div>
+              <div className="text-center flex-1">
+                {formatCurrency(coin.marketCap)}
+              </div>
+              <div className="flex-1 text-center">
+                {formatCurrency(coin.price, 4)}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+
+      {/* end of table body */}
     </Layout>
   );
 };
