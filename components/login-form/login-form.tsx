@@ -27,19 +27,19 @@ const LoginForm = () => {
       localStorage.setItem("token", user.refreshToken);
 
       // get user IP Address
-      const userIpAddress = await fetch("https://api64.ipify.org");
-      const ip = await userIpAddress.text();
+      // const userIpAddress = await fetch("https://api64.ipify.org");
+      // const ip = await userIpAddress.text();
 
-      await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          ip,
-        }),
-      });
+      // await fetch("/api/login", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     email,
+      //     ip,
+      //   }),
+      // });
       router.push("/dashboard");
     } catch (error: any) {
       // check if the email is a valid email address
