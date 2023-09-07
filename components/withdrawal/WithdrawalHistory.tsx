@@ -181,7 +181,9 @@ const DepositDetailsModal = ({ id, show, close }: any | unknown) => {
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">
                   Fee
                 </h4>
-                <p className="font-semibold">{formatCurrency(0)}</p>
+                <p className="font-semibold">
+                  {formatCurrency(transaction?.fee ? transaction?.fee : 0)}
+                </p>
               </div>
               <div>
                 <h4 className="font-semibold my-2 text-neutral-400 capitalize">

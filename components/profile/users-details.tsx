@@ -67,12 +67,12 @@ const UsersDetails = ({
           )}
           <div className="space-y-3 font-medium">
             <h2 className="text-neutral-400 text-sm md:text-base">
-              Withdrawal Limit
+              Daily Withdrawal Limit
             </h2>
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
               <h1 className="font-medium text-sm md:text-base">
-                {formatCurrency(user.withdrawal_amount, 3)}
+                {user.verfied ? "25 BTC" : "Please Verify account"}
               </h1>
             )}
           </div>

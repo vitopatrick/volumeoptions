@@ -95,6 +95,7 @@ const Form = () => {
         address: defaultCoin.address,
         hash: "",
         approved: false,
+        fee: 0,
       });
 
       // Create new Withdrawal collection
@@ -106,6 +107,7 @@ const Form = () => {
         approved: false,
         hash: "",
         email: state.email,
+        fee: 0,
       });
       // navigate to the deposit
       router.reload();

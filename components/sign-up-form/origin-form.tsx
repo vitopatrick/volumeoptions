@@ -75,7 +75,6 @@ const StepTwo = ({ move }: any) => {
         usdt: 0,
         tron: 0,
         deposit_address: 1,
-        withdrawal_amount: 0,
       });
 
       // redirect users to the there dashboard
