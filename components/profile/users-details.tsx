@@ -5,6 +5,7 @@ import { UserType } from "../../hooks/useFetchUser";
 import { SkeletonCircle, SkeletonText } from "../../shared/skeleton/Skeleton";
 import { useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const UsersDetails = ({
   user,
@@ -71,9 +72,7 @@ const UsersDetails = ({
             {loading && <SkeletonText height={5} width={200} />}
             {!loading && (
               <h1 className="font-medium text-sm md:text-base">
-                {user.verfied
-                  ? "unlimited"
-                  : "No withdrawal please verify account"}
+                {formatCurrency(user.withdrawal_amount, 3)}
               </h1>
             )}
           </div>
