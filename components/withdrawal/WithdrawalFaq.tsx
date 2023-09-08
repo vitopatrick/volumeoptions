@@ -7,7 +7,7 @@ const faqs = [
     id: 1,
     question: "How long do I have to wait to withdraw from VSAexchange?",
     answer:
-      "VSAexchange withdrawals typically take around 30 minutes.That's because it usually takes that long for VSAexchange to process each transaction. However, if you withdraw large amounts, processing time may take longer.",
+      "VSAexchange withdrawals typically take around 30 minutes - 24hr.That's because it usually takes that long for VSAexchange to process each transaction. However, if you withdraw large amounts, processing time may take longer.",
   },
   {
     id: 2,

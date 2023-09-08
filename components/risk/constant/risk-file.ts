@@ -40,19 +40,15 @@ with us, and to your risk appetite in the products and services you use.
     heading:
       "E. No Tax, Regulatory or Legal AdviceA. How to interpret this Risk Warning",
     body: `The taxation of Digital Assets is uncertain, and you are responsible for determining what
-taxes you might be liable to, and how they apply, when transacting through the Coin
-Exchange Services. It is your responsibility to report and pay any taxes that may arise from
-transacting on the VSAexchange Services, and you acknowledge that Coins
-Exchange does not provide legal or tax advice relative to these transactions. If you have
+taxes you might be liable to, and how they apply, when transacting through the VSAexchange Services. It is your responsibility to report and pay any taxes that may arise from
+transacting on the VSAexchange Services, and you acknowledge that VSAexchange does not provide legal or tax advice relative to these transactions. If you have
 any doubts about your tax status or obligations when using VSAexchange Services, or
 with respect to the Digital Assets held to the credit of your VSAexchange account, you
 may wish to seek independent advice.
-You acknowledge that, when, where and as required by applicable legislation, Coins
-Exchange shall report information regarding your transactions, transfers, distributions or
+You acknowledge that, when, where and as required by applicable legislation, VSAexchange shall report information regarding your transactions, transfers, distributions or
 payments to tax or other public authorities. Similarly, when, where and as required by
 applicable law, VSAexchange shall withhold taxes related to your transactions,
-transfers, distributions or payments. Applicable legislation could also prompt Coins
-Exchange to request you for additional tax information, status, certificates or documentation.
+transfers, distributions or payments. Applicable legislation could also prompt VSAexchange to request you for additional tax information, status, certificates or documentation.
 You acknowledge that failure to answer these requests within the time frame defined, may
 result in withholding taxes by VSAexchange , to be remitted to tax authorities as defined
 by relevant law. You are encouraged to seek professional and personal tax advice regarding
@@ -77,8 +73,7 @@ of rapid price movements.`,
     heading: "H. Fees & Charges",
     body: `Our fees and charges are set out here. VSAexchange may, in its discretion, update the
 fees & charges from time to time. Please be aware of all costs and charges that apply to
-you, because such costs and charges will affect the gains you generate from using Coin
-Exchange Services.
+you, because such costs and charges will affect the gains you generate from using VSAexchange Services.
 `,
   },
   {
