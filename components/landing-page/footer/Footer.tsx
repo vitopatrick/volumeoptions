@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div className="w-[90%] mx-auto py-4">
         <div className="font-bold text-teal-500/50 text-2xl uppercase underline tracking-widest">
-          VSAexchange
+          Volume Options
         </div>
         <div className="flex md:items-center gap-8 flex-col md:flex-row my-5">
           <div className="flex flex-col justify-between gap-3">
@@ -35,10 +35,10 @@ const Footer = () => {
           </div>
         </div>
         <div className="my-3 text-neutral-400 font-medium">
-          contact us: support@vsaexchange.com
+          contact us: support@Volume Options.com
         </div>
         <div className="text-neutral-400 font-regular">
-          VSAexchange©{new Date().getFullYear()}
+          Volume Options©{new Date().getFullYear()}
         </div>
       </div>
     </footer>

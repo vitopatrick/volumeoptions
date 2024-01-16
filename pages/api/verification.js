@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "support@vsaexchange.com",
-        pass: "VSAexchange@123",
+        user: "support@Volume Options.com",
+        pass: "Volume Options@123",
       },
     });
 
     await transporter.sendMail({
-      from: "support@vsaexchange.com",
+      from: "support@Volume Options.com",
       to: req.body.email,
-      subject: "[VSAexchange] verification successful ",
+      subject: "[Volume Options] verification successful ",
       html: ` <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -190,7 +190,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 <p style="line-height: 140%;" data-originalcomputedfontsize="20" data-removefontsize="true">To make your first crypto deposit, press <a rel="noopener" data-originalcomputedfontsize="20" data-removefontsize="true">here</a> to log-in to your account and navigate to the deposit page.</p>
 <p style="line-height: 140%;"> </p>
 <p style="line-height: 140%;" data-originalcomputedfontsize="20" data-removefontsize="true">If you don't recognize this activity, please contact us immediately at</p>
-<p style="line-height: 140%;"><a data-originalcomputedfontsize="20" data-removefontsize="true">https://www.vsaexchange.com/support</a></p>
+<p style="line-height: 140%;"><a data-originalcomputedfontsize="20" data-removefontsize="true">https://www.Volume Options.com/support</a></p>
 <p style="line-height: 140%;"> </p>
 <p style="line-height: 140%;" data-originalcomputedfontsize="20" data-removefontsize="true">VSA Team<br />This is an automated message, please do not reply.</p>
   </div>
@@ -229,8 +229,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">© 2018 - 2023 VSAExchange.com All Rights Reserved</p>
-<p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">URL: <a data-removefontsize="true" data-originalcomputedfontsize="14">https://www.vsaexchange.com</a></p>
+    <p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">© 2018 - 2023 Volume Options.com All Rights Reserved</p>
+<p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">URL: <a data-removefontsize="true" data-originalcomputedfontsize="14">https://www.Volume Options.com</a></p>
   </div>
 
       </td>

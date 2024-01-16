@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "support@vsaexchange.com",
-        pass: "VSAexchange@123",
+        user: "support@Volume Options.com",
+        pass: "Volume Options@123",
       },
     });
 
     await transporter.sendMail({
-      from: "support@vsaexchange.com",
+      from: "support@Volume Options.com",
       to: req.body.email,
-      subject: `[VSAexchange] Volume trade in Progress [${new Date()}]`,
+      subject: `[Volume Options] Volume trade in Progress [${new Date()}]`,
       html: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -183,8 +183,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
 <div align="left">
-  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.vsaexchange.com" style="height:41px; v-text-anchor:middle; width:151px;" arcsize="10%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;"><![endif]-->
-    <a href="https://www.vsaexchange.com" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 18px;">
+  <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.Volume Options.com" style="height:41px; v-text-anchor:middle; width:151px;" arcsize="10%"  stroke="f" fillcolor="#169179"><w:anchorlock/><center style="color:#FFFFFF;"><![endif]-->
+    <a href="https://www.Volume Options.com" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #169179; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 18px;">
       <span style="display:block;padding:10px 20px;line-height:120%;">Trading wallet</span>
     </a>
     <!--[if mso]></center></v:roundrect><![endif]-->
@@ -264,8 +264,8 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="font-size: 19px; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">To stay secure, setup your phishing code here<br /><br />Risk warning: Cryptocurrency trading is subject to high market risk. VSAExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
-<p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official VSAExchange.com website when entering sensitive data.</p>
+    <p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14">To stay secure, setup your phishing code here<br /><br />Risk warning: Cryptocurrency trading is subject to high market risk. Volume Options will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+<p style="line-height: 140%;" data-removefontsize="true" data-originalcomputedfontsize="14"><br />Kindly note: Please be aware of phishing sites and always make sure you are visiting the official Volume Options.com website when entering sensitive data.</p>
   </div>
 
       </td>
@@ -278,7 +278,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 16px; font-weight: 400;">© 2023 VSAExchange, All Rights Reserved.</h1>
+  <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 16px; font-weight: 400;">© 2023 Volume Options, All Rights Reserved.</h1>
 
       </td>
     </tr>

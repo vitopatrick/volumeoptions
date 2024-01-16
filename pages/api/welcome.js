@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "support@vsaexchange.com",
-        pass: "VSAexchange@123",
+        user: "support@Volume Options.com",
+        pass: "Volume Options@123",
       },
     });
 
     await transporter.sendMail({
-      from: "support@vsaexchange.com",
+      from: "support@Volume Options.com",
       to: req.body.email,
-      subject: "[VSAexchange] welcome to VSAexchange",
+      subject: "[Volume Options] welcome to Volume Options",
       html: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -241,7 +241,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 </div>
 <div>
 <p style="line-height: 140%;"><span data-originalfontsize="18px" data-originalcomputedfontsize="18" style="line-height: 19.6px;">Thanks,</span></p>
-<p style="line-height: 140%;"><span data-originalfontsize="18px" data-originalcomputedfontsize="18" style="line-height: 19.6px;">VSAExchange Team</span></p>
+<p style="line-height: 140%;"><span data-originalfontsize="18px" data-originalcomputedfontsize="18" style="line-height: 19.6px;">Volume Options Team</span></p>
 </div>
   </div>
 
@@ -280,11 +280,11 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <div style="font-size: 14px; color: #003399; line-height: 140%; text-align: center; word-wrap: break-word;">
     <div>
-<p style="line-height: 140%;">Risk warning: Cryptocurrency trading is subject to high market risk. VSAExchange will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
+<p style="line-height: 140%;">Risk warning: Cryptocurrency trading is subject to high market risk. Volume Options will make the best efforts to choose high-quality coins, but will not be responsible for your trading losses. Please trade with caution.</p>
 <p style="line-height: 140%;"><br /><br /><br /></p>
 </div>
 <div>
-<p style="line-height: 140%;">Kindly note: Please be aware of phishing sites and always make sure you are visiting the official  <a rel="noopener" href="https://www.vsaexchange.com/" target="_blank">https://www.vsaexchange.com</a> website when entering sensitive data.</p>
+<p style="line-height: 140%;">Kindly note: Please be aware of phishing sites and always make sure you are visiting the official  <a rel="noopener" href="https://www.Volume Options.com/" target="_blank">https://www.Volume Options.com</a> website when entering sensitive data.</p>
 </div>
   </div>
 
@@ -322,7 +322,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
         
   <div style="font-size: 14px; color: #fafafa; line-height: 90%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 90%;">© 2023 vsaexchange, All Rights Reserved.</p>
+    <p style="font-size: 14px; line-height: 90%;">© 2023 Volume Options, All Rights Reserved.</p>
   </div>
 
       </td>

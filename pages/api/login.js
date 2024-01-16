@@ -7,15 +7,15 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "support@vsaexchange.com",
-        pass: "VSAexchange@123",
+        user: "support@Volume Options.com",
+        pass: "Volume Options@123",
       },
     });
 
     await transporter.sendMail({
-      from: "support@vsaexchange.com",
+      from: "support@Volume Options.com",
       to: req.body.email,
-      subject: "[VSAexchange] New Sign in",
+      subject: "[Volume Options] New Sign in",
       html: `<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -341,7 +341,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         
   <div style="font-size: 20px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
     <div data-originalfontsize="14px" data-originalcomputedfontsize="14">24/7 <a rel="noopener" href="https://u15071047.ct.sendgrid.net/ls/click?upn=PC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHzPCk_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzU0FI2XzAYDG139SqhHfWDW-2FyiUR7kLKdM0UogvvKZdt1Rf5nxUiAVW9Kiqt7PFPcIquwntwu5Nr6P9NScCjzm3hgRbHZnxyCHT2brJGdIUNgOAI7pmccLT7o9nGC3fLvN4yBC0sc2K20D3lfCqzUg" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u15071047.ct.sendgrid.net/ls/click?upn%3DPC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHzPCk_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzU0FI2XzAYDG139SqhHfWDW-2FyiUR7kLKdM0UogvvKZdt1Rf5nxUiAVW9Kiqt7PFPcIquwntwu5Nr6P9NScCjzm3hgRbHZnxyCHT2brJGdIUNgOAI7pmccLT7o9nGC3fLvN4yBC0sc2K20D3lfCqzUg&amp;source=gmail&amp;ust=1690483066723000&amp;usg=AOvVaw0LgkX4RJPdFGF9sw810048" data-removefontsize="true" data-originalcomputedfontsize="14">Help Center</a> &amp; <a rel="noopener" href="https://u15071047.ct.sendgrid.net/ls/click?upn=PC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHHeaK_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzWGp3hNXvf-2FtY7ZRWZ45kRVX8rTe2pMIbd3c7usPMF6OB7ua-2FSsYIpP4xEFy-2BRlk5NzRgn7QqzCOgPOWqsl8bs3BTf011rJJsKj54jjb86KIRVXxFZ-2FcX4xRlD223FSOeyfsAZ4WrZJEery7EbO-2Bpp" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://u15071047.ct.sendgrid.net/ls/click?upn%3DPC4QStp3E-2BPhc8uZt1PVWZdzeDpgct5Vez6k4ushAbrmcvroSTqM6PNMpSRV0PvHHeaK_G9lxsnSaDqr7Vf8IfMrjzvlLYhH2F4fkbKPLbxFhrJbjK0-2F4uZFA2kqVJnVSXsz-2B7-2FA5V84ZRXCQoPlHMDB7-2BSZn41aND0PO3dTFtA8YgBWH7EAnz-2FYJ1qYa2d0UIad7yfTaXV2rTaY7dVcTR-2FMlxmjwbuYaI0vpAlpdDuzBEOzWGp3hNXvf-2FtY7ZRWZ45kRVX8rTe2pMIbd3c7usPMF6OB7ua-2FSsYIpP4xEFy-2BRlk5NzRgn7QqzCOgPOWqsl8bs3BTf011rJJsKj54jjb86KIRVXxFZ-2FcX4xRlD223FSOeyfsAZ4WrZJEery7EbO-2Bpp&amp;source=gmail&amp;ust=1690483066723000&amp;usg=AOvVaw1sV10CZihRRDiHt8E3ujP5" data-removefontsize="true" data-originalcomputedfontsize="14">Live Support</a></div>
-<div data-originalfontsize="14px" data-originalcomputedfontsize="14">© 2018 - 2023 VSAExchange.com. All Rights Reserved.</div>
+<div data-originalfontsize="14px" data-originalcomputedfontsize="14">© 2018 - 2023 Volume Options.com. All Rights Reserved.</div>
   </div>
 
       </td>
