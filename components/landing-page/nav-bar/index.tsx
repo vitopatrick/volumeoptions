@@ -10,12 +10,8 @@ const Navbar = () => {
   return (
     <nav className="bg-bg text-white shadow-md">
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
-        <Link
-          href="/"
-          className="text-2xl text-teal-500 font-medium uppercase tracking-widest underline block w-[40%] md:w-[20%]"
-        >
-          <img src="/logo.PNG" alt="" />
-        </Link>
+        <img src="/logo.PNG" alt="" className="w-[50%] md:w-[30%]" />
+
         {/* links */}
         <div className="flex items-center md:gap-12 justify-between">
           {/* links */}
