@@ -23,6 +23,7 @@ interface ModalProps {
   setVisible: Dispatch<SetStateAction<boolean>>;
 }
 
+
 const StakingModal = ({ visible, setVisible }: ModalProps) => {
   const [amount, setAmount] = useState<string | number | any>();
   const [plan, setPlan] = useState<string | number>("USDT");
@@ -96,6 +97,21 @@ const StakingModal = ({ visible, setVisible }: ModalProps) => {
         apr: selectedPlan.apr,
         duration: selectedPlan.duration,
         date: serverTimestamp(),
+      });
+
+      await fetch("/api/staking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount,
+          coin: plan,
+          apr: selectedPlan.apr,
+          duration: selectedPlan.duration,
+          email: user.email,
+          date: serverTimestamp(),
+        }),
       });
 
       await updateDoc(docRef, {

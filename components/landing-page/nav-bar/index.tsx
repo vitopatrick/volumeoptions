@@ -7,10 +7,13 @@ import MobileNavbar from "./mobile-navbar";
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
+
   return (
     <nav className="bg-bg text-white shadow-md">
       <div className="w-[90%] mx-auto py-3 flex justify-between items-center">
-        <img src="/logo.PNG" alt="" className="w-[50%] md:w-[30%]" />
+        <h3 className="font-bold tracking-widest text-2xl md:text-3xl text-teal-400">
+          VOLUME OPTIONS
+        </h3>
 
         {/* links */}
         <div className="flex items-center md:gap-12 justify-between">
